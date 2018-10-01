@@ -1,6 +1,6 @@
 <div class="add-new d-flex j-end i-ctr">
 	<div class="btn-add">
-		<a href="addSiswa.php">Tambah Siswa</a>
+		<a href="index.php?menu=siswa&action=add">Tambah Siswa</a>
 	</div><!-- btn-add -->
 </div><!-- add-new -->
 <div class="container-siswa d-flex fd-row f-row j-ard">

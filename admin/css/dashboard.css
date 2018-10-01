@@ -12,6 +12,8 @@ body{
 @font-face{src:url('../../font/SFProDisplay-Heavy.ttf'); font-family: sf-h}
 @font-face{src:url('../../font/SFProDisplay-Regular.ttf'); font-family: sf-r}
 @font-face{src:url('../../font/SFProDisplay-SemiBold.ttf'); font-family: sf-s}
+@font-face{src:url('../../font/SFProDisplay-Thin.ttf'); font-family: sf-t}
+
 .d-flex{display: flex;}
 .fd-row{flex-direction: row;}
 .fd-col{flex-direction: column;}
@@ -379,6 +381,11 @@ body{
 	outline: none;
 	width: 90%;
 	font-family: sf-t;
+}
+
+.form-control input::placeholder{
+	font-family: sf-s;
+	color: #dbdbdb;
 }
 .form-pendek input{
 	width: 80% !important;

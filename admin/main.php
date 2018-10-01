@@ -1,5 +1,9 @@
 <?php 
-	if ($_GET['menu'] == "siswa" && !isset($_GET['action'])) {
+
+	if (!isset($_GET['menu'])) {
+		require_once 'partials/viewSiswa.php';
+	}
+	else if ($_GET['menu'] == "siswa" && !isset($_GET['action'])) {
 		require_once 'partials/viewSiswa.php';
 	}
 	else if ($_GET['menu'] == "guru" && !isset($_GET['action'])) {

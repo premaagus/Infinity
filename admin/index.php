@@ -35,29 +35,29 @@
 			<div class="menu d-flex f-col j-ctr">
 				<div class="container-menulist">
 					<div class="menu-list">
-						<a href="#">
+						<a href="index.php" class="<?php if(!isset($_GET['menu'])){echo 'active';} ?>">
 							<i class="far fa-chart-bar"></i>
 							<h4>Dashboard</h4>
 						</a>
 					</div>
 					<div class="menu-list">
-						<a href="#">
+						<a href="index.php?menu=siswa" class="<?php if($_GET['menu'] == 'siswa'){echo 'active';} ?>">
 							<i class="fas fa-graduation-cap"></i>
-							<h4>Jadwal</h4>
+							<h4>Siswa</h4>
 						</a>
 					</div>
 				</div>
 				<div class="container-menulist">
 					<div class="menu-list">
-						<a href="#">
+						<a href="index.php?menu=guru" class="<?php if($_GET['menu'] == 'guru'){echo 'active';} ?>">
 							<i class="fas fa-chalkboard-teacher"></i>
-							<h4>Kelas</h4>
+							<h4>Guru</h4>
 						</a>
 					</div>
 					<div class="menu-list">
-						<a href="#" class="active">
+						<a href="index.php?menu=mapel" class="<?php if($_GET['menu'] == 'mapel'){echo 'active';} ?>">
 							<i class="fas fa-book"></i>
-							<h4>Tugas</h4>
+							<h4>Mata Pelajaran</h4>
 						</a>
 					</div><!-- menu-list -->
 				</div><!-- container-menulist -->
@@ -74,7 +74,7 @@
 		</div>
 		<div class="container-data">
 		<?php 
-			require_once 'partials/main.php';
+			require_once 'main.php';
 		 ?>
 		</div>
 
