@@ -1,0 +1,401 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: sf-r;
+}
+
+@font-face{src:url('../../font/SFProDisplay-Bold.ttf'); font-family: sf-b}
+@font-face{src:url('../../font/SFProDisplay-Medium.ttf'); font-family: sf-m}
+@font-face{src:url('../../font/SFProDisplay-Heavy.ttf'); font-family: sf-h}
+@font-face{src:url('../../font/SFProDisplay-Regular.ttf'); font-family: sf-r}
+@font-face{src:url('../../font/SFProDisplay-SemiBold.ttf'); font-family: sf-s}
+.d-flex{display: flex;}
+.fd-row{flex-direction: row;}
+.fd-col{flex-direction: column;}
+.f-col{flex-flow: column wrap;}
+.f-row{flex-flow: row wrap}
+.j-btw{justify-content: space-between;}
+.j-ard{justify-content: space-around;}
+.j-ctr{justify-content: center;}
+.j-end{justify-content: flex-end;}
+.i-ctr{align-items: center;}
+.i-str{align-items: flex-start;}
+.i-end{align-items: flex-end;}
+
+.wrapper{
+	width: 100%;
+	height: 3000px;
+	margin: auto;
+	background: #EFEFEF;
+}
+
+.navbar{
+	width: 100%;
+	height: 60px;
+	background: #F60070;
+	position: fixed;
+	z-index: 1000;
+}
+
+.navbar ul{
+	list-style: none;
+	margin-right: 50px;
+}
+
+.navbar ul li{
+	display: inline;
+}
+
+.navbar ul li a{
+	text-decoration: none;
+	line-height: 60px;
+	padding: 0 15px;
+	color: #FFF;
+	font-family: sf-s;
+	letter-spacing: 1px;
+	font-size: 15px;
+}
+
+.btn-logout a{
+	background-color: #FFF;
+	border-radius: 2px;
+	padding: 7px 15px !important;
+	color: #F60070 !important;
+	letter-spacing: 0 !important;
+	font-family: sf-b !important;
+}
+
+.container-side{
+	width: 20%;
+	height: 100vh;
+	background: white;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+}
+
+.logo{
+	width: 60%;
+	height: 40px;
+}
+
+.logo img{
+	width: 100%;
+	margin: auto;
+	margin-top: 5px;
+}
+
+.profile-user{
+	width: 100%;
+	height: 40vh;
+	background: #F60070;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	color: white;
+	padding-top: 10px;
+}
+
+.profile-user h2{
+	letter-spacing: 2px;
+	font-size: 15px;
+	margin-top: 10px;
+}
+
+.profile-user p{
+	font-size: 12px;
+	letter-spacing: 1px;
+	color: #F2F2F2;
+}
+
+.picture-user{
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	background: green;
+	margin-top: 35px;
+	overflow: hidden;
+
+}
+
+.picture-user img{
+	width: 100%;
+}
+
+.menu{
+	width: 90%;
+	height: 50vh;
+	padding: 0 5%;
+	position: relative;
+}
+
+.container-menulist{
+	width: 100%;
+	height: max-content;
+	display: flex;
+}
+
+.menu-list{
+	width: 100%;
+	height: 100px;
+	flex: 1;
+	margin: 5px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.active{
+	background: #F60070 !important;
+	color: white !important;
+	transform: scale(1.05) !important;
+}
+
+.menu-list a{
+	width: 100%;
+	height: 100%;
+	float: left;
+	text-decoration: none;
+	color: #F60070;
+	border-radius: 5px;
+	letter-spacing: 1px;
+	background: white;
+	font-family: sf-r;
+	font-weight: 300;
+	transition: 0.2s ease;
+}
+
+.menu-list a:hover{
+	background: #F60070;
+	color: white;
+	transform: scale(1.05);
+}
+
+.menu-list a i{
+	font-size: 25px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.menu-list a h4{
+	font-size: 13px;
+}
+
+.logout{
+	width: 50px;
+	height: 50px;
+	background: #F60070;
+	border-radius: 50%;
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	bottom: 75px;
+	transition: 0.2s ease;
+}
+
+.logout a{
+	float: left;
+	width: 100%;
+	height: 100%;
+	line-height: 50px;
+	border-radius: 50%;
+	background: #F60070;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+}
+
+.container-data{
+	margin-top: 60px;
+	width: 80%;
+	height: 1500px;
+	background: #FCFCFC;
+	margin-left: 20%;
+	padding: 20px;
+}
+
+.footer-sidebar{
+	width: 100%;
+	height: 5vh;
+}
+.footer-sidebar li{
+	display: inline;
+}
+.footer-sidebar a{
+	font-family: sf-s;
+	text-decoration: none;
+	text-align: center;
+	display: inline;
+	color: #B7B7B7;
+	font-size: 12px;
+	padding: 0 5px;
+}
+.footer-sidebar h5{
+	color: #727272;
+	font-family: sf-r;
+	font-size: 12px;
+	margin-top: -15px;
+}
+.card-siswa{
+	background-color: #FFF;
+	width: 25%;
+	height: 50vh;
+	border-radius: 10px;
+	overflow-x: hidden;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+	margin: 30px 3%;
+}
+.card-siswa .background{
+	width: 100%;
+	height: 40%;
+	background: linear-gradient(45deg,#009FFD,#2A2A72);
+}
+.avatar{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	position: relative;
+	top: -50px;
+	overflow: hidden;
+}
+.avatar img{
+	width: 100%;
+}
+.profil{
+	width: 100%;
+	height: 20%;
+	text-align: center;
+	position: relative;
+	top: -30px;
+}
+.profil h3{
+	font-family: sf-b;
+	letter-spacing: .5px;
+	font-size: 18px;
+	margin-top: 5px;
+}
+.profil p{
+	font-family: sf-r;
+	font-weight: 300;
+	margin-top: 5px;
+	color: #939393;
+	font-size: 15px;
+}
+.action{
+	width: 100%;
+	height: 30px;
+	position: relative;
+	margin-top: -20px;
+}
+.action a{
+	text-decoration: none;
+	font-family: sf-s;
+	color: #FFF;
+	line-height: 30px;
+	padding: 5px 15px;
+	text-align: center;
+}
+.action .btn-blue{
+	background-color: #045DE9;
+	margin: 0 5px;
+	border-radius: 3px;
+	text-align: center;
+}
+.action .btn-red{
+	background-color: red;
+	margin: 0 5px;
+	border-radius: 3px;
+	text-align: center;
+}
+.add-new{
+	width: 91%;
+	height: 50px;
+	margin: 10px auto;
+}
+.btn-add a{
+	text-decoration: none;
+	color: #FFF;
+	font-family: sf-s;
+	letter-spacing: .5px;
+	padding: 10px 15px;
+	background: linear-gradient(60deg, #0ABCF9, #4D5DFB);
+	border-radius: 3px;
+}
+
+.container-pelajaran{
+	width: 100%;
+	height: auto;
+}
+.card-pelajaran{
+	width: 30%;
+	height: 200px;
+	margin: 10px;
+	border-radius: 10px;
+	position: relative;
+}
+.card-pelajaran img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	border-radius: 5px;
+}
+.card-pelajaran h3{
+	position: relative;
+	color: #FFF;
+	font-family: sf-s;
+	padding: 20px;
+	font-size: 30px;
+}
+.container-addSiswa{
+	width: 100%;
+	height: 100vh;
+}
+.form-panjang{
+	width: 80%;
+	height: 100px;
+	margin: 0 5%;
+}
+.form-pendek{
+	width: 38%;
+	height: 100px;
+	margin: 0 2%;
+}
+.form-control h4{
+	font-family: sf-s;
+	padding-top: 20px;
+	padding-left: 20px;
+}
+.form-control input{
+	margin-top: 20px;
+	margin-left: 20px;
+	border: none;
+	border-bottom: 4px solid #EFEFEF;
+	padding: 10px 20px;
+	background-color: #FCFCFC;
+	outline: none;
+	width: 90%;
+	font-family: sf-t;
+}
+.form-pendek input{
+	width: 80% !important;
+}
+.form-control select{
+	margin-top: 20px;
+	margin-left: 20px;
+	border: none;
+	border-bottom: 4px solid #EFEFEF;
+	padding: 10px 20px;
+	background-color: #FCFCFC;
+	outline: none;
+	width: 90%;
+}
+.container-addSiswa .add-new{
+	margin-right: 12%;
+}
+.container-addSiswa .btn-add a{
+	background: linear-gradient(50deg, #FF748B, #FE7BB0)
+}

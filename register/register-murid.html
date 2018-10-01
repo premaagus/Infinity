@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Daftar - Siswa</title>
+	<link rel="stylesheet" type="text/css" href="../css/register.css">
+	<link rel="icon" href="../img/logo/icon.png">
+	<link rel="stylesheet" href="../css/alert.css">
+</head>
+<body>
+<!-- Alert -->
+	<div id="opacity"></div>
+
+	<div id="success-msg">
+		<div class="icon-success">
+			<img src="../img/green-check.gif">
+		</div>
+		<h1 id="capt-s-alert"></h1>
+		<p id="desc-s-alert"></p>
+		<div class="btn-s-alert">
+			Oke
+		</div>
+	</div>
+	<div id="error-msg">
+		<div class="icon-error">
+			<img src="../img/error.gif">
+		</div>
+		<h1 id="capt-e-alert"></h1>
+		<p id="desc-e-alert"></p>
+		<div class="btn-e-alert">
+			Oke
+		</div>
+	</div>
+<!-- Alert -->
+
+	<div class="wrapper d-flex">
+		<div class="container-left d-flex i-ctr">
+			<img src="../img/login-g.jpg">
+		</div><!-- container-left -->
+		<div class="container-right d-flex i-ctr">
+			<form action="" method="POST" onsubmit="return false">
+				<div class="container-input d-flex f-row i-ctr j-ctr">
+					<div style="width: 15%;">
+						<img src="../img/logo/new.png">
+					</div>
+					<div class="form-control form-panjang">
+						<input type="text" name="nama" placeholder="Masukan Nama Lengkap" id="namaLengkap">
+						<h3>Nama Lengkap</h3>
+						<div class="form-active">
+							<div class="fActive"></div>
+						</div>
+						<div class="valid-input">!</div>
+					</div>
+					<div class="form-control form-panjang">
+						<input type="email" name="email" placeholder="Masukan Email" id="email">
+						<h3>Email</h3>
+						<div class="form-active">
+							<div class="fActive"></div>
+						</div>
+						<div class="valid-input">!</div>
+					</div>
+					<div class="form-control form-panjang">
+						<input type="text" name="username" placeholder="Masukan Username" id="username">
+						<h3>Username</h3>
+						<div class="form-active">
+							<div class="fActive"></div>
+						</div>
+						<div class="valid-input">!</div>
+					</div>
+					<div class="form-control form-pendek">
+						<input type="password" name="password" placeholder="Masukan Password" id="password">
+						<h3>Password</h3>
+						<div class="form-active">
+							<div class="fActive"></div>
+						</div>
+						<div class="valid-input">!</div>
+					</div>
+					<div class="form-control form-pendek">
+						<input type="password" name="r-password" placeholder="Ulangi Password" id="rPassword">
+						<h3>Ulangi Password</h3>
+						<div class="form-active">
+							<div class="fActive"></div>
+						</div>
+						<div class="valid-input">!</div>
+					</div>
+					<div class="form-control form-pendek">
+						<input type="date" name="tanggalLahir" id="tanggalLahir">
+						<h3>Tanggal Lahir</h3>
+						<div class="form-active">
+							<div class="fActive"></div>
+						</div>
+						<div class="valid-input">!</div>
+					</div>
+					<div class="form-control form-pendek">
+						<select name="gradePoint" id="gradePoint">
+							<option value="10">Beginner</option>
+							<option value="20">Intermediate</option>
+							<option value="30">Expert</option>
+						</select>
+						<h3>Grade</h3>
+						<div class="form-active">
+							<div class="fActive"></div>
+						</div>
+					</div>
+					<div style="width: 100%;" class="d-flex j-end">
+						<button type="submit" onclick="register()">Daftar</button>
+					</div>
+				</div>
+			</form>
+		</div><!-- container-right -->
+	</div><!-- wrapper -->
+
+	<script type="text/javascript" src="../js/alert.js"></script>
+
+	<script type="text/javascript">
+		var input = document.querySelectorAll('.form-control input');
+		for (var i = 0; i < input.length; i++){
+			input[i].addEventListener('keyup', function(){
+				if (this.value == "") {
+					this.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '1';
+				}
+				else{
+					this.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '0';
+				}
+			});
+		}
+
+		var username 		= document.getElementById('username');
+		var email 			= document.getElementById('email');
+		var password 		= document.getElementById('password');
+		var rPassword 		= document.getElementById('rPassword');
+		var namaLengkap 	= document.getElementById('namaLengkap');
+		var tanggalLahir 	= document.getElementById('tanggalLahir');
+		var gradePoint 		= document.getElementById('gradePoint');
+		var idLevel 		= "2";
+		var result			= document.getElementById('result');
+
+		function register(){
+
+			// Validasi
+			if (namaLengkap.value == "") {
+				namaLengkap.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '1';
+				namaLengkap.focus();
+			}
+			else{
+				namaLengkap.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '0';
+				if (email.value == "") {
+					email.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '0';
+					email.focus();
+				}
+				else{
+					email.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '0';
+					if (username.value == "") {
+						username.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '1';
+						username.focus();
+					}
+					else{
+						username.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '0';
+						if (password.value == "") {
+							password.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '1';
+							password.focus();
+						}
+						else{
+							password.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '0';
+							if (rPassword.value == "") {
+								rPassword.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '1';
+								rPassword.focus();
+							}
+							else{
+								rPassword.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '0';
+								if (tanggalLahir.value == "") {
+									tanggalLahir.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '1';
+									tanggalLahir.focus();
+								}
+								else{
+									tanggalLahir.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '0';
+
+									var xhr = new XMLHttpRequest();
+									var data = "username="+username.value+"&email="+email.value+"&password="+password.value+"&rPassword="+rPassword.value+"&namaLengkap="+namaLengkap.value+"&tanggalLahir="+tanggalLahir.value+"&idLevel="+idLevel+"&gradePoint="+gradePoint.value;
+									xhr.onreadystatechange = function(){
+										if (xhr.readyState == 4 && xhr.status == 200) {
+											if (xhr.responseText == "Email") {
+												errorAlert("Error", "Email Telah Terdaftar");
+												email.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '1';
+											}
+											else if (xhr.responseText == "Username") {
+												errorAlert("Error", "Username Telah Digunakan");
+												username.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '1';
+											}
+											else if (xhr.responseText == "Password"){
+												errorAlert("Error", "Password Tidak Sama");
+												rPassword.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '1';
+											}
+											else if (xhr.responseText == "Sukses") {
+												successAlert("Sukses", "Berhasil Menambahkan Akun");
+												document.addEventListener('click', function(){
+													location.href = "../index.php";
+												});
+											}
+											else if (xhr.responseText == "Gagal") {
+												errorAlert("Error", "Gagal Mendaftarkan Akun");
+											}
+										}
+									}
+
+									xhr.open("POST", "../controller/registerSiswaController.php", true);
+									xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+									xhr.send(data);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Daftar - Guru</title>
+	<link rel="stylesheet" type="text/css" href="../css/register.css">
+	<link rel="icon" href="../img/logo/icon.png">
+</head>
+<body>
+	<div class="wrapper d-flex">
+		<div class="container-left d-flex i-ctr">
+			<img src="../img/login-g.jpg">
+		</div><!-- container-left -->
+		<div class="container-right d-flex i-ctr">
+			<form action="" method="POST" onsubmit="return false">
+				<div class="container-input d-flex f-row i-ctr j-ctr">
+					<div style="width: 15%;">
+						<img src="../img/logo/new.png">
+					</div>
+					<div class="form-control form-panjang">
+						<input type="text" name="nama" placeholder="Masukan Nama Lengkap" id="namaLengkap">
+						<h3>Nama Lengkap</h3>
+						<div class="form-active">
+							<div class="fActive"></div>
+						</div>
+						<div class="valid-input">!</div>
+					</div>
+					<div class="form-control form-panjang">
+						<input type="email" name="email" placeholder="Masukan Email" id="email">
+						<h3>Email</h3>
+						<div class="form-active">
+							<div class="fActive"></div>
+						</div>
+						<div class="valid-input">!</div>
+					</div>
+					<div class="form-control form-panjang">
+						<input type="text" name="username" placeholder="Masukan Username" id="username">
+						<h3>Username</h3>
+						<div class="form-active">
+							<div class="fActive"></div>
+						</div>
+						<div class="valid-input">!</div>
+					</div>
+					<div class="form-control form-pendek">
+						<input type="password" name="password" placeholder="Masukan Password" id="password">
+						<h3>Password</h3>
+						<div class="form-active">
+							<div class="fActive"></div>
+						</div>
+						<div class="valid-input">!</div>
+					</div>
+					<div class="form-control form-pendek">
+						<input type="password" name="r-password" placeholder="Ulangi Password" id="rPassword">
+						<h3>Ulangi Password</h3>
+						<div class="form-active">
+							<div class="fActive"></div>
+						</div>
+						<div class="valid-input">!</div>
+					</div>
+					<div class="form-control form-pendek">
+						<input type="date" name="tanggalLahir" id="tanggalLahir">
+						<h3>Tanggal Lahir</h3>
+						<div class="form-active">
+							<div class="fActive"></div>
+						</div>
+						<div class="valid-input">!</div>
+					</div>
+					<div class="form-control form-pendek">
+						<select name="gradePoint" id="gradePoint">
+							<option>Beginner</option>
+							<option>Intermediate</option>
+							<option>Expert</option>
+						</select>
+						<h3>Grade</h3>
+						<div class="form-active">
+							<div class="fActive"></div>
+						</div>
+					</div>
+					<div style="width: 100%;" class="d-flex j-end">
+						<button type="submit">Daftar</button>
+					</div>
+				</div>
+			</form>
+		</div><!-- container-right -->
+	</div><!-- wrapper -->
+
+	<script type="text/javascript">
+		var input = document.querySelectorAll('.form-control input');
+		for (var i = 0; i < input.length; i++){
+			input[i].addEventListener('keyup', function(){
+				if (this.value == "") {
+					this.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '1';
+				}
+				else{
+					this.parentNode.querySelectorAll('.valid-input')[0].style.opacity = '0';
+				}
+			});
+		}
+
+		var username = document.getElementById('username');
+		var email = document.getElementById('email');
+		var password = document.getElementById('password');
+		var rPassword = document.getElementById('r-password');
+		var namaLengkap = document.getElementById('namaLengkap');
+		var tanggalLahir = document.getElementById('tanggalLahir');
+		var idLevel = "3";
+	</script>
+</body>
+</html>
