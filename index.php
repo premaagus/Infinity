@@ -94,8 +94,28 @@
 						var data = "username="+username.value+"&password="+password.value;
 						xhr.onreadystatechange = function(){
 							if (xhr.readyState == 4 && xhr.status == 200) {
-								if (xhr.responseText == 'Berhasil') {
+								console.log(xhr.responseText);
+
+								if (xhr.responseText == 1) {
 									successAlert("Berhasil", "Selamat Datang "+username.value);
+									document.addEventListener('click', function(){
+										location.href = 'admin/index.php';
+									});
+								}
+								else if (xhr.responseText == 2) {
+									successAlert("Berhasil", "Selamat Datang "+username.value);
+									document.addEventListener('click', function(){
+										location.href = 'admin/index.php';
+									});
+								}
+								else if (xhr.responseText == 3) {
+									successAlert("Berhasil", "Selamat Datang "+username.value);
+									document.addEventListener('click', function(){
+										location.href = 'admin/index.php';
+									});
+								}
+								else if (xhr.responseText == 'gagal') {
+									errorAlert("Error", "Username Atau Password Salah!");
 								}
 							}
 						}

@@ -1,4 +1,3 @@
-
 var oke_s_btn = document.querySelectorAll('.btn-s-alert')['0'];
 var oke_e_btn = document.querySelectorAll('.btn-e-alert')['0'];
 var successMsg = document.getElementById('success-msg');

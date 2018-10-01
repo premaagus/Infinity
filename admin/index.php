@@ -1,4 +1,8 @@
-<?php require_once '../lib/config.php'; ?>
+<?php 
+
+	require_once '../lib/config.php';
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +10,34 @@
 	<link rel="icon" href="../img/logo/icon.png">
 	<link rel="stylesheet" href="css/dashboard.css">
 	<link rel="stylesheet" href="../css/fontawesome.css">
+	<link rel="stylesheet" href="../css/alert.css">
 </head>
 <body>
+
+<!-- Alert -->
+	<div id="opacity"></div>
+
+	<div id="success-msg">
+		<div class="icon-success">
+			<img src="../img/green-check.gif">
+		</div>
+		<h1 id="capt-s-alert"></h1>
+		<p id="desc-s-alert"></p>
+		<div class="btn-s-alert">
+			Oke
+		</div>
+	</div>
+	<div id="error-msg">
+		<div class="icon-error">
+			<img src="../img/error.gif">
+		</div>
+		<h1 id="capt-e-alert"></h1>
+		<p id="desc-e-alert"></p>
+		<div class="btn-e-alert">
+			Oke
+		</div>
+	</div>
+<!-- Alert -->
 
 	<div class="wrapper d-flex">
 		
@@ -80,5 +110,28 @@
 
 	</div>
 
+<script src="js/alert.js"></script>
+
+<!-- Validasi User Session -->
+<script>
+	<?php 
+		if (!isset($_SESSION['user'])) {
+			?>
+			errorAlert('Error', 'Anda Tidak Memiliki Akses!');
+			document.addEventListener('click', function(){
+				location.href = '../index.php';
+			});
+			<?php
+		}
+		else if ($_SESSION['user']['level'] != 1) {
+			?>
+			errorAlert('Error', 'Anda Tidak Memiliki Akses!');
+			document.addEventListener('click', function(){
+				location.href = '../index.php';
+			});
+			<?php
+		}
+	 ?>
+</script>
 </body>
 </html>
