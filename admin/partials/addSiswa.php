@@ -1,3 +1,5 @@
+<h1>Tambah Data</h1>
+<hr>
 <div class="container-addSiswa d-flex fd-row f-row j-ctr">
 	<div class="form-control form-panjang">
 		<h4>Nama Lengkap</h4>

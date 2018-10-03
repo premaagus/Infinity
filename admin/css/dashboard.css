@@ -29,7 +29,7 @@ body{
 
 .wrapper{
 	width: 100%;
-	height: 3000px;
+	height: max-content;
 	margin: auto;
 	background: #EFEFEF;
 }
@@ -213,12 +213,23 @@ body{
 .container-data{
 	margin-top: 60px;
 	width: 80%;
-	height: 1500px;
+	height: max-content;
 	background: #FCFCFC;
 	margin-left: 20%;
-	padding: 20px;
+	padding: 2% 5%;
 }
-
+.container-data h1{
+	padding: 10px;
+	font-family: sf-m;
+	letter-spacing: 1px;
+	font-size: 25px;
+}
+.container-data hr{
+	margin: 5px 10px;
+	height: 3px;
+	border: none;
+	background-color: #F60070;
+}
 .footer-sidebar{
 	width: 100%;
 	height: 5vh;
@@ -354,17 +365,22 @@ body{
 }
 .container-addSiswa{
 	width: 100%;
-	height: 100vh;
+	margin-top: 20px;
+	height: max-content;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+}
+.form-control{
+	padding: 1% 0;
 }
 .form-panjang{
-	width: 80%;
+	width: 90%;
 	height: 100px;
-	margin: 0 5%;
 }
 .form-pendek{
-	width: 38%;
+	width: 45%;
 	height: 100px;
-	margin: 0 2%;
 }
 .form-control h4{
 	font-family: sf-s;
@@ -375,17 +391,16 @@ body{
 	margin-top: 20px;
 	margin-left: 20px;
 	border: none;
-	border-bottom: 4px solid #EFEFEF;
+	border-bottom: 3px solid #CECECE;
 	padding: 10px 20px;
-	background-color: #FCFCFC;
 	outline: none;
 	width: 90%;
-	font-family: sf-t;
+	font-family: sf-r;
 }
 
 .form-control input::placeholder{
-	font-family: sf-s;
-	color: #dbdbdb;
+	font-family: sf-r;
+	color: #CECECE;
 }
 .form-pendek input{
 	width: 80% !important;
