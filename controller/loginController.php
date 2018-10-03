@@ -23,6 +23,7 @@
 
 		if (password_verify($password, $passwordDb)) {
 			$_SESSION['user']['idUser'] 		= $idUser;
+			$_SESSION['user']['username']		= $username;
 			$_SESSION['user']['email'] 			= $email;
 			$_SESSION['user']['tanggalLahir'] 	= $tanggalLahir;
 			$_SESSION['user']['level'] 			= $level;

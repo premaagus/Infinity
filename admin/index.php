@@ -2,6 +2,9 @@
 
 	require_once '../lib/config.php';
 
+	$tanggalLahir = $_SESSION['user']['tanggalLahir'];
+	$umur = date_diff(date_create("$tanggalLahir"), date_create('today'))->y;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,7 +49,7 @@
 				<li><a href="#">Siswa</a></li>
 				<li><a href="#">Guru</a></li>
 				<li><a href="#">Mata Pelajaran</a></li>
-				<li class="btn-logout"><a href="#">Logout</a></li>
+				<li class="btn-logout"><a href="logout.php">Logout</a></li>
 			</ul>
 		</div>
 
@@ -58,8 +61,8 @@
 				<div class="picture-user">
 					<img src="images/profile/profile1.jpg">
 				</div>
-				<h2>Prema Agus</h2>
-				<p>17 - premaagus@gmail.com</p>
+				<h2><?= $_SESSION['user']['username'] ?></h2>
+				<p><?= $umur ?> - <?= $_SESSION['user']['email'] ?></p>
 			</div>
 
 			<div class="menu d-flex f-col j-ctr">
