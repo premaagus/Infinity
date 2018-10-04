@@ -328,7 +328,7 @@ body{
 	height: 50px;
 	margin: 10px auto;
 }
-.btn-add a{
+.btn-add button{
 	text-decoration: none;
 	color: #FFF;
 	font-family: sf-s;
@@ -336,6 +336,9 @@ body{
 	padding: 10px 15px;
 	background: linear-gradient(60deg, #0ABCF9, #4D5DFB);
 	border-radius: 3px;
+	border: none;
+	cursor: pointer;
+	outline: none;
 }
 
 .container-pelajaran{
@@ -373,6 +376,7 @@ body{
 }
 .form-control{
 	padding: 1% 0;
+	position: relative;
 }
 .form-panjang{
 	width: 90%;
@@ -396,6 +400,11 @@ body{
 	outline: none;
 	width: 90%;
 	font-family: sf-r;
+	transition: 0.2s ease;
+}
+
+.form-control input:focus{
+	border-bottom: 3px solid #F60070;
 }
 
 .form-control input::placeholder{
@@ -409,15 +418,45 @@ body{
 	margin-top: 20px;
 	margin-left: 20px;
 	border: none;
-	border-bottom: 4px solid #EFEFEF;
+	border-bottom: 3px solid #CECECE;
 	padding: 10px 20px;
 	background-color: #FCFCFC;
 	outline: none;
 	width: 90%;
 }
+
+.alert-err{
+	width: max-content;
+	padding: 25px 15px;
+	height: max-content;
+	position: absolute;
+	background: #ff3838;
+	top: 0;
+	right: 5%;
+	border-radius: 5px;
+	text-align: center;
+	color: white;
+	letter-spacing: 1px;
+	opacity: 0;
+	transition: 0.4s ease;
+}
+
+.alert-err p{
+	font-size: 12px;
+}
+
+.point-err{
+	width: 10px;
+	height: 10px;
+	background: #ff3838;
+	transform: rotate(45deg);
+	position: absolute;
+	right: 10px;
+	bottom: -5px;
+}
 .container-addSiswa .add-new{
 	margin-right: 12%;
 }
-.container-addSiswa .btn-add a{
+.container-addSiswa .btn-add button{
 	background: linear-gradient(50deg, #FF748B, #FE7BB0)
 }
