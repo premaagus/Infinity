@@ -1,6 +1,6 @@
 <h1>Tambah Data</h1>
 <hr>
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
 	<div class="container1 d-flex f-row">
 
 		<div class="form-control-block">
@@ -88,12 +88,7 @@
 		<button type="submit" name="btn-submit">Submit</button>
 	</div>
 </form>
-
-<?php 
-	if (isset($_POST['btn-submit'])) {
-		echo "Clicked";
-	}
- ?>
+<script src="js/alert.js"></script>
 
 <script>
 	var input = document.querySelectorAll('input');
@@ -118,3 +113,77 @@
 
 	}
 </script>
+
+<?php 
+	if (isset($_POST['btn-submit'])) {
+		$username = $_POST['username'];
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+		$r_password = $_POST['r_password'];
+		$nama_lengkap = $_POST['nama_lengkap'];
+		$tanggal_lahir = $_POST['tanggal_lahir'];
+		$profile_name = $_POST['nama_depan']." ".$_POST['nama_belakang'];
+		$id_level = '2';
+		$profile_img_name = $_FILES['profile_img']['name'];
+
+		$queryCheckEmail = $koneksi->query("SELECT * FROM tb_user WHERE email = '$email'");
+
+		if ($queryCheckEmail->num_rows > 0) {
+			?>
+				<script>
+					errorAlert("Error", "Email Telah Digunakan");
+				</script>
+			<?php
+		}
+		else{
+			$queryCheckUsername = $koneksi->query("SELECT * FROM tb_user WHERE username = '$username'");
+			if ($queryCheckUsername->num_rows > 0) {
+				?>
+				<script>
+					errorAlert("Error", "Username Telah Digunakan");
+				</script>
+				<?php
+			}
+			else{
+				if ($r_password != $password) {
+					?>
+					<script>
+						errorAlert("Error", "Password Tidak Sama");
+					</script>
+					<?php
+				}
+				else{
+					if ($_FILES['profile_img']['error'] == 4) {
+						$profile_img_name = "stock.png";
+					}
+
+					$passwordHash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+					$queryAddUser = $koneksi->query("INSERT INTO tb_user VALUES (NULL, '$username', '$email', '$passwordHash', '$nama_lengkap', '$tanggal_lahir', '$profile_img_name', '2') ");
+					var_dump($queryAddUser);
+					die();
+					if ($queryAddUser) {
+						$queryCheckId = $koneksi->query("SELECT * FROM tb_user WHERE username = '$username'");
+						$dataId = $queryCheckId->fetch_assoc();
+						$id_user = $dataId['id_user'];
+
+						$queryAddSiswa = $koneksi->query("INSERT INTO tb_siswa VALUES (NULL, $id_user, 1) ");
+						if ($queryAddSiswa) {
+							?>
+							<script>
+								errorAlert("Error", "Password Tidak Sama");
+							</script>
+							<?php
+						}
+					}
+					else{
+						?>
+						<script>
+							errorAlert("Error", "Gagal Add Data");
+						</script>
+						<?php
+					}
+				}
+			}
+		}
+	}
+ ?>
