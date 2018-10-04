@@ -12,13 +12,13 @@
 
 	if ($queryCheck->num_rows > 0) {
 		$dataUser 		= $queryCheck->fetch_assoc();
-		$idUser 		= $dataUser['idUser'];
+		$idUser 		= $dataUser['id_user'];
 		$username 		= $dataUser['username'];
 		$passwordDb 	= $dataUser['password'];
 		$email 			= $dataUser['email'];
-		$tanggalLahir 	= $dataUser['tanggalLahir'];
-		$namaLengkap 	= $dataUser['namaLengkap'];
-		$level			= $dataUser['idLevel'];
+		$tanggalLahir 	= $dataUser['tanggal_lahir'];
+		$namaLengkap 	= $dataUser['nama_lengkap'];
+		$level			= $dataUser['id_level'];
 
 
 		if (password_verify($password, $passwordDb)) {
