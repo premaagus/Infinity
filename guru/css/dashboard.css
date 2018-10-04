@@ -101,16 +101,20 @@ body{
 	padding-top: 10px;
 }
 
-.profile-user h2{
+.profile-user h2 a{
 	letter-spacing: 2px;
 	font-size: 15px;
 	margin-top: 10px;
+	color: #FFF;
+	text-decoration: none;
 }
 
-.profile-user p{
+.profile-user p a{
 	font-size: 12px;
 	letter-spacing: 1px;
 	color: #F2F2F2;
+	color: #FFF;
+	text-decoration: none;
 }
 
 .picture-user{

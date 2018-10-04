@@ -59,10 +59,16 @@
 					<img src="../img/logo-branding-white.png">
 				</div>
 				<div class="picture-user">
-					<img src="images/profile/profile1.jpg">
+					<a href="#">
+						<img src="images/profile/profile1.jpg">
+					</a>
 				</div>
-				<h2><?= $_SESSION['user']['username'] ?></h2>
-				<p><?= $umur ?> - <?= $_SESSION['user']['email'] ?></p>
+				<h2>
+					<a href="#"><?= $_SESSION['user']['username'] ?></a>	
+				</h2>
+				<p>
+					<a href="#"><?= $umur ?> - <?= $_SESSION['user']['email'] ?></a>
+				</p>
 			</div>
 
 			<div class="menu d-flex f-col j-ctr">
