@@ -340,6 +340,18 @@ body{
 	cursor: pointer;
 	outline: none;
 }
+.btn-add a{
+	text-decoration: none;
+	color: #FFF;
+	font-family: sf-s;
+	letter-spacing: .5px;
+	padding: 10px 15px;
+	background: linear-gradient(60deg, #0ABCF9, #4D5DFB);
+	border-radius: 3px;
+	border: none;
+	cursor: pointer;
+	outline: none;
+}
 
 .container-pelajaran{
 	width: 100%;
