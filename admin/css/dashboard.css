@@ -7,6 +7,9 @@ body{
 	font-family: sf-r;
 }
 
+form{
+	display: inline-block;
+}
 @font-face{src:url('../../font/SFProDisplay-Bold.ttf'); font-family: sf-b}
 @font-face{src:url('../../font/SFProDisplay-Medium.ttf'); font-family: sf-m}
 @font-face{src:url('../../font/SFProDisplay-Heavy.ttf'); font-family: sf-h}
@@ -227,6 +230,7 @@ body{
 .container-data hr{
 	margin: 5px 10px;
 	height: 3px;
+	margin-bottom: 20px;
 	border: none;
 	background-color: #F60070;
 }
@@ -403,17 +407,6 @@ body{
 	padding-top: 20px;
 	padding-left: 20px;
 }
-.form-control input{
-	margin-top: 20px;
-	margin-left: 20px;
-	border: none;
-	border-bottom: 3px solid #CECECE;
-	padding: 10px 20px;
-	outline: none;
-	width: 90%;
-	font-family: sf-r;
-	transition: 0.2s ease;
-}
 
 .form-control input:focus{
 	border-bottom: 3px solid #F60070;
@@ -439,7 +432,7 @@ body{
 
 .alert-err{
 	width: max-content;
-	padding: 25px 15px;
+	padding: 10px 15px;
 	height: max-content;
 	position: absolute;
 	background: #ff3838;
@@ -449,8 +442,8 @@ body{
 	text-align: center;
 	color: white;
 	letter-spacing: 1px;
-	opacity: 0;
 	transition: 0.4s ease;
+	opacity: 0;
 }
 
 .alert-err p{
@@ -471,4 +464,103 @@ body{
 }
 .container-addSiswa .btn-add button{
 	background: linear-gradient(50deg, #FF748B, #FE7BB0)
+}
+
+.container1{
+	width: 100%;
+	height: auto;
+	background: white;
+	border-radius: 5px;
+	box-shadow: 0 14px 28px rgba(44, 26, 78,0.10), 0 10px 10px rgba(44, 26, 78,0.10);
+}
+
+.form-control{
+	width: 100%;
+	height: auto;
+	flex: 1;
+	margin: 10px;
+	padding: 10px;
+	position: relative;
+}
+
+.form-control>p{
+	margin: 0;
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+
+.form-control-block{
+	width: 100%;
+	padding: 10px;
+	margin: 10px;
+	position: relative;
+}
+
+.form-control-block>p{
+	margin: 0;
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+
+.form-control-block input{
+	width: 95%;
+	height: 25px;
+	border: none;
+	border-bottom: 2px solid #E9E9E9;
+	padding:10px;
+	outline: none;
+	transition: 0.2s ease;
+}
+
+.form-control-block select{
+	width: 95%;
+	height: 50px;
+	border: none;
+	border-bottom: 2px solid #E9E9E9;
+	padding:10px;
+	outline: none;
+	transition: 0.2s ease;
+}
+
+.form-control-block select option{
+	background: #2C1A4E;
+	color: white;
+	border: none;
+}
+
+.form-control-block input:focus{
+	border-bottom: 3px solid #F60070;
+}
+
+.form-control input{
+	width: 90%;
+	height: 25px;
+	border: none;
+	border-bottom: 2px solid #E9E9E9;
+	padding:10px;
+	outline: none;
+	transition: 0.2s ease;
+}
+
+.form-control input:focus .form-control p{
+	color: #2C1A4E;
+}
+
+.btn-add{
+	width: 125px;
+	height: 40px;
+	float: right;
+	margin: 10px 0;
+	border-radius: 5px;
+	box-shadow: 0 14px 28px rgba(44, 26, 78,0.10), 0 10px 10px rgba(44, 26, 78,0.10);
+}
+
+.btn-add button{
+	width: 100%;
+	height: 100%;
+	border: none;
+	color: white;
+	cursor: pointer;
+	background: #2C1A4E;
+	border-radius: 5px;
 }
