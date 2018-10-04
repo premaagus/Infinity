@@ -79,8 +79,14 @@
 		<div class="form-control-block">
 			<p>Kelas</p>
 			<select name="id_kelas">
-				<option value="Admin">Admin</option>
-				<option value="Kasir">Kasir</option>
+				<?php 
+					$queryKelas = $koneksi->query("SELECT * FROM tb_kelas");
+					while ($dataKelas = $queryKelas->fetch_assoc()) {
+						?>
+						<option value="<?= $dataKelas['id_kelas'] ?>"><?= $dataKelas['nama_kelas'] ?></option>
+						<?php
+					}
+				 ?>
 			</select>
 		</div>
 	</div>
@@ -124,7 +130,9 @@
 		$tanggal_lahir = $_POST['tanggal_lahir'];
 		$profile_name = $_POST['nama_depan']." ".$_POST['nama_belakang'];
 		$id_level = '2';
+		$id_kelas = $_POST['id_kelas'];
 		$profile_img_name = $_FILES['profile_img']['name'];
+		$tmp_profile = $_FILES['profile_img']['tmp_name'];
 
 		$queryCheckEmail = $koneksi->query("SELECT * FROM tb_user WHERE email = '$email'");
 
@@ -153,24 +161,39 @@
 					<?php
 				}
 				else{
-					if ($_FILES['profile_img']['error'] == 4) {
-						$profile_img_name = "stock.png";
+					//cek gambar
+					$extensiGambarValid = ['jpg', 'jpeg', 'png', 'gif'];
+					$extensiGambar = explode('.', $profile_img_name);
+					$extensiGambar = strtolower(end($extensiGambar));
+					if (!in_array($extensiGambar, $extensiGambarValid)) {
+						?>
+						<script>
+							errorAlert("Error", "Yang Anda Upload Bukan Gambar");
+						</script>
+						<?php
+						die();
 					}
 
+					//Verified image
+					$namaBaru = uniqid();
+					$namaBaru .= ".".$extensiGambar;
+					move_uploaded_file($tmp_profile, "../img/profile/$namaBaru");
+
 					$passwordHash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-					$queryAddUser = $koneksi->query("INSERT INTO tb_user VALUES (NULL, '$username', '$email', '$passwordHash', '$nama_lengkap', '$tanggal_lahir', '$profile_img_name', '2') ");
-					var_dump($queryAddUser);
-					die();
+					$queryAddUser = $koneksi->query("INSERT INTO tb_user VALUES (NULL, '$username', '$email', '$passwordHash', '$nama_lengkap', '$tanggal_lahir', '$namaBaru', '$profile_name', 2)");
+
+
 					if ($queryAddUser) {
+
 						$queryCheckId = $koneksi->query("SELECT * FROM tb_user WHERE username = '$username'");
 						$dataId = $queryCheckId->fetch_assoc();
 						$id_user = $dataId['id_user'];
 
-						$queryAddSiswa = $koneksi->query("INSERT INTO tb_siswa VALUES (NULL, $id_user, 1) ");
+						$queryAddSiswa = $koneksi->query("INSERT INTO tb_siswa VALUES (NULL, $id_user, $id_kelas) ");
 						if ($queryAddSiswa) {
 							?>
 							<script>
-								errorAlert("Error", "Password Tidak Sama");
+								successAlert("Sukses", "Data Berhasil Ditambahkan");
 							</script>
 							<?php
 						}
