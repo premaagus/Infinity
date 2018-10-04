@@ -59,15 +59,15 @@
 					<img src="../img/logo-branding-white.png">
 				</div>
 				<div class="picture-user">
-					<a href="#">
+					<a href="partials/show-profile.php">
 						<img src="images/profile/profile1.jpg">
 					</a>
 				</div>
 				<h2>
-					<a href="#"><?= $_SESSION['user']['username'] ?></a>	
+					<a href="partials/show-profile.php"><?= $_SESSION['user']['username'] ?></a>	
 				</h2>
 				<p>
-					<a href="#"><?= $umur ?> - <?= $_SESSION['user']['email'] ?></a>
+					<a href="partials/show-profile.php"><?= $umur ?> - <?= $_SESSION['user']['email'] ?></a>
 				</p>
 			</div>
 
