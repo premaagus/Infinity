@@ -30,7 +30,7 @@ body{
 .wrapper{
 	width: 100%;
 	height: 100vh;
-	background: #5357BB;
+	background: linear-gradient(27deg,#5357BB,#E4B5CB) ;
 }
 .container-profile{
 	width: 50%;
