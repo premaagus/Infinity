@@ -7,7 +7,11 @@
 	<link rel="stylesheet" href="../../css/fontawesome.css">
 </head>
 <body>
-	<div class="wrapper d-flex">
+	<div class="wrapper d-flex f-col fd-col">
+		<div class="bth d-flex">
+			<i class="fas fa-arrow-alt-circle-left"></i>
+			<h4>Kembali</h4>
+		</div><!-- bth -->
 		<div class="container-profile d-flex fd-col f-col i-ctr">
 			<div class="img-profile">
 				<img src="../images/profile/agnez.png">

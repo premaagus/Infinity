@@ -30,15 +30,40 @@ body{
 .wrapper{
 	width: 100%;
 	height: 100vh;
-	background: linear-gradient(27deg,#5357BB,#E4B5CB) ;
+	background-image: url("../images/background.png");
+	background-size: cover;
+	background-position: center;	
+}
+.bth{
+	width: max-content;
+	height: max-content;
+	background-color: #FFF;
+	margin: 20px;
+	border-radius: 30px;
+	text-decoration: none;
+}
+.bth i{
+	padding: 10px;
+	padding-left: 15px;
+	color: #5357BB;
+	text-decoration: none;
+}
+.bth h4{
+	text-decoration: none;
+	padding-right: 15px;
+	font-family: sf-r;
+	color: #5357BB;
+	letter-spacing: 1px;
+	text-decoration: none;
 }
 .container-profile{
-	width: 50%;
-	height: 80vh;
+	width: 40%;
+	height: 75vh;
 	margin: auto;
 	background-color: #FFF;
-	border-radius: 10px;
 	padding-top: 20px;
+	border-radius: 5px;
+	margin-top: 20px;
 }
 .img-profile{
 	margin: 0 auto;
