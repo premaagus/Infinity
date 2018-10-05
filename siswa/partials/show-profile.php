@@ -8,15 +8,17 @@
 </head>
 <body>
 	<div class="wrapper d-flex f-col fd-col">
-		<div class="bth d-flex">
-			<i class="fas fa-arrow-alt-circle-left"></i>
-			<h4>Kembali</h4>
+		<div class="bth d-flex f-row fd-row">
+			<a href="../index.php">
+				<i class="fas fa-arrow-alt-circle-left"></i>
+				<h4>Kembali</h4>
+			</a>
 		</div><!-- bth -->
 		<div class="container-profile d-flex fd-col f-col i-ctr">
 			<div class="img-profile">
 				<img src="../images/profile/agnez.png">
 			</div><!-- img-profile -->
-			<div class="profile d-flex f-col j-btw">
+			<div class="profile d-flex f-col j-ctr">
 				<hr>
 				<div class="d-flex f-row">
 					<h2>Nama</h2>
@@ -48,7 +50,7 @@
 				</div>
 			</div><!-- profile -->
 			<div class="ubah d-flex j-ctr">
-				<a href="#">Ubah Profil</a>
+				<a href="edit-profile.php">Ubah Profil</a>
 			</div>
 		</div><!-- container-profile -->
 	</div><!-- wrapper -->

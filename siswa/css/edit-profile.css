@@ -75,6 +75,9 @@ body{
 .img-profile img{
 	width: 100%;
 }
+.input-file{
+	width: 100%;
+}
 .profile{
 	width: auto;
 	height: max-content;
@@ -92,22 +95,23 @@ hr{
 	text-transform: uppercase;
 	font-size: 15px;
 	font-family: sf-b;
-	margin: 10px 0;
+	margin: 15px 0;
 	margin-left: 20px;
 	width: 170px;
 	letter-spacing: .5px;
 	color: #7f8c8d;
 }
-.profile h3{
-	font-family: sf-m;
-	font-size: 13px;
-	letter-spacing: 1px;
-	margin: 10px 0;
+.profile input{
+	border: none;
+	border-bottom: 2px solid #5357BB;
 	color: #5357BB;
+	font-family: sf-m;
+	outline: none;	
+	padding: 5px 10px;
 }
 .ubah
 {
-	width: 55%;
+	width: 100%;
 	height: max-content;
 	margin-top: 10px;
 }
