@@ -4,18 +4,18 @@
 	<div class="container1 d-flex f-row">
 
 		<div class="form-control-block">
-			<p>Nama Depan</p>
-			<input type="text" name="nama_depan" id="nama_depan" placeholder="Input Nama Depan Disini..." required>
+			<p>Nama Mata Pelajaran</p>
+			<input type="text" name="nama_mapel" id="nama_mapel" placeholder="Input Nama Mata Pelajaran Disini..." required>
 			<div class="alert-err">
-				<p>Nama Depan Tidak Boleh Kosong</p>
+				<p>Nama Mata Pelajaran Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
 			</div>
 		</div>
 		<div class="form-control-block">
-			<p>Nama Belakang</p>
-			<input type="text" name="nama_belakang" id="nama_belakang" placeholder="Input Nama Belakang Disini..." required>
+			<p>Nama Guru</p>
+			<input type="text" name="nama_guru" id="nama_guru" placeholder="Input Nama Guru Disini..." required>
 			<div class="alert-err">
-				<p>Nama Belakang Tidak Boleh Kosong</p>
+				<p>Nama Guru Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
 			</div>
 		</div>

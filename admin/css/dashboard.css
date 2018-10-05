@@ -11,9 +11,6 @@ body{
 	font-family: sf-r;
 }
 
-form{
-	display: inline-block;
-}
 @font-face{src:url('../../font/SFProDisplay-Bold.ttf'); font-family: sf-b}
 @font-face{src:url('../../font/SFProDisplay-Medium.ttf'); font-family: sf-m}
 @font-face{src:url('../../font/SFProDisplay-Heavy.ttf'); font-family: sf-h}
