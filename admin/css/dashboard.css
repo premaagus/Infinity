@@ -10,7 +10,6 @@ a{
 body{
 	font-family: sf-r;
 }
-
 @font-face{src:url('../../font/SFProDisplay-Bold.ttf'); font-family: sf-b}
 @font-face{src:url('../../font/SFProDisplay-Medium.ttf'); font-family: sf-m}
 @font-face{src:url('../../font/SFProDisplay-Heavy.ttf'); font-family: sf-h}
@@ -580,7 +579,7 @@ body{
 	border-radius: 5px;
 	position: relative;
 	background: linear-gradient(150deg, #F60070, #FE7BB0);
-	box-shadow: 6px 6px 23px 1px rgba(0,0,0,0.3);
+	box-shadow: 6px 8px 15px 1px rgba(0,0,0,0.3);
 }
 .card-kelas h3{
 	position: relative;
@@ -611,11 +610,12 @@ body{
 	width: 160px;
 	height: 100%;
 	line-height: 40px;
-	background: linear-gradient(150deg, #F60070, #FE7BB0);
 	border-radius: 3px;
 	border: none;
 	cursor: pointer;
 	outline: none;
 	margin-right: 10px;
 	margin-bottom: 10px;
+	background-color: #2C1A4E;
+	box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.3);
 }
