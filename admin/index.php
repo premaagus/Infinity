@@ -94,6 +94,14 @@
 						</a>
 					</div><!-- menu-list -->
 				</div><!-- container-menulist -->
+				<div class="container-menulist">
+					<div class="menu-list">
+						<a href="index.php?menu=kelas" class="<?php if($_GET['menu'] == 'kelas'){echo 'active';} ?>">
+							<i class="fas fa-chalkboard-teacher"></i>
+							<h4>Kelas</h4>
+						</a>
+					</div>
+				</div><!-- container-menulist -->
 			</div><!-- menu -->
 			<div class="footer-sidebar d-flex fd-col j-str i-ctr">
 				<ul>

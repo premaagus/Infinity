@@ -1,3 +1,6 @@
+<h1>Siswa</h1>
+<hr>
+
 <div class="add-new d-flex j-end i-ctr">
 	<div class="btn-add">
 		<a href="index.php?menu=siswa&action=add">Tambah Siswa</a>

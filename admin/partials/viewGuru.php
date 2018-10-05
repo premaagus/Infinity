@@ -6,7 +6,7 @@
 		<a href="index.php?menu=guru&action=add">Tambah Guru</a>
 	</div><!-- btn-add -->
 </div><!-- add-new -->
-<div class="container-siswa d-flex fd-row f-row j-ard">
+<div class="container-siswa d-flex fd-row f-row">
 	<?php 
 		$queryGuru = $koneksi->query("SELECT * FROM tb_user WHERE id_level = 3");
 		while ($dataGuru = $queryGuru->fetch_assoc()) {

@@ -36,4 +36,13 @@
 	else if ($_GET['menu'] == 'mapel' && $_GET['action'] == 'add') {
 		require_once 'partials/addMapel.php';
 	}
+
+	//kelas
+	else if ($_GET['menu'] == "kelas" && !isset($_GET['action'])) {
+		require_once 'partials/viewKelas.php';
+	}
+	else if ($_GET['menu'] == 'mapel' && $_GET['action'] == 'add') {
+		require_once 'partials/addKelas.php';
+	}
+
  ?>
