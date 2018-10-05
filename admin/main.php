@@ -41,7 +41,7 @@
 	else if ($_GET['menu'] == "kelas" && !isset($_GET['action'])) {
 		require_once 'partials/viewKelas.php';
 	}
-	else if ($_GET['menu'] == 'mapel' && $_GET['action'] == 'add') {
+	else if ($_GET['menu'] == 'kelas' && $_GET['action'] == 'add') {
 		require_once 'partials/addKelas.php';
 	}
 
