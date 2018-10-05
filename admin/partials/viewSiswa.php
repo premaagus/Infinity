@@ -3,7 +3,7 @@
 		<a href="index.php?menu=siswa&action=add">Tambah Siswa</a>
 	</div><!-- btn-add -->
 </div><!-- add-new -->
-<div class="container-siswa d-flex fd-row f-row j-ard">
+<div class="container-siswa d-flex fd-row f-row">
 	
 	<?php 
 		$querySiswa = $koneksi->query("SELECT * FROM tb_user WHERE id_level = 2");

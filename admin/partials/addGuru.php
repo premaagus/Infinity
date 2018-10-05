@@ -14,7 +14,7 @@
 
 		<div class="form-control">
 			<p>Nama Depan</p>
-			<input type="text" name="nama_depan" id="nama_depan" placeholder="Input Nama Depan Disini..." required>
+			<input type="text" name="nama_depan" id="nama_depan" placeholder="Input Username Disini..." required>
 			<div class="alert-err">
 				<p>Nama Depan Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -22,7 +22,7 @@
 		</div>
 		<div class="form-control">
 			<p>Nama Belakang</p>
-			<input type="text" name="nama_belakang" id="nama_belakang" placeholder="Input Nama Belakang Disini..." required>
+			<input type="text" name="nama_belakang" id="nama_belakang" placeholder="Input Password Disini..." required>
 			<div class="alert-err">
 				<p>Nama Belakang Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -31,7 +31,7 @@
 
 		<div class="form-control-block">
 			<p>Email</p>
-			<input type="text" name="email" id="email" placeholder="Input Email Disini..." required>
+			<input type="text" name="email" id="email" placeholder="Input Nama Lengkap Disini..." required>
 			<div class="alert-err">
 				<p>Email Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -40,7 +40,7 @@
 
 		<div class="form-control-block">
 			<p>Username</p>
-			<input type="text" name="username" id="username" placeholder="Input Username Disini..." required>
+			<input type="text" name="username" id="username" placeholder="Input Nama Lengkap Disini..." required>
 			<div class="alert-err">
 				<p>Username Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -49,7 +49,7 @@
 
 		<div class="form-control">
 			<p>Password</p>
-			<input type="password" name="password" id="password" placeholder="Input Password Disini..." required>
+			<input type="password" name="password" id="password" placeholder="Input No Telepon Disini..." required>
 			<div class="alert-err">
 				<p>Password Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -57,7 +57,7 @@
 		</div>
 		<div class="form-control">
 			<p>Ulangi Password</p>
-			<input type="password" name="r_password" id="r_password" placeholder="Input Password Disini..." required>
+			<input type="text" name="r_password" id="r_password" placeholder="Input Alamat Disini..." required>
 			<div class="alert-err">
 				<p>Ulangi Password Anda</p>
 				<div class="point-err"></div>
@@ -74,20 +74,7 @@
 		</div>
 		<div class="form-control-block">
 			<p>Foto Profil</p>
-			<input type="file" name="profile_img" id="profile_img" required>
-		</div>
-		<div class="form-control-block">
-			<p>Kelas</p>
-			<select name="id_kelas">
-				<?php 
-					$queryKelas = $koneksi->query("SELECT * FROM tb_kelas");
-					while ($dataKelas = $queryKelas->fetch_assoc()) {
-						?>
-						<option value="<?= $dataKelas['id_kelas'] ?>"><?= $dataKelas['nama_kelas'] ?></option>
-						<?php
-					}
-				 ?>
-			</select>
+			<input type="file" name="profile_img" id="profile_img" placeholder="Input E-mail Disini..." required>
 		</div>
 	</div>
 	<div class="btn-add">
@@ -122,20 +109,20 @@
 
 <?php 
 	if (isset($_POST['btn-submit'])) {
-		$username = $_POST['username'];
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-		$r_password = $_POST['r_password'];
-		$nama_lengkap = $_POST['nama_lengkap'];
-		$tanggal_lahir = $_POST['tanggal_lahir'];
-		$profile_name = $_POST['nama_depan']." ".$_POST['nama_belakang'];
-		$id_level = '2';
-		$id_kelas = $_POST['id_kelas'];
-		$profile_img_name = $_FILES['profile_img']['name'];
-		$tmp_profile = $_FILES['profile_img']['tmp_name'];
+		$username 			= $_POST['username'];
+		$email 				= $_POST['email'];
+		$password 			= $_POST['password'];
+		$r_password 		= $_POST['r_password'];
+		$nama_lengkap 		= $_POST['nama_lengkap'];
+		$tanggal_lahir 		= $_POST['tanggal_lahir'];
+		$profile_name 		= $_POST['nama_depan']." ".$_POST['nama_belakang'];
+		$id_level 			= '3';
+		$profile_img_name 	= $_FILES['profile_img']['name'];
+		$tmp_profile	 	= $_FILES['profile_img']['tmp_name'];
 
+
+		// Validasi Email
 		$queryCheckEmail = $koneksi->query("SELECT * FROM tb_user WHERE email = '$email'");
-
 		if ($queryCheckEmail->num_rows > 0) {
 			?>
 				<script>
@@ -144,6 +131,7 @@
 			<?php
 		}
 		else{
+			// Validasi Username
 			$queryCheckUsername = $koneksi->query("SELECT * FROM tb_user WHERE username = '$username'");
 			if ($queryCheckUsername->num_rows > 0) {
 				?>
@@ -153,6 +141,7 @@
 				<?php
 			}
 			else{
+				// Validasi R-password
 				if ($r_password != $password) {
 					?>
 					<script>
@@ -179,21 +168,26 @@
 					$namaBaru .= ".".$extensiGambar;
 					move_uploaded_file($tmp_profile, "../img/profile/$namaBaru");
 
+					// add user
 					$passwordHash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-					$queryAddUser = $koneksi->query("INSERT INTO tb_user VALUES (NULL, '$username', '$email', '$passwordHash', '$nama_lengkap', '$tanggal_lahir', '$namaBaru', '$profile_name', 2)");
+					$queryAddUser = $koneksi->query("INSERT INTO tb_user VALUES (NULL, '$username', '$email', '$passwordHash', '$nama_lengkap', '$tanggal_lahir', '$namaBaru', '$profile_name', $id_level)");
 
 
 					if ($queryAddUser) {
 
+						// Add Guru
 						$queryCheckId = $koneksi->query("SELECT * FROM tb_user WHERE username = '$username'");
 						$dataId = $queryCheckId->fetch_assoc();
 						$id_user = $dataId['id_user'];
 
-						$queryAddSiswa = $koneksi->query("INSERT INTO tb_siswa VALUES (NULL, $id_user, $id_kelas) ");
-						if ($queryAddSiswa) {
+						$queryAddGuru = $koneksi->query("INSERT INTO tb_guru VALUES (NULL, $id_user) ");
+						if ($queryAddGuru) {
 							?>
 							<script>
 								successAlert("Sukses", "Data Berhasil Ditambahkan");
+								document.addEventListener('click', function(){
+									location.href = 'index.php?menu=guru';
+								});
 							</script>
 							<?php
 						}

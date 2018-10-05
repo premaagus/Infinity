@@ -68,7 +68,7 @@
 			<div class="menu d-flex f-col j-ctr">
 				<div class="container-menulist">
 					<div class="menu-list">
-						<a href="index.php" class="<?php if(!isset($_GET['menu'])){echo 'active';} ?>">
+						<a href="index.php" class="<?php if(!isset($_GET['menu']) || $_GET['menu'] == 'index'){echo 'active';} ?>">
 							<i class="far fa-chart-bar"></i>
 							<h4>Dashboard</h4>
 						</a>
