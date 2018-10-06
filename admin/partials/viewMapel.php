@@ -15,6 +15,7 @@
 				<a href="index.php?menu=mapel&id=<?= $dataMapel['id_mapel'] ?>">
 					<img src="images/kelas/<?= $dataMapel['background_mapel'] ?>">
 					<h3><?= $dataMapel['nama_mapel'] ?></h3>
+					<h4>Made Sutisna</h4>
 				</a>
 			</div><!-- card-pelajaran -->
 			<?php
