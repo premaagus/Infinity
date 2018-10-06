@@ -20,6 +20,16 @@
 					<h3><?= $dataMapel['nama_mapel'] ?></h3>
 					<h4><?= $dataUser['profile_name'] ?></h4>
 				</a>
+				<div class="preference">
+					<i class="fas fa-ellipsis-v"></i>
+
+					<div class="container-preference">
+						<ul>
+							<li><a href="#">Edit</a></li>
+							<li><a href="#">Delete</a></li>
+						</ul>
+					</div>
+				</div>
 			</div><!-- card-pelajaran -->
 			<?php
 		}
@@ -28,3 +38,14 @@
 	
 
 </div><!-- container-pelajaran -->
+
+<script>
+	var btnPreference = document.querySelectorAll('.preference');
+	for (var i = 0; i < btnPreference.length; i++){
+		btnPreference[i].addEventListener('click', function(){
+			this.querySelectorAll('.container-preference')[0].classList.toggle('visible');
+			this.querySelectorAll('.container-preference')[0].style.opacity = '1';
+			
+		});
+	}
+</script>

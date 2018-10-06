@@ -673,3 +673,66 @@ body{
 	text-align: center;
 	line-height: 25vh;
 }
+
+.preference{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 4;
+	text-align: center;
+	cursor: pointer;
+}
+
+.preference i{
+	font-size: 18px;
+	line-height: 50px;
+	color: white;
+}
+
+.container-preference{
+	width: 100px;
+	height: 0px;
+	background: blue;
+	position: absolute;
+	top: 10px;
+	left: -170%;
+	border-radius: 5px;
+	overflow: hidden;
+	visibility: hidden;
+	opacity: 0;
+	transition: 0.5s ease;
+}
+
+.visible{
+	visibility: visible;
+	opacity: 1;
+	height: 140%;
+}
+
+
+.container-preference ul{
+	list-style: none;
+}
+
+.container-preference ul li{
+	width: 100%;
+	height: 35px;
+	background: white;	
+}
+
+.container-preference ul li a{
+	color: black;
+	float: left;
+	width: 100%;
+	height: 100%;
+	line-height: 35px;
+	background: white;
+	transition: 0.2s ease;
+	font-size: 14px;
+}
+
+.container-preference ul li a:hover{
+	background: #E5E5E5;
+}
