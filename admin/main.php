@@ -30,8 +30,11 @@
 	}
 
 	// Mapel
-	else if ($_GET['menu'] == "mapel" && !isset($_GET['action'])) {
+	else if ($_GET['menu'] == "mapel" && !isset($_GET['action']) && !isset($_GET['id'])) {
 		require_once 'partials/viewMapel.php';
+	}
+	else if ($_GET['menu'] == "mapel" && isset($_GET['id'])) {
+		require_once 'partials/detailMapel.php';
 	}
 	else if ($_GET['menu'] == 'mapel' && $_GET['action'] == 'add') {
 		require_once 'partials/addMapel.php';
