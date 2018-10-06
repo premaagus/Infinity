@@ -49,7 +49,7 @@
 				<li><a href="#">Siswa</a></li>
 				<li><a href="#">Guru</a></li>
 				<li><a href="#">Mata Pelajaran</a></li>
-				<li class="btn-logout"><a href="logout.php">Logout</a></li>
+				<li class="btn-logout"><a href="logout.php">LogOut</a></li>
 			</ul>
 		</div>
 
