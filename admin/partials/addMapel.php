@@ -32,6 +32,11 @@
 			<p>Background</p>
 			<select name="background_mapel" id="background_mapel">
 				<option value="merah.png">Merah</option>
+				<option value="ijo.png">Hijau</option>
+				<option value="kuning.png">Kuning</option>
+				<option value="biru.png">Biru</option>
+				<option value="ungu.png">Ungu</option>
+				<option value="orange.png">Orange</option>
 			 </select>
 			<div class="alert-err">
 				<p>Gambar Tidak Boleh Kosong</p>
