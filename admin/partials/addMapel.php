@@ -52,8 +52,9 @@
 <h1>Preview</h1>
 <hr>
 <div class="card-pelajaran">
-	<img src="images/kelas/merah.png">
-	<h3>Matematika</h3>
+	<img id="img-mapel" src="images/kelas/merah.png">
+	<h3 id="display-namaMapel">Matematika</h3>
+	<h4 id="display-namaGuru"></h4>
 </div><!-- card-pelajaran -->
 
 <script src="js/alert.js"></script>
@@ -103,4 +104,26 @@
 			xhr.send(data);
 		}
 	}
+</script>
+
+<script>
+	function display_c(){
+	  var refresh=100; 
+	  mytime=setTimeout('display_ct()',refresh)
+}
+
+function display_ct() {
+	var nama_mapel = document.getElementById('nama_mapel');
+	var id_guru = document.getElementById('id_guru');
+	var background_mapel = document.getElementById('background_mapel');
+	var display_nama = document.getElementById('display-namaMapel');
+	var img_mapel = document.getElementById('img-mapel');
+	var display_guru = document.getElementById('display-namaGuru');
+	start = display_c();
+	display_nama.innerHTML = nama_mapel.value;
+	img_mapel.src = "images/kelas/"+background_mapel.value;
+
+}
+
+display_ct();
 </script>
