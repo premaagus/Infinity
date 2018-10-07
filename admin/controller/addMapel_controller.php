@@ -10,6 +10,6 @@
 		echo "success";
 	}
 	else{
-		echo "$nama_mapel, $id_guru, $background_mapel";
+		echo "error";
 	}
  ?>

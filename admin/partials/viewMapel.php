@@ -15,18 +15,18 @@
 			$dataUser = $queryUser->fetch_assoc();
 			?>
 			<div class="card-pelajaran">
-				<a href="index.php?menu=mapel&id=<?= $dataMapel['id_mapel'] ?>">
-					<img src="images/kelas/<?= $dataMapel['background_mapel'] ?>">
-					<h3><?= $dataMapel['nama_mapel'] ?></h3>
-					<h4><?= $dataUser['profile_name'] ?></h4>
+				<a href="index.php?menu=mapel&id=<?php echo $dataMapel['id_mapel'] ?>">
+					<img src="images/kelas/<?php echo $dataMapel['background_mapel'] ?>">
+					<h3><?php echo $dataMapel['nama_mapel'] ?></h3>
+					<h4><?php echo $dataUser['profile_name'] ?></h4>
 				</a>
 				<div class="preference">
 					<i class="fas fa-ellipsis-v"></i>
 
 					<div class="container-preference">
 						<ul>
-							<li><a href="#">Edit</a></li>
-							<li><a href="#">Delete</a></li>
+							<li><a href="index.php?menu=mapel&action=edit&id=<?php echo $dataMapel['id_mapel'] ?>">Edit</a></li>
+							<li><a href="index.php?menu=mapel&action=delete&id=<?php echo $dataMapel['id_mapel'] ?>">Delete</a></li>
 						</ul>
 					</div>
 				</div>
@@ -45,7 +45,6 @@
 		btnPreference[i].addEventListener('click', function(){
 			this.querySelectorAll('.container-preference')[0].classList.toggle('visible');
 			this.querySelectorAll('.container-preference')[0].style.opacity = '1';
-			
 		});
 	}
 </script>

@@ -83,7 +83,7 @@
 					$queryKelas = $koneksi->query("SELECT * FROM tb_kelas");
 					while ($dataKelas = $queryKelas->fetch_assoc()) {
 						?>
-						<option value="<?= $dataKelas['id_kelas'] ?>"><?= $dataKelas['nama_kelas'] ?></option>
+						<option value="<?php echo $dataKelas['id_kelas'] ?>"><?php echo $dataKelas['nama_kelas'] ?></option>
 						<?php
 					}
 				 ?>

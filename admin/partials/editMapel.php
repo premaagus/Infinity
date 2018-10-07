@@ -1,11 +1,18 @@
-<h1>Tambah Data</h1>
+<?php 
+	$id = $_GET['id'];
+	$queryMapel = $koneksi->query("SELECT * FROM tb_mapel WHERE id_mapel = '$id'");
+	$dataMapel = $queryMapel->fetch_assoc();
+ ?>
+
+ <h1>Edit Mata Pelajaran</h1>
 <hr>
 <form action="" method="POST" onsubmit="return false">
+	<input type="hidden" name="id" id="id_mapel" value="<?php echo $id ?>">
 	<div class="container1 d-flex f-row">
 
 		<div class="form-control-block">
 			<p>Nama Mata Pelajaran</p>
-			<input type="text" name="nama_mapel" id="nama_mapel" placeholder="Input Nama Mata Pelajaran Disini..." required>
+			<input type="text" name="nama_mapel" id="nama_mapel" placeholder="Input Nama Mata Pelajaran Disini..." required value="<?php echo $dataMapel['nama_mapel'] ?>">
 			<div class="alert-err">
 				<p>Nama Mata Pelajaran Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -18,7 +25,7 @@
 				$queryGuru = $koneksi->query("SELECT * FROM tb_guru AS a INNER JOIN tb_user AS b on a.id_user = b.id_user");
 				while ($dataGuru = $queryGuru->fetch_assoc()) {
 					?>
-					<option value="<?php echo $dataGuru['id_guru'] ?>" view="<?php echo $dataGuru['profile_name'] ?>"><?php echo $dataGuru['profile_name'] ?></option>
+					<option value="<?php echo $dataGuru['id_guru'] ?>" <?php if($dataMapel['id_guru'] == $dataGuru['id_guru']){echo 'selected';} ?>><?php echo $dataGuru['profile_name'] ?></option>
 					<?php
 				}
 			 ?>
@@ -31,12 +38,12 @@
 		<div class="form-control-block">
 			<p>Background</p>
 			<select name="background_mapel" id="background_mapel">
-				<option value="merah.png">Merah</option>
-				<option value="ijo.png">Hijau</option>
-				<option value="kuning.png">Kuning</option>
-				<option value="biru.png">Biru</option>
-				<option value="ungu.png">Ungu</option>
-				<option value="orange.png">Orange</option>
+				<option value="merah.png" <?php if($dataMapel['background_mapel'] == 'merah.png'){echo 'selected';} ?>>Merah</option>
+				<option value="ijo.png" <?php if($dataMapel['background_mapel'] == 'ijo.png'){echo 'selected';} ?>>Hijau</option>
+				<option value="kuning.png" <?php if($dataMapel['background_mapel'] == 'kuning.png'){echo 'selected';} ?>>Kuning</option>
+				<option value="biru.png" <?php if($dataMapel['background_mapel'] == 'biru.png'){echo 'selected';} ?>>Biru</option>
+				<option value="ungu.png" <?php if($dataMapel['background_mapel'] == 'ungu.png'){echo 'selected';} ?>>Ungu</option>
+				<option value="orange.png" <?php if($dataMapel['background_mapel'] == 'orange.png'){echo 'selected';} ?>>Orange</option>
 			 </select>
 			<div class="alert-err">
 				<p>Gambar Tidak Boleh Kosong</p>
@@ -74,10 +81,11 @@
 	}
 
 	function addMapel(){
+		var id_mapel = document.getElementById('id_mapel');
 		var nama_mapel = document.getElementById('nama_mapel');
 		var id_guru = document.getElementById('id_guru');
 		var background_mapel = document.getElementById('background_mapel');
-		var data = "nama_mapel="+nama_mapel.value+"&id_guru="+id_guru.value+"&background_mapel="+background_mapel.value;
+		var data = "nama_mapel="+nama_mapel.value+"&id_guru="+id_guru.value+"&background_mapel="+background_mapel.value+"&id_mapel="+id_mapel.value;
 
 		if (nama_mapel.value == "") {
 			nama_mapel.parentNode.querySelectorAll('.alert-err')[0].style.opacity = '1';
@@ -99,7 +107,7 @@
 					}
 				}
 			}
-			xhr.open('POST', 'controller/addMapel_controller.php', true);
+			xhr.open('POST', 'controller/editMapel_controller.php', true);
 			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 			xhr.send(data);
 		}
@@ -121,6 +129,7 @@ function display_ct() {
 	var display_guru = document.getElementById('display-namaGuru');
 	start = display_c();
 	display_nama.innerHTML = nama_mapel.value;
+	display_guru.innerHTML = id_guru.options[id_guru.selectedIndex].textContent;
 	img_mapel.src = "images/kelas/"+background_mapel.value;
 
 }
