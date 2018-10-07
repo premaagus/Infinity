@@ -12,19 +12,10 @@
 			</div>
 		</div>
 		<div class="form-control-block">
-			<p>Nama Guru</p>
-			<select name="id_guru" id="id_guru">
-			<?php 
-				$queryGuru = $koneksi->query("SELECT * FROM tb_guru AS a INNER JOIN tb_user AS b on a.id_user = b.id_user");
-				while ($dataGuru = $queryGuru->fetch_assoc()) {
-					?>
-					<option value="<?php echo $dataGuru['id_guru'] ?>" view="<?php echo $dataGuru['profile_name'] ?>"><?php echo $dataGuru['profile_name'] ?></option>
-					<?php
-				}
-			 ?>
-			 </select>
+			<p>Jumlah Jam</p>
+			<input type="number" name="jumlah_jam" id="jumlah_jam" placeholder="Input Jumlah Jam Mata Pelajaran Disini..." required>
 			<div class="alert-err">
-				<p>Nama Guru Tidak Boleh Kosong</p>
+				<p>Nama Mata Pelajaran Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
 			</div>
 		</div>
@@ -75,33 +66,39 @@
 
 	function addMapel(){
 		var nama_mapel = document.getElementById('nama_mapel');
-		var id_guru = document.getElementById('id_guru');
+		var jumlah_jam = document.getElementById('jumlah_jam');
 		var background_mapel = document.getElementById('background_mapel');
-		var data = "nama_mapel="+nama_mapel.value+"&id_guru="+id_guru.value+"&background_mapel="+background_mapel.value;
+		var data = "nama_mapel="+nama_mapel.value+"&jumlah_jam="+jumlah_jam.value+"&background_mapel="+background_mapel.value;
 
 		if (nama_mapel.value == "") {
 			nama_mapel.parentNode.querySelectorAll('.alert-err')[0].style.opacity = '1';
 			nama_mapel.focus();
 		}
 		else{
-			var xhr = new XMLHttpRequest();
-			xhr.onreadystatechange = function(){
-				if (xhr.readyState == 4 && xhr.status == 200) {
-					console.log(xhr.responseText);
-					if (xhr.responseText == 'success') {
-						successAlert('Sukses', 'Berhasil Menambahkan Mapel');
-						document.addEventListener('click', function(){
-							location.href = 'index.php?menu=mapel';
-						});
-					}
-					else{
-						errorAlert('Error', 'Gagal Menambahkan Mapel');
+			if (jumlah_jam.value == "") {
+				nama_mapel.parentNode.querySelectorAll('.alert-err')[0].style.opacity = '1';
+				nama_mapel.focus();
+			}
+			else{
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function(){
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						console.log(xhr.responseText);
+						if (xhr.responseText == 'success') {
+							successAlert('Sukses', 'Berhasil Menambahkan Mapel');
+							document.addEventListener('click', function(){
+								location.href = 'index.php?menu=mapel';
+							});
+						}
+						else{
+							errorAlert('Error', 'Gagal Menambahkan Mapel');
+						}
 					}
 				}
+				xhr.open('POST', 'controller/addMapel_controller.php', true);
+				xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+				xhr.send(data);
 			}
-			xhr.open('POST', 'controller/addMapel_controller.php', true);
-			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-			xhr.send(data);
 		}
 	}
 </script>
@@ -114,7 +111,6 @@
 
 function display_ct() {
 	var nama_mapel = document.getElementById('nama_mapel');
-	var id_guru = document.getElementById('id_guru');
 	var background_mapel = document.getElementById('background_mapel');
 	var display_nama = document.getElementById('display-namaMapel');
 	var img_mapel = document.getElementById('img-mapel');

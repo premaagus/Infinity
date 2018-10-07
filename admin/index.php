@@ -2,9 +2,6 @@
 
 	require_once '../lib/config.php';
 
-	$tanggalLahir = $_SESSION['user']['tanggalLahir'];
-	$umur = date_diff(date_create("$tanggalLahir"), date_create('today'))->y;
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -59,10 +56,10 @@
 					<img src="../img/logo-branding-white.png">
 				</div>
 				<div class="picture-user">
-					<img src="images/profile/profile1.jpg">
+					<img src="../img/profile/<?php echo $_SESSION['user']['profile_img'] ?>">
 				</div>
-				<h2><?= $_SESSION['user']['username'] ?></h2>
-				<p><?= $umur ?> - <?= $_SESSION['user']['email'] ?></p>
+				<h2><?php echo $_SESSION['user']['profile_name'] ?></h2>
+				<p>Admin - <?php echo $_SESSION['user']['email'] ?></p>
 			</div>
 
 			<div class="menu d-flex f-col j-ctr">
@@ -97,8 +94,14 @@
 				<div class="container-menulist">
 					<div class="menu-list">
 						<a href="index.php?menu=kelas" class="<?php if($_GET['menu'] == 'kelas'){echo 'active';} ?>">
-							<i class="fas fa-chalkboard-teacher"></i>
+							<i class="fas fa-door-open"></i>
 							<h4>Kelas</h4>
+						</a>
+					</div>
+					<div class="menu-list">
+						<a href="index.php?menu=jadwal" class="<?php if($_GET['menu'] == 'jadwal'){echo 'active';} ?>">
+							<i class="fas fa-tasks"></i>
+							<h4>Jadwal</h4>
 						</a>
 					</div>
 				</div><!-- container-menulist -->
@@ -143,6 +146,7 @@
 			<?php
 		}
 	 ?>
+
 </script>
 </body>
 </html>

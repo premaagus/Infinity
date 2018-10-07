@@ -14,15 +14,16 @@
 
 		<div class="form-control">
 			<p>Nama Depan</p>
-			<input type="text" name="nama_depan" id="nama_depan" placeholder="Input Username Disini..." required>
+			<input type="text" name="nama_depan" id="nama_depan" placeholder="Input Nama Depan Disini..." required>
 			<div class="alert-err">
 				<p>Nama Depan Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
 			</div>
 		</div>
+
 		<div class="form-control">
 			<p>Nama Belakang</p>
-			<input type="text" name="nama_belakang" id="nama_belakang" placeholder="Input Password Disini..." required>
+			<input type="text" name="nama_belakang" id="nama_belakang" placeholder="Input Nama Belakang Disini..." required>
 			<div class="alert-err">
 				<p>Nama Belakang Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -31,35 +32,35 @@
 
 		<div class="form-control-block">
 			<p>Email</p>
-			<input type="text" name="email" id="email" placeholder="Input Nama Lengkap Disini..." required>
+			<input type="text" name="email" id="email" placeholder="Input Email Disini..." required>
 			<div class="alert-err">
 				<p>Email Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
 			</div>
 		</div>
 
-		<div class="form-control-block">
-			<p>Username</p>
-			<input type="text" name="username" id="username" placeholder="Input Nama Lengkap Disini..." required>
+		<div class="form-control">
+			<p>NIK</p>
+			<input type="number" name="nik" id="nik" placeholder="Input NIS Disini..." required>
 			<div class="alert-err">
-				<p>Username Tidak Boleh Kosong</p>
+				<p>NIS tidak Boleh Kosong</p>
 				<div class="point-err"></div>
 			</div>
 		</div>
 
 		<div class="form-control">
-			<p>Password</p>
-			<input type="password" name="password" id="password" placeholder="Input No Telepon Disini..." required>
-			<div class="alert-err">
-				<p>Password Tidak Boleh Kosong</p>
-				<div class="point-err"></div>
-			</div>
+			<p>Jenis Kelamin</p>
+			<select name="jenis_kelamin" id="jenis_kelamin">
+				<option value="Laki - Laki">Laki - Laki</option>
+				<option value="Perempuan">Perempuan</option>
+			</select>
 		</div>
-		<div class="form-control">
-			<p>Ulangi Password</p>
-			<input type="text" name="r_password" id="r_password" placeholder="Input Alamat Disini..." required>
+
+		<div class="form-control-block">
+			<p>Tempat Lahir</p>
+			<input type="text" name="tempat_lahir" id="tempat_lahir" placeholder="Input Tempat Lahir Disini..." required>
 			<div class="alert-err">
-				<p>Ulangi Password Anda</p>
+				<p>Tempat Lahir Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
 			</div>
 		</div>
@@ -72,9 +73,75 @@
 				<div class="point-err"></div>
 			</div>
 		</div>
+
+		<div class="form-control">
+			<p>Agama</p>
+			<select name="agama" id="agama">
+				<option value="Hindu">Hindu</option>
+				<option value="Islam">Islam</option>
+				<option value="Kristen KA">Kristen KA</option>
+				<option value="Kristen P">Kristen P</option>
+				<option value="Budha">Budha</option>
+				<option value="Kong Hu Cu">Kong Hu Cu</option>
+			</select>
+		</div>
+
+		<div class="form-control">
+			<p>Telepon</p>
+			<input type="number" name="telp" id="telp" placeholder="Input No Telepon Disini..." required>
+			<div class="alert-err">
+				<p>No Telepon Tidak Boleh Kosong</p>
+				<div class="point-err"></div>
+			</div>
+		</div>
+
+		<div class="form-control-block">
+			<p>Alamat</p>
+			<input type="text" name="alamat" id="alamat" placeholder="Input Alamat Disini..." required>
+			<div class="alert-err">
+				<p>Alamat Tidak Boleh Kosong</p>
+				<div class="point-err"></div>
+			</div>
+		</div>
+
+		<div class="form-control-block">
+			<p>Bidang Ilmu</p>
+			<input type="text" name="bidang_ilmu" id="bidang_ilmu" placeholder="Input Bidang Ilmu..." required>
+			<div class="alert-err">
+				<p>Jurusan Tidak Boleh Kosong</p>
+				<div class="point-err"></div>
+			</div>
+		</div>
+
+		<div class="form-control-block">
+			<p>Username</p>
+			<input type="text" name="username" id="username" placeholder="Input Username Disini..." required>
+			<div class="alert-err">
+				<p>Username Tidak Boleh Kosong</p>
+				<div class="point-err"></div>
+			</div>
+		</div>
+
+		<div class="form-control">
+			<p>Password</p>
+			<input type="password" name="password" id="password" placeholder="Input Password Disini..." required>
+			<div class="alert-err">
+				<p>Password Tidak Boleh Kosong</p>
+				<div class="point-err"></div>
+			</div>
+		</div>
+		<div class="form-control">
+			<p>Ulangi Password</p>
+			<input type="password" name="r_password" id="r_password" placeholder="Input Password Disini..." required>
+			<div class="alert-err">
+				<p>Ulangi Password Anda</p>
+				<div class="point-err"></div>
+			</div>
+		</div>
+
 		<div class="form-control-block">
 			<p>Foto Profil</p>
-			<input type="file" name="profile_img" id="profile_img" placeholder="Input E-mail Disini..." required>
+			<input type="file" name="profile_img" id="profile_img" required>
 		</div>
 	</div>
 	<div class="btn-add">
@@ -85,15 +152,6 @@
 
 <script>
 	var input = document.querySelectorAll('input');
-	var namaLengkap = document.getElementById('nama_lengkap');
-	var namaDepan = document.getElementById('nama_depan');
-	var namaBelakang = document.getElementById('nama_belakang');
-	var email = document.getElementById('email');
-	var	username = document.getElementById('username');
-	var password = document.getElementById('password');
-	var rPassword = document.getElementById('r_password');
-	var tanggalLahir = document.getElementById('tanggal_lahir');
-	var profileImg = document.getElementById('profile_img');
 	for (var i = 0; i < input.length; i++){
 		input[i].addEventListener('keyup', function(){
 			if (this.value == "") {
@@ -119,6 +177,13 @@
 		$id_level 			= '3';
 		$profile_img_name 	= $_FILES['profile_img']['name'];
 		$tmp_profile	 	= $_FILES['profile_img']['tmp_name'];
+		$nik 				= $_POST['nik'];
+		$jenis_kelamin 		= $_POST['jenis_kelamin'];
+		$tempat_lahir 		= $_POST['tempat_lahir'];
+		$agama 				= $_POST['agama'];
+		$telp 				= $_POST['telp'];
+		$alamat 			= $_POST['alamat'];
+		$bidang_ilmu 		= $_POST['bidang_ilmu'];
 
 
 		// Validasi Email
@@ -170,7 +235,7 @@
 
 					// add user
 					$passwordHash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-					$queryAddUser = $koneksi->query("INSERT INTO tb_user VALUES (NULL, '$username', '$email', '$passwordHash', '$nama_lengkap', '$tanggal_lahir', '$namaBaru', '$profile_name', $id_level)");
+					$queryAddUser = $koneksi->query("INSERT INTO tb_user VALUES (NULL, '$username', '$email', '$passwordHash', '$namaBaru', '$profile_name', $id_level)");
 
 
 					if ($queryAddUser) {
@@ -180,7 +245,7 @@
 						$dataId = $queryCheckId->fetch_assoc();
 						$id_user = $dataId['id_user'];
 
-						$queryAddGuru = $koneksi->query("INSERT INTO tb_guru VALUES (NULL, $id_user) ");
+						$queryAddGuru = $koneksi->query("INSERT INTO tb_guru VALUES (NULL, $id_user, '$nama_lengkap', '$nik', '$jenis_kelamin', '$tempat_lahir', '$tanggal_lahir', '$agama', '$telp', '$alamat', '$bidang_ilmu') ");
 						if ($queryAddGuru) {
 							?>
 							<script>

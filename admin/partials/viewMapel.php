@@ -8,17 +8,13 @@
 <div class="container-pelajaran d-flex fd-row f-row j-str i-ard">
 
 	<?php 
-		$queryMapel = $koneksi->query("SELECT * FROM tb_mapel AS a INNER JOIN tb_guru AS b ON a.id_guru = b.id_guru");
+		$queryMapel = $koneksi->query("SELECT * FROM tb_mapel");
 		while ($dataMapel = $queryMapel->fetch_assoc()) {
-			$id_user = $dataMapel['id_user'];
-			$queryUser = $koneksi->query("SELECT * FROM tb_user WHERE id_user = $id_user");
-			$dataUser = $queryUser->fetch_assoc();
 			?>
 			<div class="card-pelajaran">
 				<a href="index.php?menu=mapel&id=<?php echo $dataMapel['id_mapel'] ?>">
 					<img src="images/kelas/<?php echo $dataMapel['background_mapel'] ?>">
 					<h3><?php echo $dataMapel['nama_mapel'] ?></h3>
-					<h4><?php echo $dataUser['profile_name'] ?></h4>
 				</a>
 				<div class="preference">
 					<i class="fas fa-ellipsis-v"></i>

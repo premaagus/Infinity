@@ -12,23 +12,22 @@
 
 	if ($queryCheck->num_rows > 0) {
 		$dataUser 		= $queryCheck->fetch_assoc();
-		$idUser 		= $dataUser['id_user'];
+		$id_user 		= $dataUser['id_user'];
 		$username 		= $dataUser['username'];
 		$passwordDb 	= $dataUser['password'];
 		$email 			= $dataUser['email'];
-		$tanggalLahir 	= $dataUser['tanggal_lahir'];
-		$namaLengkap 	= $dataUser['nama_lengkap'];
+		$profile_name	= $dataUser['profile_name'];
+		$profile_img	= $dataUser['profile_img'];
 		$level			= $dataUser['id_level'];
+
+		$_SESSION['user']['id_user'] 		= $id_user;
+		$_SESSION['user']['email'] 			= $email;
+		$_SESSION['user']['profile_name'] 	= $profile_name;
+		$_SESSION['user']['profile_img'] 	= $profile_img;
+		$_SESSION['user']['level'] 			= $level;
 
 
 		if (password_verify($password, $passwordDb)) {
-			$_SESSION['user']['idUser'] 		= $idUser;
-			$_SESSION['user']['username']		= $username;
-			$_SESSION['user']['email'] 			= $email;
-			$_SESSION['user']['tanggalLahir'] 	= $tanggalLahir;
-			$_SESSION['user']['level'] 			= $level;
-			$_SESSION['user']['namaLengkap'] 	= $namaLengkap;
-
 			if ($level == 1) {
 				echo "1";
 			}
@@ -36,6 +35,11 @@
 				echo "2";
 			}
 			else if ($level == 3) {
+				$_SESSION['user']['id_user'] 		= $id_user;
+				$_SESSION['user']['email'] 			= $email;
+				$_SESSION['user']['profile_name'] 	= $profile_name;
+				$_SESSION['user']['profile_img'] 	= $profile_img;
+				$_SESSION['user']['id_level'] 		= $id_level;
 				echo "3";
 			}
 		}

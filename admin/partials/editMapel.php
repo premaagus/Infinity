@@ -18,23 +18,16 @@
 				<div class="point-err"></div>
 			</div>
 		</div>
+
 		<div class="form-control-block">
-			<p>Nama Guru</p>
-			<select name="id_guru" id="id_guru">
-			<?php 
-				$queryGuru = $koneksi->query("SELECT * FROM tb_guru AS a INNER JOIN tb_user AS b on a.id_user = b.id_user");
-				while ($dataGuru = $queryGuru->fetch_assoc()) {
-					?>
-					<option value="<?php echo $dataGuru['id_guru'] ?>" <?php if($dataMapel['id_guru'] == $dataGuru['id_guru']){echo 'selected';} ?>><?php echo $dataGuru['profile_name'] ?></option>
-					<?php
-				}
-			 ?>
-			 </select>
+			<p>Jumlah jam</p>
+			<input type="number" name="jumlah_jam" id="jumlah_jam" placeholder="Input Jumlah jam Mata Pelajaran Disini..." required value="<?php echo $dataMapel['jumlah_jam'] ?>">
 			<div class="alert-err">
-				<p>Nama Guru Tidak Boleh Kosong</p>
+				<p>Nama Mata Pelajaran Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
 			</div>
 		</div>
+
 		<div class="form-control-block">
 			<p>Background</p>
 			<select name="background_mapel" id="background_mapel">
@@ -83,9 +76,9 @@
 	function addMapel(){
 		var id_mapel = document.getElementById('id_mapel');
 		var nama_mapel = document.getElementById('nama_mapel');
-		var id_guru = document.getElementById('id_guru');
+		var jumlah_jam = document.getElementById('jumlah_jam');
 		var background_mapel = document.getElementById('background_mapel');
-		var data = "nama_mapel="+nama_mapel.value+"&id_guru="+id_guru.value+"&background_mapel="+background_mapel.value+"&id_mapel="+id_mapel.value;
+		var data = "nama_mapel="+nama_mapel.value+"&jumlah_jam="+jumlah_jam.value+"&background_mapel="+background_mapel.value+"&id_mapel="+id_mapel.value;
 
 		if (nama_mapel.value == "") {
 			nama_mapel.parentNode.querySelectorAll('.alert-err')[0].style.opacity = '1';
@@ -97,7 +90,7 @@
 				if (xhr.readyState == 4 && xhr.status == 200) {
 					console.log(xhr.responseText);
 					if (xhr.responseText == 'success') {
-						successAlert('Sukses', 'Berhasil Menambahkan Mapel');
+						successAlert('Sukses', 'Berhasil Mengedit Mapel');
 						document.addEventListener('click', function(){
 							location.href = 'index.php?menu=mapel';
 						});
@@ -122,14 +115,12 @@
 
 function display_ct() {
 	var nama_mapel = document.getElementById('nama_mapel');
-	var id_guru = document.getElementById('id_guru');
 	var background_mapel = document.getElementById('background_mapel');
 	var display_nama = document.getElementById('display-namaMapel');
 	var img_mapel = document.getElementById('img-mapel');
 	var display_guru = document.getElementById('display-namaGuru');
 	start = display_c();
 	display_nama.innerHTML = nama_mapel.value;
-	display_guru.innerHTML = id_guru.options[id_guru.selectedIndex].textContent;
 	img_mapel.src = "images/kelas/"+background_mapel.value;
 
 }

@@ -54,4 +54,8 @@
 		require_once 'partials/addKelas.php';
 	}
 
+	//Jadwal
+	else if ($_GET['menu'] == "jadwal" && !isset($_GET['action'])) {
+		require_once 'partials/viewjadwal.php';
+	}
  ?>
