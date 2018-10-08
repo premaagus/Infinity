@@ -61,5 +61,11 @@
 	else if ($_GET['menu'] == 'jadwal' && $_GET['action'] == 'add') {
 		require_once 'partials/addJadwal.php';
 	}
+	else if ($_GET['menu'] == 'jadwal' && $_GET['action'] == 'edit' && isset($_GET['id'])) {
+		require_once 'partials/editJadwal.php';
+	}
+	else if ($_GET['menu'] == 'jadwal' && $_GET['action'] == 'delete' && isset($_GET['id'])) {
+		require_once 'partials/deleteJadwal.php';
+	}
 
  ?>

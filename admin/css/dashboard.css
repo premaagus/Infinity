@@ -759,6 +759,7 @@ body{
 
 .table-control table tr td{
 	padding: 15px 5px;
+	text-transform: capitalize;
 }
 
 .table-control table tr:nth-child(odd){
@@ -766,4 +767,39 @@ body{
 }
 .table-control table tr:nth-child(even){
 	background: #FFF;
+}
+
+.btn-edit{
+	width: 75px;
+	height: 30px;
+	background: #575fcf;
+	margin: auto;
+	margin-bottom: 5px;
+	border-radius: 5px;
+}
+
+.btn-edit a{
+	line-height: 30px;
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+	float: left;
+	color: white;
+}
+
+.btn-delete{
+	width: 75px;
+	height: 30px;
+	background: #ff3f34;
+	border-radius: 5px;
+	margin: auto;
+}
+
+.btn-delete a{
+	line-height: 30px;
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+	float: left;
+	color: white;
 }

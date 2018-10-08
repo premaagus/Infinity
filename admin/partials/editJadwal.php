@@ -1,6 +1,13 @@
+<?php 
+	$id_jadwal = $_GET['id'];
+	$queryJadwal = $koneksi->query("SELECT * FROM tb_jadwal WHERE id_jadwal = $id_jadwal");
+	$datajadwal = $queryJadwal->fetch_assoc();
+ ?>
+
 <h1>Tambah Data</h1>
 <hr>
 <form action="" method="POST" onsubmit="return false">
+	<input type="hidden" id="id_jadwal" value="<?php echo $id_jadwal ?>">
 	<div class="container1 d-flex f-row">
 
 		<div class="form-control-block">
@@ -10,7 +17,7 @@
 					$queryMapel = $koneksi->query("SELECT * FROM tb_mapel");
 					while ($dataMapel = $queryMapel->fetch_assoc()) {
 						?>
-						<option value="<?php echo $dataMapel['id_mapel'] ?>"><?php echo $dataMapel['nama_mapel']; ?></option>
+						<option value="<?php echo $dataMapel['id_mapel'] ?>" <?php if($dataMapel['id_mapel'] == $datajadwal['id_mapel']){echo 'selected';} ?> ><?php echo $dataMapel['nama_mapel']; ?></option>
 						<?php
 					}
 				 ?>
@@ -23,7 +30,7 @@
 					$queryGuru = $koneksi->query("SELECT * FROM tb_guru AS a INNER JOIN tb_user AS b ON a.id_user = b.id_user");
 					while ($dataGuru = $queryGuru->fetch_assoc()) {
 						?>
-						<option value="<?php echo $dataGuru['id_guru'] ?>"><?php echo $dataGuru['profile_name'] ?></option>
+						<option value="<?php echo $dataGuru['id_guru'] ?>"  <?php if($dataGuru['id_guru'] == $datajadwal['id_guru']){echo 'selected';} ?>><?php echo $dataGuru['profile_name'] ?></option>
 						<?php
 					}
 				 ?>
@@ -33,18 +40,18 @@
 		<div class="form-control-block">
 			<p>Hari</p>
 			<select name="hari" id="hari">
-				<option value="senin">Senin</option>
-				<option value="selasa">Selasa</option>
-				<option value="rabu">Rabu</option>
-				<option value="kamis">Kamis</option>
-				<option value="jumat">Jumat</option>
-				<option value="sabtu">Sabtu</option>
+				<option value="senin" <?php if($datajadwal['hari'] == 'senin'){echo 'selected';} ?>>Senin</option>
+				<option value="selasa" <?php if($datajadwal['hari'] == 'selasa'){echo 'selected';} ?>>Selasa</option>
+				<option value="rabu" <?php if($datajadwal['hari'] == 'rabu'){echo 'selected';} ?>>Rabu</option>
+				<option value="kamis" <?php if($datajadwal['hari'] == 'kamis'){echo 'selected';} ?>>Kamis</option>
+				<option value="jumat" <?php if($datajadwal['hari'] == 'jumat'){echo 'selected';} ?>>Jumat</option>
+				<option value="sabtu" <?php if($datajadwal['hari'] == 'sabtu'){echo 'selected';} ?>>Sabtu</option>
 			</select>
 		</div>
 
 		<div class="form-control">
 			<p>Jam mulai</p>
-			<input type="time" name="jam_mulai" id="jam_mulai" required>
+			<input type="time" name="jam_mulai" id="jam_mulai" required value="<?php echo $datajadwal['jam_mulai'] ?>">
 			<div class="alert-err">
 				<p>Jam Mulai Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -53,7 +60,7 @@
 
 		<div class="form-control">
 			<p>Jam Selesai</p>
-			<input type="time" name="jam_selesai" id="jam_selesai" required>
+			<input type="time" name="jam_selesai" id="jam_selesai" required value="<?php echo $datajadwal['jam_selesai'] ?>">
 			<div class="alert-err">
 				<p>Jam Selesai Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -67,7 +74,7 @@
 					$queryKelas = $koneksi->query("SELECT * FROM tb_kelas");
 					while ($dataKelas = $queryKelas->fetch_assoc()) {
 						?>
-						<option value="<?php echo $dataKelas['id_kelas'] ?>"><?php echo $dataKelas['nama_kelas'] ?></option>
+						<option value="<?php echo $dataKelas['id_kelas'] ?>" <?php if($datajadwal['id_kelas'] == $dataKelas['id_kelas']){echo 'selected';} ?>><?php echo $dataKelas['nama_kelas'] ?></option>
 						<?php
 					}
 				 ?>
@@ -76,7 +83,7 @@
 
 		<div class="form-control-block">
 			<p>Tahun Ajaran</p>
-			<input type="number" name="tahun_ajaran" id="tahun_ajaran" placeholder="Input Tahun Ajaran disini...">
+			<input type="number" name="tahun_ajaran" id="tahun_ajaran" placeholder="Input Tahun Ajaran disini..." value="<?php echo $datajadwal['tahun_ajaran'] ?>">
 			<div class="alert-err">
 				<p>Tahun Ajaran tidak boleh kosong</p>
 				<div class="point-err"></div>
@@ -99,6 +106,7 @@
 	var	jam_selesai 	= document.getElementById('jam_selesai');
 	var id_kelas 		= document.getElementById('id_kelas');
 	var tahun_ajaran 	= document.getElementById('tahun_ajaran');
+	var id_jadwal		= document.getElementById('id_jadwal');
 	var input 			= document.querySelectorAll('input');
 
 
@@ -132,22 +140,22 @@
 				else{
 					tahun_ajaran.parentNode.querySelectorAll('.alert-err')[0].style.opacity = '0';
 					var xhr 	= new XMLHttpRequest();
-					var data 	= "id_mapel="+id_mapel.value+"&id_guru="+id_guru.value+"&hari="+hari.value+"&jam_mulai="+jam_mulai.value+"&jam_selesai="+jam_selesai.value+"&id_kelas="+id_kelas.value+"&tahun_ajaran="+tahun_ajaran.value;
+					var data 	= "id_mapel="+id_mapel.value+"&id_guru="+id_guru.value+"&hari="+hari.value+"&jam_mulai="+jam_mulai.value+"&jam_selesai="+jam_selesai.value+"&id_kelas="+id_kelas.value+"&tahun_ajaran="+tahun_ajaran.value+"&id_jadwal="+id_jadwal.value;
 
 					xhr.onreadystatechange = function(){
 						if (xhr.readyState == 4 && xhr.status == 200) {
 							if (xhr.responseText == 'success') {
-								successAlert("Berhasil", "Jadwal telah ditambahkan");
+								successAlert("Berhasil", "Jadwal Berhasil diperbaharui");
 								document.addEventListener('click', function(){
 									location.href = 'index.php?menu=jadwal';
 								});
 							}
 							else{
-								errorAlert("Gagal", "Jadwal gagal ditambahkan");
+								errorAlert("Gagal", "Jadwal gagal diperbaharui");
 							}
 						}
 					}
-					xhr.open("POST", "controller/addJadwal_controller.php", true);
+					xhr.open("POST", "controller/editJadwal_controller.php", true);
 					xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 					xhr.send(data);
 				}

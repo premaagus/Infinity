@@ -65,10 +65,10 @@
 	}
 
 	function addMapel(){
-		var nama_mapel = document.getElementById('nama_mapel');
-		var jumlah_jam = document.getElementById('jumlah_jam');
-		var background_mapel = document.getElementById('background_mapel');
-		var data = "nama_mapel="+nama_mapel.value+"&jumlah_jam="+jumlah_jam.value+"&background_mapel="+background_mapel.value;
+		var nama_mapel 			= document.getElementById('nama_mapel');
+		var jumlah_jam 			= document.getElementById('jumlah_jam');
+		var background_mapel 	= document.getElementById('background_mapel');
+		var data 				= "nama_mapel="+nama_mapel.value+"&jumlah_jam="+jumlah_jam.value+"&background_mapel="+background_mapel.value;
 
 		if (nama_mapel.value == "") {
 			nama_mapel.parentNode.querySelectorAll('.alert-err')[0].style.opacity = '1';
@@ -110,11 +110,11 @@
 }
 
 function display_ct() {
-	var nama_mapel = document.getElementById('nama_mapel');
-	var background_mapel = document.getElementById('background_mapel');
-	var display_nama = document.getElementById('display-namaMapel');
-	var img_mapel = document.getElementById('img-mapel');
-	var display_guru = document.getElementById('display-namaGuru');
+	var nama_mapel 			= document.getElementById('nama_mapel');
+	var background_mapel 	= document.getElementById('background_mapel');
+	var display_nama 		= document.getElementById('display-namaMapel');
+	var img_mapel 			= document.getElementById('img-mapel');
+	var display_guru 		= document.getElementById('display-namaGuru');
 	start = display_c();
 	display_nama.innerHTML = nama_mapel.value;
 	img_mapel.src = "images/kelas/"+background_mapel.value;
