@@ -9,7 +9,7 @@
 <div class="container-siswa d-flex fd-row f-row">
 	
 	<?php 
-		$querySiswa = $koneksi->query("SELECT * FROM tb_user AS a INNER JOIN tb_siswa AS b ON a.id_user = a.id_user WHERE id_level = 2");
+		$querySiswa = $koneksi->query("SELECT * FROM tb_siswa AS a INNER JOIN tb_user AS b ON a.id_user = b.id_user");
 		while ($dataSiswa = $querySiswa->fetch_assoc()) {
 			$tanggalLahir = $dataSiswa['tanggal_lahir'];
 			$umur = date_diff(date_create("$tanggalLahir"), date_create('today'))->y;

@@ -58,4 +58,8 @@
 	else if ($_GET['menu'] == "jadwal" && !isset($_GET['action'])) {
 		require_once 'partials/viewjadwal.php';
 	}
+	else if ($_GET['menu'] == 'jadwal' && $_GET['action'] == 'add') {
+		require_once 'partials/addJadwal.php';
+	}
+
  ?>

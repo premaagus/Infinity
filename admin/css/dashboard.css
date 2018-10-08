@@ -737,3 +737,33 @@ body{
 .container-preference ul li a:hover{
 	background: #E5E5E5;
 }
+
+.table-control{
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.table-control table{
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.table-control table tr th{
+	padding: 15px 5px;
+	background: #F60070;
+	color: white;
+	letter-spacing: 1px;
+	font-family: sf-t;
+}
+
+.table-control table tr td{
+	padding: 15px 5px;
+}
+
+.table-control table tr:nth-child(odd){
+	background: #EDEDED;
+}
+.table-control table tr:nth-child(even){
+	background: #FFF;
+}
