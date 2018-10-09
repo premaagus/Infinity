@@ -3,7 +3,7 @@
 <hr>
 <div class="container-detailMapel d-flex fd-row f-row j-ctr">
 	<div class="card-detailMapel">
-		<a href="#">
+		<a href="index.php?menu=mapel&id=<?php echo $_GET['id'] ?>&view=materi">
 			<img src="../img/pattern/pattern1.png">
 			<h3>Materi</h3>
 		</a>

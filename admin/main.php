@@ -33,7 +33,10 @@
 	else if ($_GET['menu'] == "mapel" && !isset($_GET['action']) && !isset($_GET['id'])) {
 		require_once 'partials/viewMapel.php';
 	}
-	else if ($_GET['menu'] == "mapel" && isset($_GET['id']) && !isset($_GET['action'])) {
+	else if ($_GET['menu'] == "mapel" && isset($_GET['id']) && $_GET['view'] == 'materi') {
+		require_once 'partials/viewMateri.php';
+	}
+	else if ($_GET['menu'] == "mapel" && isset($_GET['id']) && !isset($_GET['action']) && !isset($_GET['view'])) {
 		require_once 'partials/detailMapel.php';
 	}
 	else if ($_GET['menu'] == 'mapel' && $_GET['action'] == 'add') {
@@ -45,6 +48,7 @@
 	else if ($_GET['menu'] == 'mapel' && $_GET['action'] == 'delete' && isset($_GET['id'])) {
 		require_once 'partials/deleteMapel.php';
 	}
+
 
 	//kelas
 	else if ($_GET['menu'] == "kelas" && !isset($_GET['action'])) {
