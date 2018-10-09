@@ -2,7 +2,7 @@
 	$id_user = $_GET['id_user'];
 	$queryUser = $koneksi->query("SELECT * FROM tb_user AS a INNER JOIN tb_siswa AS b ON a.id_user = b.id_user WHERE a.id_user = $id_user");
 	$dataUser =  $queryUser->fetch_assoc();
-	$nama_depan = explode(" ", $dataUser[])
+	$profile_name = explode(" ", $dataUser['profile_name']);
  ?>
 
 <h1>Tambah Data</h1>
@@ -21,7 +21,7 @@
 
 		<div class="form-control">
 			<p>Nama Depan</p>
-			<input type="text" name="nama_depan" id="nama_depan" placeholder="Input Nama Depan Disini..." required>
+			<input type="text" name="nama_depan" id="nama_depan" placeholder="Input Nama Depan Disini..." required value="<?php echo $profile_name[0] ?>">
 			<div class="alert-err">
 				<p>Nama Depan Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -30,7 +30,7 @@
 
 		<div class="form-control">
 			<p>Nama Belakang</p>
-			<input type="text" name="nama_belakang" id="nama_belakang" placeholder="Input Nama Belakang Disini..." required>
+			<input type="text" name="nama_belakang" id="nama_belakang" placeholder="Input Nama Belakang Disini..." required value="<?php echo $profile_name[1] ?>">
 			<div class="alert-err">
 				<p>Nama Belakang Tidak Boleh Kosong</p>
 				<div class="point-err"></div>

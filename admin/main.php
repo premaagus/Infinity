@@ -42,7 +42,7 @@
 	else if ($_GET['menu'] == "mapel" && isset($_GET['id']) && $_GET['view'] == 'materi') {
 		require_once 'partials/viewMateri.php';
 	}
-	else if ($_GET['menu'] == "mapel" && isset($_GET['id']) && $_GET['view'] == 'materi') {
+	else if ($_GET['menu'] == "mapel" && isset($_GET['id']) && $_GET['view'] == 'tugas') {
 		require_once 'partials/viewTugas.php';
 	}
 	else if ($_GET['menu'] == 'mapel' && $_GET['action'] == 'add') {
