@@ -26,7 +26,7 @@
 					<p><?php echo $umur ?> | <?php echo $dataSiswa['email'] ?></p>
 				</div><!-- profil -->
 				<div class="action d-flex f-row fd-row j-ctr">
-					<div class="btn-blue"><a href="#">Ubah</a></div>
+					<div class="btn-blue"><a href="index.php?menu=siswa&action=edit&id_user=<?php echo $dataSiswa['id_user'] ?>">Ubah</a></div>
 					<div class="btn-red"><a href="index.php?menu=siswa&action=delete&id_user=<?php echo $dataSiswa['id_user'] ?>">Hapus</a></div>
 				</div><!-- action -->
 			</div><!-- card-siswa -->

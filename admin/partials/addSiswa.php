@@ -141,7 +141,7 @@
 
 		<div class="form-control-block">
 			<p>Foto Profil</p>
-			<input type="file" name="profile_img" id="profile_img" required>
+			<input type="file" name="profile_img" id="profile_img">
 		</div>
 		<div class="form-control-block">
 			<p>Kelas</p>
@@ -235,23 +235,32 @@
 					<?php
 				}
 				else{
-					//cek gambar
-					$extensiGambarValid = ['jpg', 'jpeg', 'png', 'gif'];
-					$extensiGambar = explode('.', $profile_img_name);
-					$extensiGambar = strtolower(end($extensiGambar));
-					if (!in_array($extensiGambar, $extensiGambarValid)) {
-						?>
-						<script>
-							errorAlert("Error", "Yang Anda Upload Bukan Gambar");
-						</script>
-						<?php
-						die();
+					function upload(){
+						//cek gambar
+						$extensiGambarValid = ['jpg', 'jpeg', 'png', 'gif'];
+						$extensiGambar = explode('.', $profile_img_name);
+						$extensiGambar = strtolower(end($extensiGambar));
+						if (!in_array($extensiGambar, $extensiGambarValid)) {
+							?>
+							<script>
+								errorAlert("Error", "Yang Anda Upload Bukan Gambar");
+							</script>
+							<?php
+							die();
+						}
+
+						//Verified image
+						$namaBaru = uniqid();
+						$namaBaru .= ".".$extensiGambar;
+						move_uploaded_file($tmp_profile, "../img/profile/$namaBaru");
 					}
 
-					//Verified image
-					$namaBaru = uniqid();
-					$namaBaru .= ".".$extensiGambar;
-					move_uploaded_file($tmp_profile, "../img/profile/$namaBaru");
+					if ($_FILES['profile_img']['error'] == 4) {
+						$namaBaru = 'profile.png';
+					}
+					else{
+						upload();
+					}
 
 					$passwordHash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
 					$queryAddUser = $koneksi->query("INSERT INTO tb_user VALUES (NULL, '$username', '$email', '$passwordHash', '$namaBaru', '$profile_name', 2)");
