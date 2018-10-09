@@ -17,6 +17,9 @@
 	else if ($_GET['menu'] == 'siswa' && $_GET['action'] == 'delete' && isset($_GET['id_user'])) {
 		require_once 'partials/deleteSiswa.php';
 	}
+	else if ($_GET['menu'] == 'siswa' && $_GET['action'] == 'edit' && isset($_GET['id_user'])) {
+		require_once 'partials/editSiswa.php';
+	}
 
 	// Guru
 	else if ($_GET['menu'] == "guru" && !isset($_GET['action'])) {
@@ -38,6 +41,9 @@
 	}
 	else if ($_GET['menu'] == "mapel" && isset($_GET['id']) && $_GET['view'] == 'materi') {
 		require_once 'partials/viewMateri.php';
+	}
+	else if ($_GET['menu'] == "mapel" && isset($_GET['id']) && $_GET['view'] == 'materi') {
+		require_once 'partials/viewTugas.php';
 	}
 	else if ($_GET['menu'] == 'mapel' && $_GET['action'] == 'add') {
 		require_once 'partials/addMapel.php';

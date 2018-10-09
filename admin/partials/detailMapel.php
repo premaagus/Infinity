@@ -9,7 +9,7 @@
 		</a>
 	</div><!-- card-detailMapel -->
 	<div class="card-detailMapel">
-		<a href="#">
+		<a href="index.php?menu=mapel&id=<?php echo $_GET['id'] ?>&view=tugas">
 			<img src="../img/pattern/pattern2.png">
 			<h3>Tugas</h3>
 		</a>
