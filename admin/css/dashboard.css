@@ -124,7 +124,6 @@ body{
 	background: white;
 	margin-top: 35px;
 	overflow: hidden;
-
 }
 
 .picture-user img{
@@ -802,4 +801,14 @@ body{
 	height: 100%;
 	float: left;
 	color: white;
+}
+.container-materi{
+	width: 100%;
+	height: max-content;
+	background-color: #FCFCFC;
+}
+.container-materi table{
+	width: 100%;
+	border-collapse: collapse;
+	background-color: red;
 }
