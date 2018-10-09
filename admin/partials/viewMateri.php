@@ -12,7 +12,7 @@
 			<th>No</th>
 			<th>Nama Materi</th>
 			<th>Deskripsi Materi</th>
-			<th>File</th>
+			<th>File Materi</th>
 		</tr>
 		<?php 
 
@@ -43,6 +43,14 @@
 					<td><?php echo $dataMapel['nama_mapel'] ?></td>
 					<td><?php echo $dataGuru['profile_name'] ?></td>
 					<td><?php echo $dataJadwal['hari'] ?></td>
+					<td><?php echo date("H:i", strtotime("$jam_mulai")); ?></td>
+					<td><?php echo date("H:i", strtotime("$jam_selesai")); ?></td>
+					<td><?php echo $dataKelas['nama_kelas'] ?></td>
+					<td><?php echo $dataJadwal['tahun_ajaran'] ?></td>
+					<td>
+						<div class="btn-edit"><a href="?menu=jadwal&action=edit&id=<?= $dataJadwal['id_jadwal'] ?>">Edit</a></div>
+						<div class="btn-delete"><a href="?menu=jadwal&action=delete&id=<?= $dataJadwal['id_jadwal'] ?>">Delete</a></div>
+					</td>
 				</tr>
 				<?php
 				$no++;
