@@ -136,10 +136,17 @@
 
 					xhr.onreadystatechange = function(){
 						if (xhr.readyState == 4 && xhr.status == 200) {
+							console.log(xhr.responseText);
 							if (xhr.responseText == 'success') {
 								successAlert("Berhasil", "Jadwal telah ditambahkan");
 								document.addEventListener('click', function(){
 									location.href = 'index.php?menu=jadwal';
+								});
+							}
+							else if (xhr.responseText == 'jam') {
+								errorAlert("Error", "Data jam tidak valid");
+								document.addEventListener('click', function(){
+									jam_mulai.focus();
 								});
 							}
 							else{

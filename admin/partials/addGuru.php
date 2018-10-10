@@ -106,7 +106,16 @@
 
 		<div class="form-control-block">
 			<p>Bidang Ilmu</p>
-			<input type="text" name="bidang_ilmu" id="bidang_ilmu" placeholder="Input Bidang Ilmu..." required>
+			<select name="bidang_ilmu" id="bidang_ilmu">
+				<?php 
+					$queryMapel = $koneksi->query("SELECT * FROM tb_mapel");
+					while ($dataMapel = $queryMapel->fetch_assoc()) {
+						?>
+						<option value="<?php echo $dataMapel['nama_mapel'] ?>"><?php echo $dataMapel['nama_mapel'] ?></option>
+						<?php
+					}
+				 ?>
+			</select>
 			<div class="alert-err">
 				<p>Jurusan Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -141,7 +150,7 @@
 
 		<div class="form-control-block">
 			<p>Foto Profil</p>
-			<input type="file" name="profile_img" id="profile_img" required>
+			<input type="file" name="profile_img" id="profile_img">
 		</div>
 	</div>
 	<div class="btn-add">

@@ -1,5 +1,4 @@
 <?php 
-
 	require_once '../../lib/config.php';
 
 	$id_mapel 		= $_POST['id_mapel'];
@@ -10,13 +9,18 @@
 	$id_kelas 		= $_POST['id_kelas'];
 	$tahun_ajaran 	= $_POST['tahun_ajaran'];
 
-	$queryAdd = $koneksi->query("INSERT INTO tb_jadwal VALUES (NULL, $id_mapel, $id_guru, '$hari', '$jam_mulai', '$jam_selesai', $id_kelas, $tahun_ajaran) ");
-
-	if ($queryAdd) {
-		echo "success";
+	if ($jam_selesai < $jam_mulai) {
+		echo "jam";
 	}
 	else{
-		echo "error";
+		$queryAdd = $koneksi->query("INSERT INTO tb_jadwal VALUES (NULL, $id_mapel, $id_guru, '$hari', '$jam_mulai', '$jam_selesai', $id_kelas, $tahun_ajaran) ");
+
+		if ($queryAdd) {
+			echo "success";
+		}
+		else{
+			echo "error";
+		}
 	}
 
  ?>
