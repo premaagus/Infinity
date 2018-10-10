@@ -43,8 +43,8 @@
 		
 		<div class="navbar d-flex j-end">
 			<ul>
-				<li><a href="#">Siswa</a></li>
-				<li><a href="#">Guru</a></li>
+				<li><a href="index.php?menu=showAllSiswa">Siswa</a></li>
+				<li><a href="index.php?menu=showAllGuru">Guru</a></li>
 				<li><a href="#">Mata Pelajaran</a></li>
 				<li class="btn-logout"><a href="logout.php">LogOut</a></li>
 			</ul>

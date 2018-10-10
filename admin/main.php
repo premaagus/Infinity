@@ -78,4 +78,18 @@
 		require_once 'partials/deleteJadwal.php';
 	}
 
+	//All Siswa 
+	else if($_GET['menu'] == 'showAllSiswa'){
+		require_once 'partials/showAllSiswa.php';
+	}
+
+	//Profil Siswa
+	else if($_GET['menu'] == 'profileSiswa'){
+		require_once 'partials/profileSiswa.php';
+	}
+
+	//All Guru
+	else if($_GET['menu'] == 'showAllGuru'){
+		require_once 'partials/showAllGuru.php';
+	}
  ?>
