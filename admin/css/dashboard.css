@@ -564,6 +564,10 @@ body{
 	border-bottom: 3px solid #F60070;
 }
 
+.form-control-block img{
+	width: 30%;
+}
+
 .form-control input{
 	width: 90%;
 	height: 25px;
