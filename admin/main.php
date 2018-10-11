@@ -4,7 +4,7 @@
 		header('location: index.php?menu=index');
 	}
 	else if ($_GET['menu'] == 'index') {
-		require_once 'partials/viewSiswa.php';
+		require_once 'partials/dashboard.php';
 	}
 
 	// Siswa

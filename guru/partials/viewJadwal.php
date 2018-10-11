@@ -4,7 +4,7 @@
 	$dataGuru 	= $queryGuru->fetch_assoc();
 	$id_guru 	= $dataGuru['id_guru'];
 
-	$hari = ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'jumat', 'sabtu'];
+	$hari = ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu'];
 
 	foreach ($hari as $key) {
 		?>

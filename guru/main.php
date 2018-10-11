@@ -8,6 +8,9 @@
 	else if ($_GET['menu'] == "jadwal" && isset($_GET['id_jadwal'])) {
 		require_once 'partials/detailJadwal.php';
 	}
+	else if ($_GET['menu'] == "jadwal" && isset($_GET['id_mapel'])) {
+		require_once 'partials/detailJadwal.php';
+	}
 	else if ($_GET['menu'] == "jadwal" && !isset($_GET['action'])) {
 		require_once 'partials/viewJadwal.php';
 	}
