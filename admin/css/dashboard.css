@@ -906,3 +906,22 @@ body{
 	font-family: sf-s;
 	font-size: 16px;
 }
+
+.kelasCapt{
+	color: gray !important;
+	line-height: 130px;
+}
+
+.kelas-card{
+	box-shadow: 0 14px 28px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+	height: 150px !important;
+	text-align: center;	
+}
+
+.kelas-card i{
+	color: darkgrey;
+}
+
+.kelas-card img{
+	height: 100%;
+}

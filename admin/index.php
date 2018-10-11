@@ -58,8 +58,8 @@
 				<div class="picture-user">
 					<img src="../img/profile/<?php echo $_SESSION['user']['profile_img'] ?>">
 				</div>
-				<h2><?php echo $_SESSION['user']['profile_name'] ?></h2>
-				<p>Admin - <?php echo $_SESSION['user']['email'] ?></p>
+				<h2><?php echo @$_SESSION['user']['profile_name'] ?></h2>
+				<p>Admin - <?php echo @$_SESSION['user']['email'] ?></p>
 			</div>
 
 			<div class="menu d-flex f-col j-ctr">
