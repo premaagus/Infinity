@@ -7,6 +7,10 @@ body{
 	font-family: sf-r;
 }
 
+a{
+	text-decoration: none;
+}
+
 @font-face{src:url('../../font/SFProDisplay-Bold.ttf'); font-family: sf-b}
 @font-face{src:url('../../font/SFProDisplay-Medium.ttf'); font-family: sf-m}
 @font-face{src:url('../../font/SFProDisplay-Heavy.ttf'); font-family: sf-h}
@@ -207,7 +211,7 @@ body{
 	margin: 5px 10px;
 	height: 3px;
 	border: none;
-	background-color: #F60070;
+	background-color: #0C7CFF;
 }
 .footer-sidebar{
 	width: 100%;
@@ -321,6 +325,10 @@ body{
 	width: 100%;
 	height: auto;
 }
+.container-pelajaran{
+	width: 100%;
+	height: auto;
+}
 .card-pelajaran{
 	width: 30%;
 	height: 200px;
@@ -334,6 +342,7 @@ body{
 	left: 0;
 	width: 100%;
 	border-radius: 5px;
+	z-index: 1;
 }
 .card-pelajaran h3{
 	position: relative;
@@ -341,7 +350,95 @@ body{
 	font-family: sf-s;
 	padding: 20px;
 	font-size: 30px;
+	z-index: 2;
+	padding-bottom: 10px;
+	max-width: 85%;
 }
+.card-pelajaran h4{
+	position: relative;
+	color: #FFF;
+	z-index: 99;
+	padding: 20px;
+	font-family: sf-s;
+	letter-spacing: .5px;
+	opacity: .8;
+	padding-top: 0;
+	font-size: 17px;
+}
+.card-pelajaran p{
+	position: absolute;
+	right: 15px;
+	bottom: 25%;
+	z-index: 2;
+	color: white;
+	opacity: 0.8;
+	letter-spacing: 1px;
+	font-size: 15px;
+}
+.preference{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 4;
+	text-align: center;
+	cursor: pointer;
+}
+
+.preference i{
+	font-size: 18px;
+	line-height: 50px;
+	color: white;
+}
+
+.container-preference{
+	width: 100px;
+	height: 0px;
+	background: blue;
+	position: absolute;
+	top: 10px;
+	left: -170%;
+	border-radius: 5px;
+	overflow: hidden;
+	visibility: hidden;
+	opacity: 0;
+	transition: 0.5s ease;
+}
+
+.visible{
+	visibility: visible;
+	opacity: 1;
+	height: 140%;
+}
+
+
+.container-preference ul{
+	list-style: none;
+}
+
+.container-preference ul li{
+	width: 100%;
+	height: 35px;
+	background: white;	
+}
+
+.container-preference ul li a{
+	color: black;
+	float: left;
+	width: 100%;
+	height: 100%;
+	line-height: 35px;
+	background: white;
+	transition: 0.2s ease;
+	font-size: 14px;
+}
+
+.container-preference ul li a:hover{
+	background: #E5E5E5;
+}
+
+
 .container-addSiswa{
 	width: 100%;
 	margin-top: 20px;

@@ -32,6 +32,11 @@
 				echo "1";
 			}
 			else if ($level == 2) {
+				$_SESSION['user']['id_user'] 		= $id_user;
+				$_SESSION['user']['email'] 			= $email;
+				$_SESSION['user']['profile_name'] 	= $profile_name;
+				$_SESSION['user']['profile_img'] 	= $profile_img;
+				$_SESSION['user']['level'] 			= $level;
 				echo "2";
 			}
 			else if ($level == 3) {
@@ -39,7 +44,7 @@
 				$_SESSION['user']['email'] 			= $email;
 				$_SESSION['user']['profile_name'] 	= $profile_name;
 				$_SESSION['user']['profile_img'] 	= $profile_img;
-				$_SESSION['user']['id_level'] 		= $id_level;
+				$_SESSION['user']['level'] 			= $level;
 				echo "3";
 			}
 		}

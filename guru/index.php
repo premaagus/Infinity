@@ -2,9 +2,6 @@
 
 	require_once '../lib/config.php';
 
-	$tanggalLahir = $_SESSION['user']['tanggalLahir'];
-	$umur = date_diff(date_create("$tanggalLahir"), date_create('today'))->y;
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -64,25 +61,25 @@
 					</a>
 				</div>
 				<h2>
-					<a href="#"><?= $_SESSION['user']['username'] ?></a>	
+					<a href="#"><?php echo $_SESSION['user']['profile_name'] ?></a>	
 				</h2>
 				<p>
-					<a href="#"><?= $umur ?> - <?= $_SESSION['user']['email'] ?></a>
+					<a href="#">Guru - <?php echo $_SESSION['user']['email'] ?></a>
 				</p>
 			</div>
 
 			<div class="menu d-flex f-col j-ctr">
 				<div class="container-menulist">
 					<div class="menu-list">
-						<a href="index.php" class="<?php if(!isset($_GET['menu'])){echo 'active';} ?>">
+						<a href="index.php?menu=index" class="<?php if(!isset($_GET['menu']) || $_GET['menu'] == 'index'){echo 'active';} ?>">
 							<i class="far fa-chart-bar"></i>
 							<h4>Dashboard</h4>
 						</a>
 					</div>
 					<div class="menu-list">
-						<a href="index.php?menu=mapel" class="<?php if($_GET['menu'] == 'mapel'){echo 'active';} ?>">
+						<a href="index.php?menu=jadwal" class="<?php if($_GET['menu'] == 'jadwal'){echo 'active';} ?>">
 							<i class="fas fa-graduation-cap"></i>
-							<h4>Mata Pelajaran</h4>
+							<h4>Jadwal</h4>
 						</a>
 					</div>
 				</div>
@@ -132,7 +129,7 @@
 			});
 			<?php
 		}
-		else if ($_SESSION['user']['level'] != 1) {
+		else if ($_SESSION['user']['level'] != 3) {
 			?>
 			errorAlert('Error', 'Anda Tidak Memiliki Akses!');
 			document.addEventListener('click', function(){

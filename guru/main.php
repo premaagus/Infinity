@@ -1,10 +1,10 @@
 <?php 
 
-	if (!isset($_GET['menu'])) {
+	if (!isset($_GET['menu']) || $_GET['menu'] == 'index') {
 		require_once 'partials/viewSiswa.php';
 	}
-	else if ($_GET['menu'] == "siswa" && !isset($_GET['action'])) {
-		require_once 'partials/viewSiswa.php';
+	else if ($_GET['menu'] == "jadwal" && !isset($_GET['action'])) {
+		require_once 'partials/viewJadwal.php';
 	}
 	else if ($_GET['menu'] == "guru" && !isset($_GET['action'])) {
 		require_once 'partials/viewGuru.php';

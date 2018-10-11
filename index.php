@@ -111,7 +111,7 @@
 								else if (xhr.responseText == 3) {
 									successAlert("Berhasil", "Selamat Datang "+username.value);
 									document.addEventListener('click', function(){
-										location.href = 'admin/index.php';
+										location.href = 'guru/index.php?menu=index';
 									});
 								}
 								else if (xhr.responseText == 'gagal') {
