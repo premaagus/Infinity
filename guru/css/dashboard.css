@@ -497,6 +497,7 @@ a{
 .container-addSiswa .btn-add a{
 	background: linear-gradient(50deg, #FF748B, #FE7BB0)
 }
+<<<<<<< HEAD
 
 .container-detailMapel{
 	width: 100%;
@@ -536,4 +537,20 @@ a{
 	font-size: 15px;
 	color: #999;
 	padding-bottom: 5px;
+=======
+.notexist{
+	width: 90%;
+	height: 50px;
+	margin: 10px auto;
+	background-color: #D1D7E5;
+	text-align: center;
+	border-radius: 5px;
+}
+.notexist h4{
+	line-height: 50px;
+	color: gray;
+	font-family: sf-s;
+	font-size: 15px;
+	letter-spacing: 1px;
+>>>>>>> 4ae53de07574c52b000a4aae71c387512ee60683
 }
