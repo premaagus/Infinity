@@ -52,7 +52,7 @@
 				}
 				else{
 					?>
-					<div>
+					<div class="notexist">
 						<h4>Tidak Ada Data</h4>
 					</div>
 					<?php
