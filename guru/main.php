@@ -1,11 +1,18 @@
 <?php 
 
 	if (!isset($_GET['menu']) || $_GET['menu'] == 'index') {
-		require_once 'partials/viewSiswa.php';
+		require_once 'partials/dashboard.php';
+	}
+
+	// jadwal
+	else if ($_GET['menu'] == "jadwal" && isset($_GET['id_jadwal'])) {
+		require_once 'partials/detailJadwal.php';
 	}
 	else if ($_GET['menu'] == "jadwal" && !isset($_GET['action'])) {
 		require_once 'partials/viewJadwal.php';
 	}
+
+
 	else if ($_GET['menu'] == "guru" && !isset($_GET['action'])) {
 		require_once 'partials/viewGuru.php';
 	}
