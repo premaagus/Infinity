@@ -583,3 +583,147 @@ a{
 .table-control table tr:nth-child(even){
 	background: #FFF;
 }
+.container1{
+	width: 100%;
+	height: auto;
+	background: white;
+	border-radius: 5px;
+	box-shadow: 0 14px 28px rgba(44, 26, 78,0.10), 0 10px 10px rgba(44, 26, 78,0.10);
+	margin: 20px 0;
+}
+
+.form-control{
+	width: 100%;
+	height: auto;
+	flex: 1;
+	margin: 10px;
+	padding: 10px;
+	position: relative;
+}
+
+.form-control>p{
+	margin: 0;
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+
+.form-control-block{
+	width: 100%;
+	padding: 10px;
+	margin: 10px;
+	position: relative;
+}
+
+.form-control-block>p{
+	margin: 0;
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+
+.form-control-block input{
+	width: 95%;
+	height: 25px;
+	border: none;
+	border-bottom: 2px solid #E9E9E9;
+	padding:10px;
+	outline: none;
+	transition: 0.2s ease;
+}
+.form-control-block textarea{
+	width: 95%;
+	height: 25px;
+	border: none;
+	border-bottom: 2px solid #E9E9E9;
+	padding:10px;
+	outline: none;
+	transition: 0.2s ease;
+	max-width: 95%;
+	min-width: 95%;
+	max-height: 200px;
+}
+
+.form-control-block select{
+	width: 95%;
+	height: 50px;
+	border: none;
+	border-bottom: 2px solid #E9E9E9;
+	padding:10px;
+	outline: none;
+	transition: 0.2s ease;
+}
+
+.form-control-block select option{
+	background: #2C1A4E;
+	color: white;
+	border: none;
+}
+
+.form-control-block input:focus{
+	border-bottom: 3px solid #0C7CFF;
+}
+
+.form-control-block img{
+	width: 30%;
+}
+
+.form-control input{
+	width: 90%;
+	height: 25px;
+	border: none;
+	border-bottom: 2px solid #E9E9E9;
+	padding:10px;
+	outline: none;
+	transition: 0.2s ease;
+}
+
+.form-control input:focus .form-control p{
+	color: #2C1A4E;
+}
+
+.btn-add{
+	width: 125px;
+	height: 40px;
+	float: right;
+	margin: 10px 0;
+	border-radius: 5px;
+	box-shadow: 0 14px 28px rgba(44, 26, 78,0.10), 0 10px 10px rgba(44, 26, 78,0.10);
+}
+
+.btn-add button{
+	width: 100%;
+	height: 100%;
+	border: none;
+	color: white;
+	cursor: pointer;
+	background: #2C1A4E;
+	border-radius: 5px;
+}
+.alert-err{
+	width: max-content;
+	padding: 10px 15px;
+	height: max-content;
+	position: absolute;
+	background: #ff3838;
+	top: 0;
+	right: 5%;
+	border-radius: 5px;
+	text-align: center;
+	color: white;
+	letter-spacing: 1px;
+	transition: 0.4s ease;
+	opacity: 0;
+}
+
+.alert-err p{
+	font-size: 12px;
+}
+
+.point-err{
+	width: 10px;
+	height: 10px;
+	background: #ff3838;
+	transform: rotate(45deg);
+	position: absolute;
+	right: 10px;
+	bottom: -5px;
+}
