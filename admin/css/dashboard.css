@@ -266,6 +266,39 @@ body{
 	font-size: 12px;
 	margin-top: -15px;
 }
+.container-dashboard{
+	width: 100%;
+	height: max-content;
+	margin: 0 auto;
+}
+.dashboard-show{
+	width: 350px;
+	height: 150px;
+	margin: 50px;
+	background-color: #FFF;
+	border-radius: 5px;
+	overflow: hidden;
+}
+.dashboard-show .dashboard-nilai{
+	flex: 1;
+	text-align: center;
+	line-height: 130px;
+	color: #FFF;
+	background-color: #F60070;
+	position: relative;
+	z-index: 2;
+	box-shadow: 4px 0px 40px rgba(246,0,112,0.3), 0 10px 10px rgba(246,0,112,0.3);
+
+}
+.dashboard-show .dashboard-text{
+	flex: 2;
+	text-align: center;
+	line-height: 130px;
+	color: #F60070;
+	box-shadow: 2px 2px 10px 1px #F60070;
+	position: relative;
+	z-index: 1;
+}
 .card-siswa{
 	background-color: #FFF;
 	width: 25%;
