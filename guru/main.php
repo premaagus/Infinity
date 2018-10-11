@@ -5,6 +5,12 @@
 	}
 
 	// jadwal
+	else if ($_GET['menu'] == 'jadwal' && isset($_GET['id_mapel']) && isset($_GET['id_kelas']) && $_GET['view'] == 'materi' && !isset($_GET['action'])) {
+		require_once 'partials/viewMateri.php';
+	}
+	else if ($_GET['menu'] == 'jadwal' && isset($_GET['id_mapel']) && isset($_GET['id_kelas']) && $_GET['view'] == 'materi' && $_GET['action'] == 'add') {
+		require_once 'partials/addMateri.php';
+	}
 	else if ($_GET['menu'] == "jadwal" && isset($_GET['id_jadwal'])) {
 		require_once 'partials/detailJadwal.php';
 	}
