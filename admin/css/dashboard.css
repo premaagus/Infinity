@@ -278,6 +278,8 @@ body{
 	background-color: #FFF;
 	border-radius: 5px;
 	overflow: hidden;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+
 }
 .dashboard-show .dashboard-nilai{
 	flex: 1;
