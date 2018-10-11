@@ -2,6 +2,10 @@
 
 	require_once '../lib/config.php';
 
+	$id_user 	= $_SESSION['user']['id_user'];
+	$queryUser 	= $koneksi->query("SELECT * FROM tb_user WHERE id_user = $id_user");
+	$dataUser 	= $queryUser->fetch_assoc();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,7 +61,7 @@
 				</div>
 				<div class="picture-user">
 					<a href="#">
-						<img src="images/profile/profile1.jpg">
+						<img src="../img/profile/<?php echo $dataUser['profile_img'] ?>">
 					</a>
 				</div>
 				<h2>
