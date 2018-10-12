@@ -188,3 +188,38 @@ button:focus{
     opacity: 0;
   }
 }
+
+@media only screen and (max-width: 480px){
+	.container-left{
+		display: none;
+	}
+	.container-input{
+		width: 100%;
+	}
+	.form-control input{
+		width: 60%;
+		margin-left: 30px;
+	}
+	.form-control span{
+		width: 85%;
+		margin-left: 30px
+	}
+	.form-control i{
+		margin-left: 25px;
+	}
+	.form-input:focus + .form-focus + .symbol-input {
+	  color: #54C5FF;
+	  left: 20px;
+	}
+	.container-input button{
+		width: 85%;
+		margin: 10px auto;
+		margin-left: 30px;
+	}
+	#username-alert{
+		right: 35px;
+	}
+	#password-alert{
+		right: 35px;
+	}
+}
