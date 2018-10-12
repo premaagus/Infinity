@@ -1065,4 +1065,22 @@ body{
 	.open .line-menu.end {
 	  transform: rotate(-90deg) translateX(-3px);
 	}
+	.card-siswa{
+		width: 40%;
+		margin: 25px;
+		padding-bottom: 10px;
+	}
+	.card-pelajaran{
+		width: 40%;
+		height: 100px;
+		margin: 30px 10px;
+	}
+	.card-pelajaran a h3{
+		font-size: 25px;
+		padding-top: 30px;
+	}
+	.btn-add{
+		margin-right: 70px;
+		margin-bottom: 50px;
+	}
 }

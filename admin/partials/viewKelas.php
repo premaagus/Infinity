@@ -6,7 +6,7 @@
 	<a href="index.php?menu=kelas&action=add">Tambah Kelas</a>
 </div><!-- btn-add -->
 
-<div class="container-pelajaran d-flex fd-row f-row j-str i-ard">
+<div class="container-pelajaran d-flex fd-row f-row j-ctr i-ard">
 
 	<?php 
 		while ($dataKelas = $queryKelas->fetch_assoc()) {

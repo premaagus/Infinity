@@ -13,7 +13,7 @@
 			$tanggalLahir = $dataGuru['tanggal_lahir'];
 			$umur = date_diff(date_create("$tanggalLahir"), date_create('today'))->y;
 			?>
-			<div class="card-siswa d-flex f-col fd-col i-ctr">
+			<div class="card-siswa d-flex f-col fd-col i-ctr j-ctr">
 				<div class="background">
 					
 				</div><!-- background -->
