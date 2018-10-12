@@ -829,6 +829,20 @@ a{
 		line-height: 230px;
 		font-size: 40px;
 	}
+	.table-control .edit{
+		background-color: blue;
+		color: #FFF;
+		border-radius: 3px;
+		padding: 3px 15px;
+		margin: 5px;
+	}
+	.table-control .delete{
+		background-color: red;
+		color: #FFF;
+		border-radius: 3px;
+		padding: 3px 15px;
+		margin: 5px;
+	}
 }
 @media only screen and (max-width: 1000px)
 {

@@ -34,7 +34,7 @@
 					<td><?php echo $no ?></td>
 					<td><?php echo $dataMateri['nama_materi'] ?></td>
 					<td><?php echo $dataMateri['desc_materi'] ?></td>
-					<td><a href="#">View</a> | <a href="#">Download</a></td>
+					<td><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
 				</tr>
 				<?php
 				$no++;
