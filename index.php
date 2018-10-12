@@ -39,7 +39,7 @@
 		<div class="container-left d-flex i-ctr">
 			<img src="img/register-g.png">
 		</div><!-- container-left -->
-		<div class="container-right d-flex i-ctr">
+		<div class="container-right d-flex i-ctr">	
 			<form action="" method="POST" onsubmit="return false">
 				<div class="container-input d-flex f-row i-ctr j-ctr">
 					<div style="width: 50%;">
