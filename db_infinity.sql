@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2018 at 05:26 AM
+-- Generation Time: Oct 12, 2018 at 02:29 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -169,10 +169,18 @@ INSERT INTO `tb_mapel` (`id_mapel`, `nama_mapel`, `jumlah_jam`, `background_mape
 CREATE TABLE `tb_materi` (
   `id_materi` int(11) NOT NULL,
   `id_mapel` int(11) NOT NULL,
+  `id_kelas` int(11) NOT NULL,
   `nama_materi` varchar(30) NOT NULL,
   `desc_materi` text NOT NULL,
   `file_materi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_materi`
+--
+
+INSERT INTO `tb_materi` (`id_materi`, `id_mapel`, `id_kelas`, `nama_materi`, `desc_materi`, `file_materi`) VALUES
+(7, 8, 1, 'asdasd', 'asdasd', '5bc05a51b15a7.txt');
 
 -- --------------------------------------------------------
 
@@ -214,7 +222,7 @@ CREATE TABLE `tb_siswa` (
 --
 
 INSERT INTO `tb_siswa` (`id_siswa`, `id_user`, `nama_lengkap`, `nis`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `telp`, `alamat`, `jurusan`, `id_kelas`) VALUES
-(7, 17, 'Ryan Ardito Zahwan Ragazzo', '3424', 'Perempuan', 'Surabaya', '2001-04-14', 'Islam', '081123123123', 'Gunung Himalaya', 'Rekayasa Perangkat Lunak', 1);
+(19, 39, 'I Wayan Prema Agus Prasetya', '3413', 'Laki - Laki', 'Denpasar', '2001-08-30', 'Hindu', '087761661669', 'Denpasar', 'Rekayasa Perangkat Lunak', 1);
 
 -- --------------------------------------------------------
 
@@ -269,8 +277,7 @@ CREATE TABLE `tb_user` (
 INSERT INTO `tb_user` (`id_user`, `username`, `email`, `password`, `profile_img`, `profile_name`, `id_level`) VALUES
 (10, 'premaagus', 'premaagus@gmail.com', '$2y$12$Ibvy5.rwholmc0TvUTqflOX2xXl1zbzEI8ZMa549hx3JRwmI7X9Hu', '5bba0fb1194e0.jpg', 'Prema Agus', 1),
 (11, 'bul', 'ryanardito25@gmail.com', '$2y$12$Uvhr7ZWAF38WsUf9GaPxC.Lz5Nm9e5MgeKh3qDFpJAe405JpCssba', '5bba17b85d110.jpg', 'Ryan Ardito', 1),
-(15, 'evidwi', 'evidwi@gmail.com', '$2y$12$5FxqvOZpaANS3qwZulW4m.Zj/boWm1osnnn01YvJ44dMST8oLmUv6', '5bba4043c1f27.png', 'Evi Dwi', 3),
-(17, 'razr123', 'razr@gmail.com', '$2y$12$OlobeYabKdzDGLKEALrDEecCpOsI36B1qw5lOkAGfvauAsUojm4KC', '5bbaedfc02fc0.jpg', 'RyanSkuy Ardito', 2),
+(15, 'evidwi', 'evidwi@gmail.com', '$2y$12$5FxqvOZpaANS3qwZulW4m.Zj/boWm1osnnn01YvJ44dMST8oLmUv6', 'profile.png', 'Evi Dwi', 3),
 (20, 'ayudesiani', 'ayudesiani@gmail.com', '$2y$12$xk4T/K9.g1O1XnnJskPlN.l0EOT/Z0qnrCmjKtHHL9vnVr99HLl.2', 'profile.png', 'Ayu Desiani', 3),
 (21, 'diliadewi', 'diliadewi@gmail.com', '$2y$12$xKZctqs0R7ipDw5cc23KleloWswP5yNkv7Rdh2ZNNgJFFYrzSbEvu', 'profile.png', 'Dilia Dewi', 3),
 (22, 'wayansunarta', 'wayansunarta@gmail.com', '$2y$12$fqw9utAzIaYPYnPcX0KGrec1X3sOcDSwBXUTf8YckYqdtYHNX/G.m', 'profile.png', 'Wayan Sunarta', 3),
@@ -278,7 +285,8 @@ INSERT INTO `tb_user` (`id_user`, `username`, `email`, `password`, `profile_img`
 (24, 'raisurarti', 'raisurarti@gmail.com', '$2y$12$VJ8wzQFIHT9eKNTltcdRieTKBnnvBWo8otw59QoUcI7VtjCoClHuS', 'profile.png', 'Rai Surarti', 3),
 (25, 'warmaputra', 'warmaputra@gmail.com', '$2y$12$qLGD6H4w1LT7phYTpqTdlu4OXvwMP9D2UVtm3xSYtnNczXJPldwPG', 'profile.png', 'Warma Putra', 3),
 (26, 'pradnyanaambara', 'pradnyanaambara@gmail.com', '$2y$12$iIdzbhMsb3HEEA6CYSGFaevIb6fy41mfOp.R2je1LKK4.uQmsydS2', 'profile.png', 'Pradnyana Ambara', 3),
-(27, 'ernadewi', 'ernadewi@gmail.com', '$2y$12$57Y/xZqbE5x5RKdhgZLV1.xZSm3pOh20NiI5WALNMjfhzIxyGxqdW', 'profile.png', 'Erna Dewi', 3);
+(27, 'ernadewi', 'ernadewi@gmail.com', '$2y$12$57Y/xZqbE5x5RKdhgZLV1.xZSm3pOh20NiI5WALNMjfhzIxyGxqdW', 'profile.png', 'Erna Dewi', 3),
+(39, 'premaagusp', 'premaagusp@gmail.com', '$2y$12$Qzl/VxTHf6DiFeYR1vQRl.QhOr1845fvt5luRuFgcspg869BsHB7y', '5bc08ff5c382f.jpg', 'Prema Agus', 2);
 
 --
 -- Indexes for dumped tables
@@ -382,7 +390,7 @@ ALTER TABLE `tb_mapel`
 -- AUTO_INCREMENT for table `tb_materi`
 --
 ALTER TABLE `tb_materi`
-  MODIFY `id_materi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_materi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_pengumuman`
@@ -394,7 +402,7 @@ ALTER TABLE `tb_pengumuman`
 -- AUTO_INCREMENT for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tb_tugas`
@@ -406,7 +414,7 @@ ALTER TABLE `tb_tugas`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

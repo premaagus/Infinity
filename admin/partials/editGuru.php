@@ -1,3 +1,9 @@
+<?php 
+	$id_user	= $_GET['id_user'];
+	$queryUser 	= $koneksi->query("SELECT * FROM tb_user WHERE id_user = $id_user");
+	$dataUser	= $queryUser->fetch_assoc();
+ ?>
+
 <h1>Tambah Data</h1>
 <hr>
 <form action="" method="POST" enctype="multipart/form-data">
@@ -40,8 +46,8 @@
 		</div>
 
 		<div class="form-control">
-			<p>NIS</p>
-			<input type="number" name="nis" id="nis" placeholder="Input NIS Disini..." required>
+			<p>NIK</p>
+			<input type="number" name="nik" id="nik" placeholder="Input NIS Disini..." required>
 			<div class="alert-err">
 				<p>NIS tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -105,8 +111,17 @@
 		</div>
 
 		<div class="form-control-block">
-			<p>Jurusan</p>
-			<input type="text" name="jurusan" id="jurusan" placeholder="Input Jurusan..." required>
+			<p>Bidang Ilmu</p>
+			<select name="bidang_ilmu" id="bidang_ilmu">
+				<?php 
+					$queryMapel = $koneksi->query("SELECT * FROM tb_mapel");
+					while ($dataMapel = $queryMapel->fetch_assoc()) {
+						?>
+						<option value="<?php echo $dataMapel['nama_mapel'] ?>"><?php echo $dataMapel['nama_mapel'] ?></option>
+						<?php
+					}
+				 ?>
+			</select>
 			<div class="alert-err">
 				<p>Jurusan Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -143,19 +158,6 @@
 			<p>Foto Profil</p>
 			<input type="file" name="profile_img" id="profile_img">
 		</div>
-		<div class="form-control-block">
-			<p>Kelas</p>
-			<select name="id_kelas">
-				<?php 
-					$queryKelas = $koneksi->query("SELECT * FROM tb_kelas");
-					while ($dataKelas = $queryKelas->fetch_assoc()) {
-						?>
-						<option value="<?php echo $dataKelas['id_kelas'] ?>"><?php echo $dataKelas['nama_kelas'] ?></option>
-						<?php
-					}
-				 ?>
-			</select>
-		</div>
 	</div>
 	<div class="btn-add">
 		<button type="submit" name="btn-submit">Submit</button>
@@ -165,15 +167,6 @@
 
 <script>
 	var input = document.querySelectorAll('input');
-	var namaLengkap = document.getElementById('nama_lengkap');
-	var namaDepan = document.getElementById('nama_depan');
-	var namaBelakang = document.getElementById('nama_belakang');
-	var email = document.getElementById('email');
-	var	username = document.getElementById('username');
-	var password = document.getElementById('password');
-	var rPassword = document.getElementById('r_password');
-	var tanggalLahir = document.getElementById('tanggal_lahir');
-	var profileImg = document.getElementById('profile_img');
 	for (var i = 0; i < input.length; i++){
 		input[i].addEventListener('keyup', function(){
 			if (this.value == "") {
@@ -196,22 +189,21 @@
 		$nama_lengkap 		= $_POST['nama_lengkap'];
 		$tanggal_lahir 		= $_POST['tanggal_lahir'];
 		$profile_name 		= $_POST['nama_depan']." ".$_POST['nama_belakang'];
-		$id_level 			= '2';
-		$id_kelas 			= $_POST['id_kelas'];
+		$id_level 			= '3';
 		$profile_img_name 	= $_FILES['profile_img']['name'];
-		$tmp_profile 		= $_FILES['profile_img']['tmp_name'];
-		$nis 				= $_POST['nis'];
+		$tmp_profile	 	= $_FILES['profile_img']['tmp_name'];
+		$nik 				= $_POST['nik'];
 		$jenis_kelamin 		= $_POST['jenis_kelamin'];
 		$tempat_lahir 		= $_POST['tempat_lahir'];
 		$agama 				= $_POST['agama'];
 		$telp 				= $_POST['telp'];
 		$alamat 			= $_POST['alamat'];
-		$jurusan 			= $_POST['jurusan'];
-		$extensiGambarValid = ['jpg', 'jpeg', 'png', 'gif'];
-		$extensiGambar 		= "";
+		$bidang_ilmu 		= $_POST['bidang_ilmu'];
+		$namaBaru			= "";
 
+
+		// Validasi Email
 		$queryCheckEmail = $koneksi->query("SELECT * FROM tb_user WHERE email = '$email'");
-
 		if ($queryCheckEmail->num_rows > 0) {
 			?>
 				<script>
@@ -220,6 +212,7 @@
 			<?php
 		}
 		else{
+			// Validasi Username
 			$queryCheckUsername = $koneksi->query("SELECT * FROM tb_user WHERE username = '$username'");
 			if ($queryCheckUsername->num_rows > 0) {
 				?>
@@ -229,6 +222,7 @@
 				<?php
 			}
 			else{
+				// Validasi R-password
 				if ($r_password != $password) {
 					?>
 					<script>
@@ -239,10 +233,7 @@
 				else{
 					function upload(){
 						//cek gambar
-						$profile_img_name 	= $_FILES['profile_img']['name'];
-						$tmp_profile 		= $_FILES['profile_img']['tmp_name'];
 						$extensiGambarValid = ['jpg', 'jpeg', 'png', 'gif'];
-						$namaBaru			= "";
 						$extensiGambar = explode('.', $profile_img_name);
 						$extensiGambar = strtolower(end($extensiGambar));
 						if (!in_array($extensiGambar, $extensiGambarValid)) {
@@ -253,6 +244,7 @@
 							<?php
 							die();
 						}
+
 						//Verified image
 						$namaBaru = uniqid();
 						return $namaBaru .= ".".$extensiGambar;
@@ -267,31 +259,26 @@
 						move_uploaded_file($tmp_profile, "../img/profile/$namaBaru");
 					}
 
+					// add user
 					$passwordHash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-					$queryAddUser = $koneksi->query("INSERT INTO tb_user VALUES (NULL, '$username', '$email', '$passwordHash', '$namaBaru', '$profile_name', 2)");
+					$queryAddUser = $koneksi->query("INSERT INTO tb_user VALUES (NULL, '$username', '$email', '$passwordHash', '$namaBaru', '$profile_name', $id_level)");
 
 
 					if ($queryAddUser) {
 
-						$queryCheckId 	= $koneksi->query("SELECT * FROM tb_user WHERE username = '$username'");
-						$dataId 		= $queryCheckId->fetch_assoc();
-						$id_user 		= $dataId['id_user'];
+						// Add Guru
+						$queryCheckId = $koneksi->query("SELECT * FROM tb_user WHERE username = '$username'");
+						$dataId = $queryCheckId->fetch_assoc();
+						$id_user = $dataId['id_user'];
 
-						$queryAddSiswa = $koneksi->query("INSERT INTO tb_siswa VALUES (NULL, $id_user, '$nama_lengkap', '$nis', '$jenis_kelamin', '$tempat_lahir', '$tanggal_lahir', '$agama', '$telp', '$alamat', '$jurusan', $id_kelas) ");
-						if ($queryAddSiswa) {
+						$queryAddGuru = $koneksi->query("INSERT INTO tb_guru VALUES (NULL, $id_user, '$nama_lengkap', '$nik', '$jenis_kelamin', '$tempat_lahir', '$tanggal_lahir', '$agama', '$telp', '$alamat', '$bidang_ilmu') ");
+						if ($queryAddGuru) {
 							?>
 							<script>
 								successAlert("Sukses", "Data Berhasil Ditambahkan");
 								document.addEventListener('click', function(){
-									location.href = 'index.php?menu=siswa';
+									location.href = 'index.php?menu=guru';
 								});
-							</script>
-							<?php
-						}
-						else{
-							?>
-							<script>
-								successAlert("Gagal", "Query add siswa");
 							</script>
 							<?php
 						}

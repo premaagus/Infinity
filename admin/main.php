@@ -28,6 +28,9 @@
 	else if ($_GET['menu'] == 'guru' && $_GET['action'] == 'add') {
 		require_once 'partials/addGuru.php';
 	}
+	else if ($_GET['menu'] == 'guru' && $_GET['action'] == 'edit' && isset($_GET['id_user'])) {
+		require_once 'partials/editGuru.php';
+	}
 	else if ($_GET['menu'] == 'guru' && $_GET['action'] == 'delete' && isset($_GET['id_user'])) {
 		require_once 'partials/deleteGuru.php';
 	}
