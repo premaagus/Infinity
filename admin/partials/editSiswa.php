@@ -195,9 +195,12 @@
 		$telp 				= $_POST['telp'];
 		$alamat 			= $_POST['alamat'];
 		$jurusan 			= $_POST['jurusan'];
+		$namaBaru			= "";
 
 		function upload(){
 			//cek gambar
+			$profile_img_name 	= $_FILES['profile_img']['name'];
+			$tmp_profile 		= $_FILES['profile_img']['tmp_name'];
 			$extensiGambarValid = ['jpg', 'jpeg', 'png', 'gif'];
 			$extensiGambar = explode('.', $profile_img_name);
 			$extensiGambar = strtolower(end($extensiGambar));
@@ -212,8 +215,7 @@
 
 			//Verified image
 			$namaBaru = uniqid();
-			$namaBaru .= ".".$extensiGambar;
-			move_uploaded_file($tmp_profile, "../img/profile/$namaBaru");
+			return $namaBaru .= ".".$extensiGambar;
 		}
 
 		if ($_FILES['profile_img']['error'] == 4) {
@@ -221,6 +223,16 @@
 		}
 		else{
 			upload();
+			$namaBaru = upload();
+			move_uploaded_file($tmp_profile, "../img/profile/$namaBaru");
+			$gambar = $dataUser['profile_img'];
+			$directory = "../img/profile/";
+			
+			if ($gambar != 'profile.png') {
+				if (file_exists($directory.$gambar)) {
+					unlink($directory.$gambar);
+				}
+			}
 		}
 
 		$queryUpdateUser = $koneksi->query("UPDATE tb_user SET email='$email', profile_img='$namaBaru', profile_name='$profile_name' WHERE id_user = $id_user");

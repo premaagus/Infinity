@@ -207,6 +207,8 @@
 		$telp 				= $_POST['telp'];
 		$alamat 			= $_POST['alamat'];
 		$jurusan 			= $_POST['jurusan'];
+		$extensiGambarValid = ['jpg', 'jpeg', 'png', 'gif'];
+		$extensiGambar 		= "";
 
 		$queryCheckEmail = $koneksi->query("SELECT * FROM tb_user WHERE email = '$email'");
 
@@ -237,7 +239,10 @@
 				else{
 					function upload(){
 						//cek gambar
+						$profile_img_name 	= $_FILES['profile_img']['name'];
+						$tmp_profile 		= $_FILES['profile_img']['tmp_name'];
 						$extensiGambarValid = ['jpg', 'jpeg', 'png', 'gif'];
+						$namaBaru			= "";
 						$extensiGambar = explode('.', $profile_img_name);
 						$extensiGambar = strtolower(end($extensiGambar));
 						if (!in_array($extensiGambar, $extensiGambarValid)) {
@@ -248,11 +253,9 @@
 							<?php
 							die();
 						}
-
 						//Verified image
 						$namaBaru = uniqid();
-						$namaBaru .= ".".$extensiGambar;
-						move_uploaded_file($tmp_profile, "../img/profile/$namaBaru");
+						return $namaBaru .= ".".$extensiGambar;
 					}
 
 					if ($_FILES['profile_img']['error'] == 4) {
@@ -260,6 +263,8 @@
 					}
 					else{
 						upload();
+						$namaBaru	= upload();
+						move_uploaded_file($tmp_profile, "../img/profile/$namaBaru");
 					}
 
 					$passwordHash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);

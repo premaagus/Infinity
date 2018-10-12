@@ -193,6 +193,7 @@
 		$telp 				= $_POST['telp'];
 		$alamat 			= $_POST['alamat'];
 		$bidang_ilmu 		= $_POST['bidang_ilmu'];
+		$namaBaru			= "";
 
 
 		// Validasi Email
@@ -240,8 +241,7 @@
 
 						//Verified image
 						$namaBaru = uniqid();
-						$namaBaru .= ".".$extensiGambar;
-						move_uploaded_file($tmp_profile, "../img/profile/$namaBaru");
+						return $namaBaru .= ".".$extensiGambar;
 					}
 
 					if ($_FILES['profile_img']['error'] == 4) {
@@ -249,6 +249,8 @@
 					}
 					else{
 						upload();
+						$namaBaru	= upload();
+						move_uploaded_file($tmp_profile, "../img/profile/$namaBaru");
 					}
 
 					// add user
