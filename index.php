@@ -105,7 +105,7 @@
 								else if (xhr.responseText == 2) {
 									successAlert("Berhasil", "Selamat Datang "+username.value);
 									document.addEventListener('click', function(){
-										location.href = 'admin/index.php';
+										location.href = 'siswa/index.php';
 									});
 								}
 								else if (xhr.responseText == 3) {
