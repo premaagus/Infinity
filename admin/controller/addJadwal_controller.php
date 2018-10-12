@@ -13,14 +13,21 @@
 		echo "jam";
 	}
 	else{
-		$queryAdd = $koneksi->query("INSERT INTO tb_jadwal VALUES (NULL, $id_mapel, $id_guru, '$hari', '$jam_mulai', '$jam_selesai', $id_kelas, $tahun_ajaran) ");
-
-		if ($queryAdd) {
-			echo "success";
+		$queryCheck = $koneksi->query("SELECT * FROM tb_jadwal WHERE jam_mulai > '$jam_mulai' AND hari = '$hari' AND id_kelas = '$id_kelas'");
+		if ($queryCheck->num_rows > 0) {
+			echo "bentrok";
 		}
 		else{
-			echo "error";
+			$queryAdd = $koneksi->query("INSERT INTO tb_jadwal VALUES (NULL, $id_mapel, $id_guru, '$hari', '$jam_mulai', '$jam_selesai', $id_kelas, $tahun_ajaran) ");
+
+			if ($queryAdd) {
+				echo "success";
+			}
+			else{
+				echo "error";
+			}
 		}
 	}
 
+ 
  ?>
