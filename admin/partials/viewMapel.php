@@ -5,7 +5,7 @@
 	<a href="index.php?menu=mapel&action=add">Tambah Mapel</a>
 </div><!-- btn-add -->
 
-<div class="container-pelajaran d-flex fd-row f-row j-ctr i-ard">
+<div class="container-pelajaran d-flex fd-row f-row j-str i-ard">
 
 	<?php 
 		$queryMapel = $koneksi->query("SELECT * FROM tb_mapel");
