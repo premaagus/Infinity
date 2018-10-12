@@ -1,7 +1,8 @@
 <?php 
-	$id_user	= $_GET['id_user'];
-	$queryUser 	= $koneksi->query("SELECT * FROM tb_user WHERE id_user = $id_user");
-	$dataUser	= $queryUser->fetch_assoc();
+	$id_user = $_GET['id_user'];
+	$queryUser = $koneksi->query("SELECT * FROM tb_user AS a INNER JOIN tb_guru AS b ON a.id_user = b.id_user WHERE a.id_user = $id_user");
+	$dataUser =  $queryUser->fetch_assoc();
+	$profile_name = explode(" ", $dataUser['profile_name']);
  ?>
 
 <h1>Tambah Data</h1>
@@ -11,7 +12,7 @@
 
 		<div class="form-control-block">
 			<p>Nama Lengkap</p>
-			<input type="text" name="nama_lengkap" id="nama_lengkap" placeholder="Input Nama Lengkap Disini..." required>
+			<input type="text" name="nama_lengkap" id="nama_lengkap" placeholder="Input Nama Lengkap Disini..." required value="<?php echo $dataUser['nama_lengkap'] ?>">
 			<div class="alert-err">
 				<p>Nama Lengkap tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -20,7 +21,7 @@
 
 		<div class="form-control">
 			<p>Nama Depan</p>
-			<input type="text" name="nama_depan" id="nama_depan" placeholder="Input Nama Depan Disini..." required>
+			<input type="text" name="nama_depan" id="nama_depan" placeholder="Input Nama Depan Disini..." required value="<?php echo $profile_name[0] ?>">
 			<div class="alert-err">
 				<p>Nama Depan Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -29,7 +30,7 @@
 
 		<div class="form-control">
 			<p>Nama Belakang</p>
-			<input type="text" name="nama_belakang" id="nama_belakang" placeholder="Input Nama Belakang Disini..." required>
+			<input type="text" name="nama_belakang" id="nama_belakang" placeholder="Input Nama Belakang Disini..." required value="<?php echo $profile_name[1] ?>">
 			<div class="alert-err">
 				<p>Nama Belakang Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -38,7 +39,7 @@
 
 		<div class="form-control-block">
 			<p>Email</p>
-			<input type="text" name="email" id="email" placeholder="Input Email Disini..." required>
+			<input type="text" name="email" id="email" placeholder="Input Email Disini..." required value="<?php echo $dataUser['email'] ?>">
 			<div class="alert-err">
 				<p>Email Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -47,9 +48,9 @@
 
 		<div class="form-control">
 			<p>NIK</p>
-			<input type="number" name="nik" id="nik" placeholder="Input NIS Disini..." required>
+			<input type="number" name="nik" id="nik" placeholder="Input NIK Disini..." required value="<?php echo $dataUser['nik'] ?>">
 			<div class="alert-err">
-				<p>NIS tidak Boleh Kosong</p>
+				<p>NIK tidak Boleh Kosong</p>
 				<div class="point-err"></div>
 			</div>
 		</div>
@@ -57,14 +58,14 @@
 		<div class="form-control">
 			<p>Jenis Kelamin</p>
 			<select name="jenis_kelamin" id="jenis_kelamin">
-				<option value="Laki - Laki">Laki - Laki</option>
-				<option value="Perempuan">Perempuan</option>
+				<option value="Laki - Laki" <?php if($dataUser['jenis_kelamin'] == 'Laki - Laki'){echo 'selected';} ?>>Laki - Laki</option>
+				<option value="Perempuan" <?php if($dataUser['jenis_kelamin'] == 'Perempuan'){echo 'selected';} ?>>Perempuan</option>
 			</select>
 		</div>
 
 		<div class="form-control-block">
 			<p>Tempat Lahir</p>
-			<input type="text" name="tempat_lahir" id="tempat_lahir" placeholder="Input Tempat Lahir Disini..." required>
+			<input type="text" name="tempat_lahir" id="tempat_lahir" placeholder="Input Tempat Lahir Disini..." required value="<?php echo $dataUser['tempat_lahir'] ?>">
 			<div class="alert-err">
 				<p>Tempat Lahir Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -73,7 +74,7 @@
 
 		<div class="form-control-block">
 			<p>Tanggal Lahir</p>
-			<input type="date" name="tanggal_lahir" id="tanggal_lahir" placeholder="Input E-mail Disini..." required>
+			<input type="date" name="tanggal_lahir" id="tanggal_lahir" placeholder="Input E-mail Disini..." required value="<?php echo $dataUser['tanggal_lahir'] ?>">
 			<div class="alert-err">
 				<p>Tanggal Lahir Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -83,18 +84,18 @@
 		<div class="form-control">
 			<p>Agama</p>
 			<select name="agama" id="agama">
-				<option value="Hindu">Hindu</option>
-				<option value="Islam">Islam</option>
-				<option value="Kristen KA">Kristen KA</option>
-				<option value="Kristen P">Kristen P</option>
-				<option value="Budha">Budha</option>
-				<option value="Kong Hu Cu">Kong Hu Cu</option>
+				<option value="Hindu" <?php if($dataUser['agama'] == 'Hindu'){echo 'selected';} ?>>Hindu</option>
+				<option value="Islam" <?php if($dataUser['agama'] == 'Islam'){echo 'selected';} ?>>Islam</option>
+				<option value="Kristen KA" <?php if($dataUser['agama'] == 'Kristen KA'){echo 'selected';} ?>>Kristen KA</option>
+				<option value="Kristen P" <?php if($dataUser['agama'] == 'Kristen P'){echo 'selected';} ?>>Kristen P</option>
+				<option value="Budha" <?php if($dataUser['agama'] == 'Budha'){echo 'selected';} ?>>Budha</option>
+				<option value="Kong Hu Cu" <?php if($dataUser['agama'] == 'Kong Hu Cu'){echo 'selected';} ?>>Kong Hu Cu</option>
 			</select>
 		</div>
 
 		<div class="form-control">
 			<p>Telepon</p>
-			<input type="number" name="telp" id="telp" placeholder="Input No Telepon Disini..." required>
+			<input type="number" name="telp" id="telp" placeholder="Input No Telepon Disini..." required value="<?php echo $dataUser['telp'] ?>">
 			<div class="alert-err">
 				<p>No Telepon Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -103,7 +104,7 @@
 
 		<div class="form-control-block">
 			<p>Alamat</p>
-			<input type="text" name="alamat" id="alamat" placeholder="Input Alamat Disini..." required>
+			<input type="text" name="alamat" id="alamat" placeholder="Input Alamat Disini..." required value="<?php echo $dataUser['alamat'] ?>">
 			<div class="alert-err">
 				<p>Alamat Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -117,45 +118,25 @@
 					$queryMapel = $koneksi->query("SELECT * FROM tb_mapel");
 					while ($dataMapel = $queryMapel->fetch_assoc()) {
 						?>
-						<option value="<?php echo $dataMapel['nama_mapel'] ?>"><?php echo $dataMapel['nama_mapel'] ?></option>
+						<option value="<?php echo $dataMapel['nama_mapel'] ?>" <?php if($dataUser['bidang_ilmu'] == $dataMapel['nama_mapel']){echo 'selected';} ?>><?php echo $dataMapel['nama_mapel'] ?></option>
 						<?php
 					}
 				 ?>
 			</select>
-			<div class="alert-err">
-				<p>Jurusan Tidak Boleh Kosong</p>
-				<div class="point-err"></div>
-			</div>
 		</div>
 
 		<div class="form-control-block">
 			<p>Username</p>
-			<input type="text" name="username" id="username" placeholder="Input Username Disini..." required>
+			<input type="text" name="username" id="username" placeholder="Input Username Disini..." required value="<?php echo $dataUser['username'] ?>">
 			<div class="alert-err">
 				<p>Username Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
 			</div>
 		</div>
 
-		<div class="form-control">
-			<p>Password</p>
-			<input type="password" name="password" id="password" placeholder="Input Password Disini..." required>
-			<div class="alert-err">
-				<p>Password Tidak Boleh Kosong</p>
-				<div class="point-err"></div>
-			</div>
-		</div>
-		<div class="form-control">
-			<p>Ulangi Password</p>
-			<input type="password" name="r_password" id="r_password" placeholder="Input Password Disini..." required>
-			<div class="alert-err">
-				<p>Ulangi Password Anda</p>
-				<div class="point-err"></div>
-			</div>
-		</div>
-
 		<div class="form-control-block">
 			<p>Foto Profil</p>
+			<img src="../img/profile/<?php echo $dataUser['profile_img'] ?>">
 			<input type="file" name="profile_img" id="profile_img">
 		</div>
 	</div>
@@ -167,6 +148,15 @@
 
 <script>
 	var input = document.querySelectorAll('input');
+	var namaLengkap = document.getElementById('nama_lengkap');
+	var namaDepan = document.getElementById('nama_depan');
+	var namaBelakang = document.getElementById('nama_belakang');
+	var email = document.getElementById('email');
+	var	username = document.getElementById('username');
+	var password = document.getElementById('password');
+	var rPassword = document.getElementById('r_password');
+	var tanggalLahir = document.getElementById('tanggal_lahir');
+	var profileImg = document.getElementById('profile_img');
 	for (var i = 0; i < input.length; i++){
 		input[i].addEventListener('keyup', function(){
 			if (this.value == "") {
@@ -182,116 +172,90 @@
 
 <?php 
 	if (isset($_POST['btn-submit'])) {
-		$username 			= $_POST['username'];
 		$email 				= $_POST['email'];
-		$password 			= $_POST['password'];
-		$r_password 		= $_POST['r_password'];
 		$nama_lengkap 		= $_POST['nama_lengkap'];
 		$tanggal_lahir 		= $_POST['tanggal_lahir'];
 		$profile_name 		= $_POST['nama_depan']." ".$_POST['nama_belakang'];
 		$id_level 			= '3';
 		$profile_img_name 	= $_FILES['profile_img']['name'];
-		$tmp_profile	 	= $_FILES['profile_img']['tmp_name'];
+		$tmp_profile 		= $_FILES['profile_img']['tmp_name'];
 		$nik 				= $_POST['nik'];
 		$jenis_kelamin 		= $_POST['jenis_kelamin'];
 		$tempat_lahir 		= $_POST['tempat_lahir'];
 		$agama 				= $_POST['agama'];
 		$telp 				= $_POST['telp'];
 		$alamat 			= $_POST['alamat'];
-		$bidang_ilmu 		= $_POST['bidang_ilmu'];
 		$namaBaru			= "";
+		$bidang_ilmu		= $_POST['bidang_ilmu'];
 
-
-		// Validasi Email
-		$queryCheckEmail = $koneksi->query("SELECT * FROM tb_user WHERE email = '$email'");
-		if ($queryCheckEmail->num_rows > 0) {
-			?>
-				<script>
-					errorAlert("Error", "Email Telah Digunakan");
-				</script>
-			<?php
-		}
-		else{
-			// Validasi Username
-			$queryCheckUsername = $koneksi->query("SELECT * FROM tb_user WHERE username = '$username'");
-			if ($queryCheckUsername->num_rows > 0) {
+		function upload(){
+			//cek gambar
+			$profile_img_name 	= $_FILES['profile_img']['name'];
+			$tmp_profile 		= $_FILES['profile_img']['tmp_name'];
+			$extensiGambarValid = ['jpg', 'jpeg', 'png', 'gif'];
+			$extensiGambar = explode('.', $profile_img_name);
+			$extensiGambar = strtolower(end($extensiGambar));
+			if (!in_array($extensiGambar, $extensiGambarValid)) {
 				?>
 				<script>
-					errorAlert("Error", "Username Telah Digunakan");
+					errorAlert("Error", "Yang Anda Upload Bukan Gambar");
 				</script>
+				<?php
+				die();
+			}
+
+			//Verified image
+			$namaBaru = uniqid();
+			return $namaBaru .= ".".$extensiGambar;
+		}
+
+		if ($_FILES['profile_img']['error'] == 4) {
+			$namaBaru = $dataUser['profile_img'];
+		}
+		else{
+			upload();
+			$namaBaru = upload();
+			move_uploaded_file($tmp_profile, "../img/profile/$namaBaru");
+			$gambar = $dataUser['profile_img'];
+			$directory = "../img/profile/";
+			
+			if ($gambar != 'profile.png') {
+				if (file_exists($directory.$gambar)) {
+					unlink($directory.$gambar);
+				}
+			}
+		}
+
+		$queryUpdateUser = $koneksi->query("UPDATE tb_user SET email='$email', profile_img='$namaBaru', profile_name='$profile_name' WHERE id_user = $id_user");
+
+		if ($queryUpdateUser) {
+			$queryUpdateSiswa = $koneksi->query("UPDATE tb_guru SET nama_lengkap = '$nama_lengkap', nik = '$nik', jenis_kelamin='$jenis_kelamin', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', agama='$agama', telp='$telp', alamat='$alamat', bidang_ilmu='$bidang_ilmu' WHERE id_user = $id_user ");
+			if ($queryUpdateSiswa) {
+				?>
+					<script>
+						successAlert("Berhasil", "Data telah diubah");
+						document.addEventListener('click', function(){
+							location.href = 'index.php?menu=guru';
+						});
+					</script>
 				<?php
 			}
 			else{
-				// Validasi R-password
-				if ($r_password != $password) {
-					?>
+				?>
 					<script>
-						errorAlert("Error", "Password Tidak Sama");
+						errorAlert("Gagal", "Data Gagal diubah");
 					</script>
-					<?php
-				}
-				else{
-					function upload(){
-						//cek gambar
-						$extensiGambarValid = ['jpg', 'jpeg', 'png', 'gif'];
-						$extensiGambar = explode('.', $profile_img_name);
-						$extensiGambar = strtolower(end($extensiGambar));
-						if (!in_array($extensiGambar, $extensiGambarValid)) {
-							?>
-							<script>
-								errorAlert("Error", "Yang Anda Upload Bukan Gambar");
-							</script>
-							<?php
-							die();
-						}
-
-						//Verified image
-						$namaBaru = uniqid();
-						return $namaBaru .= ".".$extensiGambar;
-					}
-
-					if ($_FILES['profile_img']['error'] == 4) {
-						$namaBaru = 'profile.png';
-					}
-					else{
-						upload();
-						$namaBaru	= upload();
-						move_uploaded_file($tmp_profile, "../img/profile/$namaBaru");
-					}
-
-					// add user
-					$passwordHash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-					$queryAddUser = $koneksi->query("INSERT INTO tb_user VALUES (NULL, '$username', '$email', '$passwordHash', '$namaBaru', '$profile_name', $id_level)");
-
-
-					if ($queryAddUser) {
-
-						// Add Guru
-						$queryCheckId = $koneksi->query("SELECT * FROM tb_user WHERE username = '$username'");
-						$dataId = $queryCheckId->fetch_assoc();
-						$id_user = $dataId['id_user'];
-
-						$queryAddGuru = $koneksi->query("INSERT INTO tb_guru VALUES (NULL, $id_user, '$nama_lengkap', '$nik', '$jenis_kelamin', '$tempat_lahir', '$tanggal_lahir', '$agama', '$telp', '$alamat', '$bidang_ilmu') ");
-						if ($queryAddGuru) {
-							?>
-							<script>
-								successAlert("Sukses", "Data Berhasil Ditambahkan");
-								document.addEventListener('click', function(){
-									location.href = 'index.php?menu=guru';
-								});
-							</script>
-							<?php
-						}
-					}
-					else{
-						?>
-						<script>
-							errorAlert("Error", "Gagal Add Data");
-						</script>
-						<?php
-					}
-				}
+				<?php
 			}
 		}
+		else{
+			?>
+				<script>
+					errorAlert("Gagal", "Data Gagal diubah");
+				</script>
+			<?php
+		}
+
+		
 	}
  ?>

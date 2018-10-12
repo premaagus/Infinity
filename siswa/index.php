@@ -2,9 +2,6 @@
 
 	require_once '../lib/config.php';
 
-	$tanggalLahir = $_SESSION['user']['tanggalLahir'];
-	$umur = date_diff(date_create("$tanggalLahir"), date_create('today'))->y;
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,14 +57,14 @@
 				</div>
 				<div class="picture-user">
 					<a href="partials/show-profile.php">
-						<img src="images/profile/profile1.jpg">
+						<img src="../img/profile/<?php echo $_SESSION['user']['profile_img'] ?>">
 					</a>
 				</div>
 				<h2>
-					<a href="partials/show-profile.php"><?= $_SESSION['user']['username'] ?></a>	
+					<a href="partials/show-profile.php"><?= $_SESSION['user']['profile_name'] ?></a>	
 				</h2>
 				<p>
-					<a href="partials/show-profile.php"><?= $umur ?> - <?= $_SESSION['user']['email'] ?></a>
+					<a href="partials/show-profile.php">Siswa - <?= $_SESSION['user']['email'] ?></a>
 				</p>
 			</div>
 
@@ -132,7 +129,7 @@
 			});
 			<?php
 		}
-		else if ($_SESSION['user']['level'] != 1) {
+		else if ($_SESSION['user']['level'] != 2) {
 			?>
 			errorAlert('Error', 'Anda Tidak Memiliki Akses!');
 			document.addEventListener('click', function(){
