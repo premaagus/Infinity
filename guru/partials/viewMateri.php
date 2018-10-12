@@ -1,9 +1,26 @@
+<script src="js/alert.js"></script>
+
 <?php 
 	$id_mapel = $_GET['id_mapel'];
 	$id_kelas = $_GET['id_kelas'];
 
-	$queryKelas = $koneksi->query("SELECT * FROM tb_kelas WHERE id_kelas = $id_kelas");
-	$dataKelas = $queryKelas->fetch_assoc();
+	$queryMapel 	= $koneksi->query("SELECT * FROM tb_mapel WHERE id_mapel = $id_mapel");
+	$queryKelas 	= $koneksi->query("SELECT * FROM tb_kelas WHERE id_kelas = $id_kelas");
+	$queryJadwal 	= $koneksi->query("SELECT * FROM tb_jadwal WHERE id_kelas = $id_kelas AND id_mapel = $id_mapel");
+	$dataKelas 		= $queryKelas->fetch_assoc();
+	$dataMapel 		= $queryMapel->fetch_assoc();
+	$dataJadwal		= $queryJadwal->fetch_assoc();
+
+	if ($dataJadwal['id_guru'] != $_SESSION['user']['id_guru']) {
+		?>
+		<script>
+			errorAlert("Error", "Anda Tidak Memiliki Akses");
+			document.addEventListener("click", function(){
+				location.href = 'index.php?menu=jadwal';
+			});
+		</script>
+		<?php
+	}
  ?>
 
 <h1>Materi</h1>
@@ -34,7 +51,10 @@
 					<td><?php echo $no ?></td>
 					<td><?php echo $dataMateri['nama_materi'] ?></td>
 					<td><?php echo $dataMateri['desc_materi'] ?></td>
-					<td><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
+					<td>
+						<div class="btn-edit"><a href="?menu=jadwal&action=edit&id=<?= $dataJadwal['id_jadwal'] ?>">Edit</a></div>
+						<div class="btn-delete"><a href="?menu=jadwal&action=delete&id=<?= $dataJadwal['id_jadwal'] ?>">Delete</a></div>
+					</td>
 				</tr>
 				<?php
 				$no++;

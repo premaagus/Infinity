@@ -1,3 +1,5 @@
+<script src="js/alert.js"></script>
+
 <?php 
 	$id_jadwal 		= $_GET['id_jadwal'];
 	$queryJadwal 	= $koneksi->query("SELECT * FROM tb_jadwal WHERE id_jadwal = $id_jadwal");
@@ -14,6 +16,17 @@
 	//data
 	$dataMapel		= $queryMapel->fetch_assoc();
 	$dataKelas		= $queryKelas->fetch_assoc();
+
+	if ($dataJadwal['id_guru'] != $_SESSION['user']['id_guru']) {
+		?>
+		<script>
+			errorAlert("Error", "Anda Tidak Memiliki Akses");
+			document.addEventListener("click", function(){
+				location.href = 'index.php?menu=jadwal';
+			});
+		</script>
+		<?php
+	}
  ?>
 
 <h1><?php echo $dataMapel['nama_mapel'] ?></h1>

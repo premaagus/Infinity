@@ -45,6 +45,9 @@
 				$_SESSION['user']['profile_name'] 	= $profile_name;
 				$_SESSION['user']['profile_img'] 	= $profile_img;
 				$_SESSION['user']['level'] 			= $level;
+				$queryGuru 							= $koneksi->query("SELECT * FROM tb_guru WHERE id_user = $id_user");
+				$dataGuru 							= $queryGuru->fetch_assoc();
+				$_SESSION['user']['id_guru'] 		= $dataGuru['id_guru'];
 				echo "3";
 			}
 		}
