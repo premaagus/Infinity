@@ -6,7 +6,7 @@
 		<a href="index.php?menu=guru&action=add">Tambah Guru</a>
 	</div><!-- btn-add -->
 </div><!-- add-new -->
-<div class="container-siswa d-flex fd-row f-row">
+<div class="container-siswa d-flex fd-row f-row i-ctr j-ard">
 	<?php 
 		$queryGuru = $koneksi->query("SELECT * FROM tb_user AS a INNER JOIN tb_guru AS b ON a.id_user = b.id_user WHERE id_level = 3");
 		while ($dataGuru = $queryGuru->fetch_assoc()) {
