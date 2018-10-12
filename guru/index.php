@@ -15,6 +15,8 @@
 	<link rel="stylesheet" href="css/dashboard.css">
 	<link rel="stylesheet" href="../css/fontawesome.css">
 	<link rel="stylesheet" href="../css/alert.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
 
@@ -45,13 +47,21 @@
 
 	<div class="wrapper d-flex">
 		
-		<div class="navbar d-flex j-end">
+		<div class="navbar  d-flex j-end">
 			<ul>
-				<li><a href="#">Siswa</a></li>
-				<li><a href="#">Guru</a></li>
+				<li><a href="index.php?menu=showAllSiswa">Siswa</a></li>
+				<li><a href="index.php?menu=showAllGuru">Guru</a></li>
 				<li><a href="#">Mata Pelajaran</a></li>
-				<li class="btn-logout"><a href="logout.php">Logout</a></li>
+				<li class="btn-logout"><a href="logout.php">LogOut</a></li>
 			</ul>
+			<div class=" menu-mobile d-flex j-btw">
+				<img src="../img/logo-branding-white.png">
+				<div class="wrapper-menu">
+			      <div class="line-menu half start"></div>
+			      <div class="line-menu"></div>
+			      <div class="line-menu half end"></div>
+		   		</div>
+		   	</div>
 		</div>
 
 		<div class="container-side f-row">
