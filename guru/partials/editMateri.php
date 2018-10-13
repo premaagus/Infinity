@@ -94,6 +94,8 @@
 		$desc_materi 	= $_POST['desc_materi'];
 		$file_name		= $_FILES['file_materi']['name'];
 		$tmp_file		= $_FILES['file_materi']['tmp_name'];
+		$file_materi	= $dataMateri['file_materi'];
+		$directory		= '../files/materi/';
 
 		function upload(){
 			//cek file
@@ -119,8 +121,12 @@
 			$namaBaru = $dataMateri['file_materi'];
 		}
 		else{
+			if (file_exists($directory.$file_materi)) {
+				unlink($directory.$file_materi);
+			}
 			upload();
 			$namaBaru = upload();
+			move_uploaded_file($tmp_file, "../files/materi/$namaBaru");
 		}
 
 		

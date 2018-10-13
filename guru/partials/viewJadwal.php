@@ -14,7 +14,7 @@
 		<div class="container-pelajaran d-flex fd-row f-row j-str i-ard">
 
 			<?php 
-				$queryJadwal = $koneksi->query("SELECT * FROM tb_jadwal WHERE id_guru = $id_guru AND hari = '$key'");
+				$queryJadwal = $koneksi->query("SELECT * FROM tb_jadwal WHERE id_guru = $id_guru AND hari = '$key' ORDER BY jam_mulai ASC");
 				if ($queryJadwal->num_rows > 0) {
 					while ($dataJadwal = $queryJadwal->fetch_assoc()) {
 						$jam_mulai		= $dataJadwal['jam_mulai'];
