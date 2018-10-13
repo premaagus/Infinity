@@ -52,8 +52,8 @@
 					<td><?php echo $dataMateri['nama_materi'] ?></td>
 					<td><?php echo $dataMateri['desc_materi'] ?></td>
 					<td>
-						<div class="btn-edit"><a href="?menu=jadwal&action=edit&id=<?= $dataJadwal['id_jadwal'] ?>">Edit</a></div>
-						<div class="btn-delete"><a href="?menu=jadwal&action=delete&id=<?= $dataJadwal['id_jadwal'] ?>">Delete</a></div>
+						<div class="btn-edit"><a href="?menu=jadwal&view=materi&id_materi=<?php echo $dataMateri['id_materi'] ?>&action=edit">Edit</a></div>
+						<div class="btn-delete"><a href="?menu=jadwal&view=materi&id_materi=<?php echo $dataMateri['id_materi'] ?>&action=delete">Delete</a></div>
 					</td>
 				</tr>
 				<?php

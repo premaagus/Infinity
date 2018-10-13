@@ -1,7 +1,10 @@
 <?php 
 
 	if (!isset($_GET['menu'])) {
-		require_once 'partials/viewSiswa.php';
+		header('location: index.php?menu=index');
+	}
+	else if ($_GET['menu'] == 'index') {
+		require_once 'partials/dashboard.php';
 	}
 	else if ($_GET['menu'] == "siswa" && !isset($_GET['action'])) {
 		require_once 'partials/viewSiswa.php';

@@ -66,6 +66,9 @@
 	else if ($_GET['menu'] == 'kelas' && $_GET['action'] == 'add') {
 		require_once 'partials/addKelas.php';
 	}
+	else if ($_GET['menu'] == 'kelas' && $_GET['action'] == 'edit' && isset($_GET['id_kelas'])) {
+		require_once 'partials/editKelas.php';
+	}
 
 	//Jadwal
 	else if ($_GET['menu'] == "jadwal" && !isset($_GET['action'])) {

@@ -20,6 +20,12 @@
 	else if ($_GET['menu'] == "jadwal" && !isset($_GET['action'])) {
 		require_once 'partials/viewJadwal.php';
 	}
+	else if ($_GET['menu'] == "jadwal" && $_GET['action'] == 'edit' && isset($_GET['id_materi'])) {
+		require_once 'partials/editMateri.php';
+	}
+	else if ($_GET['menu'] == "jadwal" && $_GET['action'] == 'delete' && isset($_GET['id_materi'])) {
+		require_once 'partials/deleteMateri.php';
+	}
 
 
 	else if ($_GET['menu'] == "guru" && !isset($_GET['action'])) {
