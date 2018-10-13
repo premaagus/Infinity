@@ -1,3 +1,24 @@
+<?php 
+	
+	$id_mapel = $_GET['id_mapel'];
+	$id_kelas = $_GET['id_kelas'];
+
+	$queryCheck = $koneksi->query("SELECT * FROM tb_jadwal WHERE id_mapel = $id_mapel AND id_kelas = $id_kelas");
+	$dataCheck = $queryCheck->fetch_assoc();
+
+	if ($dataCheck['id_guru'] != $_SESSION['user']['id_guru']) {
+		?>
+		<script>
+			errorAlert("Error", "Akses ditolak!");
+			document.addEventListener('click', function(){
+				location.href = 'index.php?menu=index';
+			});
+		</script>
+		<?php
+	}
+
+ ?>
+
 <h1>Tambah Materi</h1>
 <hr>
 <form action="" method="POST" enctype="multipart/form-data">
