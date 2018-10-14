@@ -31,6 +31,7 @@
 	$selesaiDate = $tugas_selesai[0];
 	$selesaiHour = $tugas_selesai[1];
 	$tugas_selesai = $selesaiDate.'T'.$selesaiHour;
+	$extensi_file = $data_tugas['extensi_file'];
  ?>
 
  <h1>Tambah Materi</h1>

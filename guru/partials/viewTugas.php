@@ -71,3 +71,25 @@
 		
 	</table>
 </div>
+
+<script>
+	function display_c(){
+	  var refresh=1000; 
+	  mytime=setTimeout('display_ct()',refresh)
+	}
+
+	function display_ct() {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(){
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				var ajax = 'true';
+			}
+		}
+		xhr.open("POST", "../controller/time_controller.php", true);
+		xhr.send();
+		start = display_c();
+
+	}
+
+	display_ct();
+</script>
