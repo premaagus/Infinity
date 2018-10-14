@@ -741,7 +741,7 @@ body{
 .container-preference{
 	width: 100px;
 	height: 0px;
-	background: blue;
+	background: white;
 	position: absolute;
 	top: 10px;
 	left: -170%;
@@ -750,6 +750,7 @@ body{
 	visibility: hidden;
 	opacity: 0;
 	transition: 0.5s ease;
+	box-shadow: 6px 8px 15px 1px rgba(0,0,0,0.3);
 }
 
 .visible{

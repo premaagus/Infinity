@@ -42,7 +42,7 @@
 		</a>
 	</div><!-- card-detailMapel -->
 	<div class="card-detailMapel">
-		<a href="index.php?menu=mapel&id=<?php echo $_GET['id'] ?>&view=tugas">
+		<a href="index.php?menu=mapel&id_mapel=<?php echo $dataMapel['id_mapel'] ?>&id_kelas=<?php echo $dataKelas['id_kelas'] ?>&view=tugas">
 			<img src="../img/pattern/pattern2.png">
 			<h3>Tugas</h3>
 		</a>

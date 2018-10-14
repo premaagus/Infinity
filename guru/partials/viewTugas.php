@@ -31,30 +31,33 @@
 
 <div class="add-new d-flex j-end i-ctr">
 	<div class="btn-add">
-		<a href="index.php?menu=jadwal&id_mapel=<?php echo $id_mapel ?>&id_kelas=<?php echo $id_kelas ?>&view=materi&action=add">Tambah Materi</a>
+		<a href="index.php?menu=jadwal&id_mapel=<?php echo $id_mapel ?>&id_kelas=<?php echo $id_kelas ?>&view=tugas&action=add">Tambah Materi</a>
 	</div><!-- btn-add -->
 </div><!-- add-new -->
 <div class="table-control">
 	<table>
 		<tr>
 			<th>No</th>
-			<th>Nama Materi</th>
-			<th>Deskripsi Materi</th>
-			<th>File Materi</th>
+			<th>Nama Tugas</th>
+			<th>Deskripsi Tugas</th>
+			<th>Tugas Mulai</th>
+			<th>Tugas Selesai</th>
+			<th>File Tugas</th>
+			<th>Status</th>
 		</tr>
 		<?php 
-			$queryMateri = $koneksi->query("SELECT * FROM tb_materi WHERE id_mapel = $id_mapel AND id_kelas = $id_kelas");
+			$queryTugas = $koneksi->query("SELECT * FROM tb_tugas WHERE id_mapel = $id_mapel AND id_kelas = $id_kelas");
 			$no = 1;
-			while ($dataMateri = $queryMateri->fetch_assoc()) {
+			while ($dataTugas = $queryTugas->fetch_assoc()) {
 				?>
 				<tr>
 					<td><?php echo $no ?></td>
-					<td><?php echo $dataMateri['nama_materi'] ?></td>
-					<td><?php echo $dataMateri['desc_materi'] ?></td>
-					<td>
-						<div class="btn-edit"><a href="?menu=jadwal&view=materi&id_materi=<?php echo $dataMateri['id_materi'] ?>&action=edit">Edit</a></div>
-						<div class="btn-delete"><a href="?menu=jadwal&view=materi&id_materi=<?php echo $dataMateri['id_materi'] ?>&action=delete">Delete</a></div>
-					</td>
+					<td><?php echo $dataTugas['nama_tugas'] ?></td>
+					<td><?php echo $dataTugas['desc_tugas'] ?></td>
+					<td><?php echo date('d-F-Y H:i', strtotime($dataTugas['tugas_mulai'])) ?></td>
+					<td><?php echo date('d-F-Y H:i', strtotime($dataTugas['tugas_selesai'])) ?></td>
+					<td><?php echo $dataTugas['file_tugas'] ?></td>
+					<td><?php echo $dataTugas['status'] ?></td>
 				</tr>
 				<?php
 				$no++;

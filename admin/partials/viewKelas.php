@@ -12,8 +12,8 @@
 		while ($dataKelas = $queryKelas->fetch_assoc()) {
 			?>
 			<div class="card-pelajaran kelas-card">
-				<a href="index.php?menu=mapel&id=<?php echo $dataMapel['id_mapel'] ?>">
-					<img src="../img/pattern/kelas/pattern-orange.png">
+				<a href="index.php?menu=kelas&id=<?php echo $dataKelas['id_kelas'] ?>">
+					<img src="../img/pattern/kelas/<?php echo $dataKelas['background_kelas'] ?>">
 					<h3 class="kelasCapt"><?php echo $dataKelas['nama_kelas'] ?></h3>
 				</a>
 				<div class="preference">
@@ -21,8 +21,8 @@
 
 					<div class="container-preference">
 						<ul>
-							<li><a href="index.php?menu=mapel&action=edit&id=<?php echo $dataMapel['id_mapel'] ?>">Edit</a></li>
-							<li><a href="index.php?menu=mapel&action=delete&id=<?php echo $dataMapel['id_mapel'] ?>">Delete</a></li>
+							<li><a href="index.php?menu=kelas&action=edit&id_kelas=<?php echo $dataKelas['id_kelas'] ?>">Edit</a></li>
+							<li><a href="index.php?menu=kelas&action=delete&id_kelas=<?php echo $dataKelas['id_kelas'] ?>">Delete</a></li>
 						</ul>
 					</div>
 				</div>
@@ -32,3 +32,13 @@
 	 ?>
 
 </div><!-- container-pelajaran -->
+
+<script>
+	var btnPreference = document.querySelectorAll('.preference');
+	for (var i = 0; i < btnPreference.length; i++){
+		btnPreference[i].addEventListener('click', function(){
+			this.querySelectorAll('.container-preference')[0].classList.toggle('visible');
+			this.querySelectorAll('.container-preference')[0].style.opacity = '1';
+		});
+	}
+</script>

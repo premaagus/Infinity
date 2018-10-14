@@ -5,13 +5,23 @@
 	}
 
 	// jadwal
-	else if ($_GET['menu'] == 'jadwal' && isset($_GET['id_mapel']) && isset($_GET['id_kelas']) && $_GET['view'] == 'materi' && !isset($_GET['action'])) {
+	//materi
+	else if (isset($_GET['menu']) && isset($_GET['id_mapel']) && isset($_GET['id_kelas']) && $_GET['view'] == 'materi' && !isset($_GET['action'])) {
 		require_once 'partials/viewMateri.php';
 	}
-	else if ($_GET['menu'] == 'jadwal' && isset($_GET['id_mapel']) && isset($_GET['id_kelas']) && $_GET['view'] == 'materi' && $_GET['action'] == 'add') {
+	else if (isset($_GET['menu']) && isset($_GET['id_mapel']) && isset($_GET['id_kelas']) && $_GET['view'] == 'materi' && $_GET['action'] == 'add') {
 		require_once 'partials/addMateri.php';
 	}
-	else if ($_GET['menu'] == "jadwal" && isset($_GET['id_jadwal'])) {
+
+	//Tugas
+	else if (isset($_GET['menu']) && isset($_GET['id_mapel']) && isset($_GET['id_kelas']) && $_GET['view'] == 'tugas' && !isset($_GET['action'])) {
+		require_once 'partials/viewTugas.php';
+	}
+	else if (isset($_GET['menu']) && isset($_GET['id_mapel']) && isset($_GET['id_kelas']) && $_GET['view'] == 'tugas' && $_GET['action'] == 'add') {
+		require_once 'partials/addTugas.php';
+	}
+
+	else if (isset($_GET['menu']) && isset($_GET['id_jadwal'])) {
 		require_once 'partials/detailJadwal.php';
 	}
 	else if ($_GET['menu'] == "jadwal" && isset($_GET['id_mapel'])) {
@@ -19,6 +29,14 @@
 	}
 	else if ($_GET['menu'] == "jadwal" && !isset($_GET['action'])) {
 		require_once 'partials/viewJadwal.php';
+	}
+
+
+	else if ($_GET['menu'] == "jadwal" && $_GET['action'] == 'edit' && isset($_GET['id_materi'])) {
+		require_once 'partials/editMateri.php';
+	}
+	else if ($_GET['menu'] == "jadwal" && $_GET['action'] == 'delete' && isset($_GET['id_materi'])) {
+		require_once 'partials/deleteMateri.php';
 	}
 
 
