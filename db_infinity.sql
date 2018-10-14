@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2018 at 01:56 PM
+-- Generation Time: Oct 14, 2018 at 05:23 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -267,7 +267,8 @@ CREATE TABLE `tb_tugas` (
 --
 
 INSERT INTO `tb_tugas` (`id_tugas`, `id_mapel`, `id_kelas`, `nama_tugas`, `desc_tugas`, `tugas_mulai`, `tugas_selesai`, `file_tugas`, `extensi_file`, `status`) VALUES
-(3, 8, 2, 'Aritmatika', 'kerjakan tugasnya', '2018-10-13 23:01:00', '2018-10-15 22:00:00', '5bc208e68feac.txt', '', 'ready');
+(3, 8, 2, 'Aritmatika', 'kerjakan tugasnya', '2018-10-13 23:01:00', '2018-10-15 22:00:00', '5bc208e68feac.txt', '', 'ready'),
+(5, 8, 1, 'asdasd', 'asdasd', '2018-10-14 20:09:00', '2018-10-14 22:00:00', '5bc337d857970.doc', 'application/msword', 'blocked');
 
 -- --------------------------------------------------------
 
@@ -423,7 +424,7 @@ ALTER TABLE `tb_siswa`
 -- AUTO_INCREMENT for table `tb_tugas`
 --
 ALTER TABLE `tb_tugas`
-  MODIFY `id_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
