@@ -14,7 +14,7 @@
 			<h3>Tugas</h3>
 		</a>
 	</div><!-- card-detailMapel -->
-	<div class="card-detailMapel">
+	<div class="card-detailMapel pengumuman">
 		<a href="#">
 			<img src="../img/pattern/pattern3.png">
 			<h3>Pengumuman</h3>

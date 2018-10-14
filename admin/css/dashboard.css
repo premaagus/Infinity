@@ -977,6 +977,17 @@ body{
 		width: 300px;
 		margin: 20px 0;
 	}
+	.card-detailMapel{
+		width: 45%;
+	}
+	.pengumuman{
+		width: 93%;
+		height: 230px;
+	}
+	.pengumuman h3{
+		line-height: 230px;
+		font-size: 40px;
+	}
 	.btn-add{
 		margin-right: 35px;
 	}
