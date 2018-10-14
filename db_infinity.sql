@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2018 at 02:29 PM
+-- Generation Time: Oct 14, 2018 at 01:56 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -47,7 +47,7 @@ CREATE TABLE `tb_guru` (
 --
 
 INSERT INTO `tb_guru` (`id_guru`, `id_user`, `nama_lengkap`, `nik`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `telp`, `alamat`, `bidang_ilmu`) VALUES
-(5, 15, 'Evi Dwi Krisna', '3445', 'Perempuan', 'Denpasar', '1992-03-13', 'Hindu', '081122223334', 'Denpasar', 'Matematika'),
+(5, 15, 'Evi Dwi Krisna', '4424', 'Perempuan', 'Denpasar', '1992-03-13', 'Hindu', '081122223334', 'Denpasar', 'Matematika'),
 (8, 20, 'Luh Putu Ayu Desiani', '3424', 'Perempuan', 'Denpasar', '1990-08-12', 'Hindu', '081242424334', 'Denpasar', 'Basis Data'),
 (9, 21, 'Putu Dilia Dewi', '3314', 'Perempuan', 'Denpasar', '1990-09-30', 'Hindu', '087761661669', 'Denpasar', 'Bahasa Inggris'),
 (10, 22, 'I Wayan Sunarta', '4412', 'Laki - Laki', 'Denpasar', '1970-04-14', 'Hindu', '0812231332', 'Denpasar', 'Bahasa Bali'),
@@ -89,7 +89,9 @@ INSERT INTO `tb_jadwal` (`id_jadwal`, `id_mapel`, `id_guru`, `hari`, `jam_mulai`
 (13, 14, 13, 'selasa', '17:05:00', '18:25:00', 1, 2018),
 (14, 15, 14, 'rabu', '12:50:00', '14:10:00', 1, 2018),
 (15, 8, 5, 'rabu', '12:50:00', '14:10:00', 1, 2018),
-(16, 16, 15, 'rabu', '15:45:00', '17:05:00', 1, 2018);
+(16, 16, 15, 'rabu', '15:45:00', '17:05:00', 1, 2018),
+(17, 8, 5, 'senin', '12:50:00', '14:10:00', 2, 2018),
+(18, 8, 5, 'senin', '14:10:00', '15:30:00', 3, 2018);
 
 -- --------------------------------------------------------
 
@@ -100,16 +102,18 @@ INSERT INTO `tb_jadwal` (`id_jadwal`, `id_mapel`, `id_guru`, `hari`, `jam_mulai`
 CREATE TABLE `tb_kelas` (
   `id_kelas` int(11) NOT NULL,
   `nama_kelas` varchar(30) NOT NULL,
-  `ruangan` varchar(4) NOT NULL
+  `ruangan` varchar(4) NOT NULL,
+  `background_kelas` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_kelas`
 --
 
-INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`, `ruangan`) VALUES
-(1, 'XII RPL 3', '9'),
-(2, 'XII RPL 4', '2');
+INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`, `ruangan`, `background_kelas`) VALUES
+(1, 'XII RPL 3', '10', 'pattern-purple.png'),
+(2, 'XII RPL 4', '2', 'pattern-orange.png'),
+(3, 'X RPL 3', '15', 'pattern-yellow.png');
 
 -- --------------------------------------------------------
 
@@ -172,15 +176,16 @@ CREATE TABLE `tb_materi` (
   `id_kelas` int(11) NOT NULL,
   `nama_materi` varchar(30) NOT NULL,
   `desc_materi` text NOT NULL,
-  `file_materi` varchar(50) NOT NULL
+  `file_materi` varchar(50) NOT NULL,
+  `extensi_file` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_materi`
 --
 
-INSERT INTO `tb_materi` (`id_materi`, `id_mapel`, `id_kelas`, `nama_materi`, `desc_materi`, `file_materi`) VALUES
-(7, 8, 1, 'asdasd', 'asdasd', '5bc05a51b15a7.txt');
+INSERT INTO `tb_materi` (`id_materi`, `id_mapel`, `id_kelas`, `nama_materi`, `desc_materi`, `file_materi`, `extensi_file`) VALUES
+(17, 8, 1, 'Aritmatika', 'Sosiologi', '5bc32c5780782.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
 
 -- --------------------------------------------------------
 
@@ -251,8 +256,18 @@ CREATE TABLE `tb_tugas` (
   `nama_tugas` varchar(30) NOT NULL,
   `desc_tugas` text NOT NULL,
   `tugas_mulai` datetime NOT NULL,
-  `tugas_selesai` datetime NOT NULL
+  `tugas_selesai` datetime NOT NULL,
+  `file_tugas` varchar(25) NOT NULL,
+  `extensi_file` varchar(25) NOT NULL,
+  `status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_tugas`
+--
+
+INSERT INTO `tb_tugas` (`id_tugas`, `id_mapel`, `id_kelas`, `nama_tugas`, `desc_tugas`, `tugas_mulai`, `tugas_selesai`, `file_tugas`, `extensi_file`, `status`) VALUES
+(3, 8, 2, 'Aritmatika', 'kerjakan tugasnya', '2018-10-13 23:01:00', '2018-10-15 22:00:00', '5bc208e68feac.txt', '', 'ready');
 
 -- --------------------------------------------------------
 
@@ -366,13 +381,13 @@ ALTER TABLE `tb_guru`
 -- AUTO_INCREMENT for table `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_level`
@@ -390,7 +405,7 @@ ALTER TABLE `tb_mapel`
 -- AUTO_INCREMENT for table `tb_materi`
 --
 ALTER TABLE `tb_materi`
-  MODIFY `id_materi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_materi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tb_pengumuman`
@@ -402,19 +417,19 @@ ALTER TABLE `tb_pengumuman`
 -- AUTO_INCREMENT for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tb_tugas`
 --
 ALTER TABLE `tb_tugas`
-  MODIFY `id_tugas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
