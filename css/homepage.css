@@ -197,7 +197,7 @@ h3{
 }
 .container-contact{
 	width: 100%;
-	height: 100vh;
+	height: 130vh;
 }
 .container-contact p{
 	text-align: center;
@@ -296,6 +296,7 @@ h3{
 	height: auto;
 	margin: 0 auto;
 	margin-top: 50px;
+	padding-bottom: 30px;
 }
 .subs input{
 	width: 300px;
@@ -320,6 +321,7 @@ h3{
 	width: 100%;
 	height: 50px;
 	margin-top: 20px;
+	padding-bottom: 10px;
 }
 .copyright h4{
 	color: #7D5BC9;

@@ -18,7 +18,7 @@
 						<li><a href="#">Fitur</a></li>
 						<li><a href="#">Petunjuk</a></li>
 						<li><a href="#">Kontak</a></li>
-						<li><a class="login" href="#">Masuk</a></li>
+						<li><a class="login" href="index.php">Masuk</a></li>
 					</ul>
 				</div><!-- max-width -->
 			</div><!-- navbar -->
