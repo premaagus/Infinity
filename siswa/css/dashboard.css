@@ -7,6 +7,10 @@ body{
 	font-family: sf-r;
 }
 
+a{
+	text-decoration: none;
+}
+
 @font-face{src:url('../../font/SFProDisplay-Bold.ttf'); font-family: sf-b}
 @font-face{src:url('../../font/SFProDisplay-Medium.ttf'); font-family: sf-m}
 @font-face{src:url('../../font/SFProDisplay-Heavy.ttf'); font-family: sf-h}
@@ -34,10 +38,14 @@ body{
 	background: #EFEFEF;
 }
 
+.navbar img{
+	display: none;
+}
+
 .navbar{
 	width: 100%;
 	height: 60px;
-	background: #5357BB;
+	background: #0C7CFF;
 	position: fixed;
 	z-index: 1000;
 }
@@ -65,7 +73,7 @@ body{
 	background-color: #FFF;
 	border-radius: 2px;
 	padding: 7px 15px !important;
-	color: #5357BB !important;
+	color: #0C7CFF !important;
 	letter-spacing: 0 !important;
 	font-family: sf-b !important;
 }
@@ -93,7 +101,7 @@ body{
 .profile-user{
 	width: 100%;
 	height: 40vh;
-	background: #5357BB;
+	background: #0C7CFF;
 	display: flex;
 	flex-flow: column wrap;
 	align-items: center;
@@ -121,7 +129,6 @@ body{
 	width: 100px;
 	height: 100px;
 	border-radius: 100%;
-	background: green;
 	margin-top: 35px;
 	overflow: hidden;
 
@@ -154,7 +161,7 @@ body{
 }
 
 .active{
-	background: #5357BB !important;
+	background: #0C7CFF !important;
 	color: white !important;
 	transform: scale(1.05) !important;
 }
@@ -164,7 +171,7 @@ body{
 	height: 100%;
 	float: left;
 	text-decoration: none;
-	color: #5357BB;
+	color: #0C7CFF;
 	border-radius: 5px;
 	letter-spacing: 1px;
 	background: white;
@@ -174,7 +181,7 @@ body{
 }
 
 .menu-list a:hover{
-	background: #5357BB;
+	background: #4E30BC;
 	color: white;
 	transform: scale(1.05);
 }
@@ -202,12 +209,13 @@ body{
 	font-family: sf-m;
 	letter-spacing: 1px;
 	font-size: 25px;
+	text-transform: capitalize;
 }
 .container-data hr{
 	margin: 5px 10px;
 	height: 3px;
 	border: none;
-	background-color: #F60070;
+	background-color: #0C7CFF;
 }
 .footer-sidebar{
 	width: 100%;
@@ -230,6 +238,41 @@ body{
 	font-family: sf-r;
 	font-size: 12px;
 	margin-top: -15px;
+}
+.container-dashboard{
+	width: 100%;
+	height: max-content;
+	margin: 0 auto;
+}
+.dashboard-show{
+	width: 350px;
+	height: 150px;
+	margin: 50px;
+	background-color: #FFF;
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+
+}
+.dashboard-show .dashboard-nilai{
+	flex: 1;
+	text-align: center;
+	line-height: 130px;
+	color: #FFF;
+	background-color: #0C7CFF;
+	position: relative;
+	z-index: 2;
+	box-shadow: 4px 0px 40px rgba(12,124,255,0.3), 0 10px 10px rgba(12,124,255,0.3);
+
+}
+.dashboard-show .dashboard-text{
+	flex: 2;
+	text-align: center;
+	line-height: 130px;
+	color: #0C7CFF;
+	box-shadow: 2px 2px 10px 1px #F60070;
+	position: relative;
+	z-index: 1;
 }
 .card-siswa{
 	background-color: #FFF;
@@ -303,20 +346,32 @@ body{
 	text-align: center;
 }
 .add-new{
-	width: 91%;
+	width: 100%;
 	height: 50px;
 	margin: 10px auto;
 }
+.btn-add{
+	text-align: center;
+}
 .btn-add a{
+	background: linear-gradient(60deg, #0ABCF9, #4D5DFB);
+	line-height: 40px;
 	text-decoration: none;
 	color: #FFF;
 	font-family: sf-s;
 	letter-spacing: .5px;
-	padding: 10px 15px;
-	background: linear-gradient(60deg, #0ABCF9, #4D5DFB);
 	border-radius: 3px;
+	text-align: center;
+	float: left;
+	padding: 0 10px;
+	box-shadow: 0 14px 28px rgba(44, 26, 78,0.10), 0 10px 10px rgba(44, 26, 78,0.10);
+
 }
 
+.container-pelajaran{
+	width: 100%;
+	height: auto;
+}
 .container-pelajaran{
 	width: 100%;
 	height: auto;
@@ -334,6 +389,7 @@ body{
 	left: 0;
 	width: 100%;
 	border-radius: 5px;
+	z-index: 1;
 }
 .card-pelajaran h3{
 	position: relative;
@@ -341,7 +397,95 @@ body{
 	font-family: sf-s;
 	padding: 20px;
 	font-size: 30px;
+	z-index: 2;
+	padding-bottom: 10px;
+	max-width: 85%;
 }
+.card-pelajaran h4{
+	position: relative;
+	color: #FFF;
+	z-index: 99;
+	padding: 20px;
+	font-family: sf-s;
+	letter-spacing: .5px;
+	opacity: .8;
+	padding-top: 0;
+	font-size: 17px;
+}
+.card-pelajaran p{
+	position: absolute;
+	right: 15px;
+	bottom: 25%;
+	z-index: 2;
+	color: white;
+	opacity: 0.8;
+	letter-spacing: 1px;
+	font-size: 15px;
+}
+.preference{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 4;
+	text-align: center;
+	cursor: pointer;
+}
+
+.preference i{
+	font-size: 18px;
+	line-height: 50px;
+	color: white;
+}
+
+.container-preference{
+	width: 100px;
+	height: 0px;
+	background: blue;
+	position: absolute;
+	top: 10px;
+	left: -170%;
+	border-radius: 5px;
+	overflow: hidden;
+	visibility: hidden;
+	opacity: 0;
+	transition: 0.5s ease;
+}
+
+.visible{
+	visibility: visible;
+	opacity: 1;
+	height: 140%;
+}
+
+
+.container-preference ul{
+	list-style: none;
+}
+
+.container-preference ul li{
+	width: 100%;
+	height: 35px;
+	background: white;	
+}
+
+.container-preference ul li a{
+	color: black;
+	float: left;
+	width: 100%;
+	height: 100%;
+	line-height: 35px;
+	background: white;
+	transition: 0.2s ease;
+	font-size: 14px;
+}
+
+.container-preference ul li a:hover{
+	background: #E5E5E5;
+}
+
+
 .container-addSiswa{
 	width: 100%;
 	margin-top: 20px;
@@ -394,9 +538,552 @@ body{
 	outline: none;
 	width: 90%;
 }
-.container-addSiswa .add-new{
-	margin-right: 12%;
+<<<<<<< HEAD
+
+.container-detailMapel{
+	width: 100%;
+	height: max-content;
 }
-.container-addSiswa .btn-add a{
-	background: linear-gradient(50deg, #FF748B, #FE7BB0)
+.card-detailMapel{
+	position: relative;
+	width: 30%;
+	height: 25vh;
+	margin: 10px;
+	overflow: hidden;
+	border-radius: 5px;
+	z-index: 1;
+}
+.card-detailMapel img{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+}
+.card-detailMapel h3{
+	color: #FFF;
+	z-index: 3;
+	position: relative;
+	font-family: sf-r;
+	letter-spacing: 1px;
+	font-size: 30px;
+	text-align: center;
+	line-height: 25vh;
+}
+
+.container-data h2{
+	padding: 10px;
+	padding-top: 0;
+	font-family: sf-s;
+	letter-spacing: 1px;
+	font-size: 15px;
+	color: #999;
+	padding-bottom: 5px;
+}
+.notexist{
+	width: 90%;
+	height: 50px;
+	margin: 10px auto;
+	background-color: #D1D7E5;
+	text-align: center;
+	border-radius: 5px;
+}
+.notexist h4{
+	line-height: 50px;
+	color: gray;
+	font-family: sf-s;
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+.table-control{
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.table-control table{
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.table-control table tr th{
+	padding: 15px 5px;
+	background: #0C7CFF;
+	color: white;
+	letter-spacing: 1px;
+	font-family: sf-t;
+}
+
+.table-control table tr td{
+	padding: 15px 5px;
+	text-transform: capitalize;
+}
+
+.table-control table tr:nth-child(odd){
+	background: #EDEDED;
+}
+.table-control table tr:nth-child(even){
+	background: #FFF;
+}
+.container1{
+	width: 100%;
+	height: auto;
+	background: white;
+	border-radius: 5px;
+	box-shadow: 0 14px 28px rgba(44, 26, 78,0.10), 0 10px 10px rgba(44, 26, 78,0.10);
+	margin: 20px 0;
+}
+
+.form-control{
+	width: 100%;
+	height: auto;
+	flex: 1;
+	margin: 10px;
+	padding: 10px;
+	position: relative;
+}
+
+.form-control>p{
+	margin: 0;
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+
+.form-control-block{
+	width: 100%;
+	padding: 10px;
+	margin: 10px;
+	position: relative;
+}
+
+.form-control-block>p{
+	margin: 0;
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+
+.form-control-block input{
+	width: 95%;
+	height: 25px;
+	border: none;
+	border-bottom: 2px solid #E9E9E9;
+	padding:10px;
+	outline: none;
+	transition: 0.2s ease;
+}
+.form-control-block textarea{
+	width: 95%;
+	height: 25px;
+	border: none;
+	border-bottom: 2px solid #E9E9E9;
+	padding:10px;
+	outline: none;
+	transition: 0.2s ease;
+	max-width: 95%;
+	min-width: 95%;
+	max-height: 200px;
+}
+
+.form-control-block select{
+	width: 95%;
+	height: 50px;
+	border: none;
+	border-bottom: 2px solid #E9E9E9;
+	padding:10px;
+	outline: none;
+	transition: 0.2s ease;
+}
+
+.form-control-block select option{
+	background: #2C1A4E;
+	color: white;
+	border: none;
+}
+
+.form-control-block input:focus{
+	border-bottom: 3px solid #0C7CFF;
+}
+
+.form-control-block img{
+	width: 30%;
+}
+
+.form-control input{
+	width: 90%;
+	height: 25px;
+	border: none;
+	border-bottom: 2px solid #E9E9E9;
+	padding:10px;
+	outline: none;
+	transition: 0.2s ease;
+}
+
+.form-control input:focus .form-control p{
+	color: #2C1A4E;
+}
+
+.btn-add{
+	width: 145px;
+	height: 40px;
+	float: right;
+	margin: 10px 0;
+	border-radius: 5px;
+}
+
+.btn-add button{
+	width: 100%;
+	height: 100%;
+	border: none;
+	color: white;
+	cursor: pointer;
+	background: #2C1A4E;
+	border-radius: 5px;
+}
+.alert-err{
+	width: max-content;
+	padding: 10px 15px;
+	height: max-content;
+	position: absolute;
+	background: #ff3838;
+	top: 0;
+	right: 5%;
+	border-radius: 5px;
+	text-align: center;
+	color: white;
+	letter-spacing: 1px;
+	transition: 0.4s ease;
+	opacity: 0;
+}
+
+.alert-err p{
+	font-size: 12px;
+}
+
+.point-err{
+	width: 10px;
+	height: 10px;
+	background: #ff3838;
+	transform: rotate(45deg);
+	position: absolute;
+	right: 10px;
+	bottom: -5px;
+}
+
+.btn-edit{
+	width: 75px;
+	height: 30px;
+	background: #575fcf;
+	margin: auto;
+	margin-bottom: 5px;
+	border-radius: 5px;
+}
+
+.btn-edit a{
+	line-height: 30px;
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+	float: left;
+	color: white;
+}
+
+.btn-delete{
+	width: 75px;
+	height: 30px;
+	background: #ff3f34;
+	border-radius: 5px;
+	margin: auto;
+}
+
+.btn-delete a{
+	line-height: 30px;
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+	float: left;
+	color: white;
+}
+
+
+@media only screen and (max-width: 1300px){
+	.dashboard-show{
+		width: 300px;
+		height: 130px;
+	}
+	.dashboard-nilai, .dashboard-text{
+		line-height: 120px !important;
+	}
+	.dashboard-nilai h1, .dashboard-text h1{
+		font-size: 18px;
+	}
+}
+@media only screen and (max-width: 1024px){
+	.container-side{
+		width: 25%;
+	}
+	.container-data{
+		margin-left: 25%;
+	}
+	.dashboard-show{
+		width: 300px;
+		height: 150px;
+		margin: 30px 0;
+	}
+	.dashboard-nilai, .dashboard-text{
+		line-height: 130px !important;
+	}
+	.dashboard-nilai h1, .dashboard-text h1{
+		font-size: 25px;
+	}
+	.card-siswa{
+		width: 300px;
+		margin: 30px 0;
+	}
+	.card-siswa .background{
+		margin-top: -30px;
+	}
+	.card-siswa .avatar{
+		width: 110px;
+		height: 110px;
+		margin-top: -20px;
+	}
+	.card-pelajaran{
+		width: 300px;
+		margin: 20px 0;
+	}
+	.btn-add{
+		margin-right: 35px;
+	}
+	.card-detailMapel{
+		width: 45%;
+	}
+	.pengumuman{
+		width: 93%;
+		height: 230px;
+	}
+	.pengumuman h3{
+		line-height: 230px;
+		font-size: 40px;
+	}
+	.table-control .edit{
+		background-color: blue;
+		color: #FFF;
+		border-radius: 3px;
+		padding: 3px 15px;
+		margin: 5px;
+	}
+	.table-control .delete{
+		background-color: red;
+		color: #FFF;
+		border-radius: 3px;
+		padding: 3px 15px;
+		margin: 5px;
+	}
+}
+@media only screen and (max-width: 1000px)
+{
+	.dashboard-show{
+		width: 200px;
+		height: 100px;
+	}
+	.dashboard-nilai, .dashboard-text{
+		line-height: 90px !important;
+	}
+	.dashboard-nilai h1, .dashboard-text h1{
+		font-size: 18px;
+	}
+	.container-side{
+		width: 25%;
+	}
+	.container-data{
+		margin-left: 25%;
+	}
+	.profile-user p{
+		font-size: 12px;
+		padding-top: 10px;
+	}
+	.menu-list{
+		height: 85px;
+		padding-bottom: 5px;
+	}
+	.menu-list a h4{
+		font-size: 10px;
+	}
+	.card-siswa{
+		width: 40%;
+		height: 350px;
+		margin-left: 40px;
+	}
+	.card-pelajaran{
+		width: 30%;
+		height: 100px;
+		margin-left: 10px;
+		margin-top: 30px;
+	}
+	.card-pelajaran a h3{
+		font-size: 25px;
+		padding-top: 30px;
+	}
+	.table-control{
+		overflow-x: auto;
+	}
+	.table-control table{
+		width: 130%;
+	}
+
+}
+@media only screen and (max-width: 768px){
+	.container-side{
+		width: 35%;
+	}
+	.container-data{
+		margin-left: 30%;
+	}
+	.dashboard-show{
+		width: 100%;
+		height: 130px;
+		margin: 20px;
+		margin-left: 50px;
+	}
+	.dashboard-nilai, .dashboard-text{
+		line-height: 120px !important;
+	}
+	.dashboard-nilai h1, .dashboard-text h1{
+		font-size: 18px;
+	}
+	.card-siswa{
+		width: 40%;
+		height: 300px;
+		margin-left: 30px;
+		padding-bottom: 10px;
+	}
+	.card-pelajaran{
+		width: 40%;
+		height: 100px;
+		margin: 20px 0;
+		margin-left: 35px;
+	}
+	.card-pelajaran a h3{
+		font-size: 20px;
+		padding-top: 25px;
+	}
+	.btn-add{
+		margin-right: 35px;
+	}
+}
+@media only screen and (max-width: 600px)
+{
+	.container-side, .navbar ul{
+		display: none;
+	}
+	.container-data{
+		width: 100%;
+		margin-top: 60px;
+		margin-left: 0;
+	}
+	.container-dashboard{
+		width: 100%;
+		margin: 0 auto;
+	}
+	.dashboard-show{
+		width: 100%;
+		margin: 10px;
+	}
+
+	.menu-mobile{
+		width: 100%;
+	}
+	.navbar img{
+		display: inline!important;
+		width: 150px;
+		height: 30px;
+		margin: 15px;
+	}
+	.wrapper-menu {
+		margin: 20px;
+		position: relative;
+	  	width: 20px;
+	  	height: 20px;
+	  	display: flex;
+	  	flex-direction: column;
+	  	justify-content: space-between;
+	  	cursor: pointer;
+	  	transition: transform 330ms ease-out;
+		z-index: 99;
+	}
+
+	.wrapper-menu.open {
+	  transform: rotate(-45deg);
+	}
+
+	.line-menu {
+	  background-color: #fff;
+	  border-radius: 5px;
+	  width: 100%;
+	  height: 4px;
+	  z-index: 80;
+	}
+
+	.line-menu.half {
+	  	width: 50%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.line-menu.start {
+	  transition: transform 300ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+	  transform-origin: right;
+	}
+
+	.open .line-menu.start {
+	  transform: rotate(-90deg) translateX(3px);
+	}
+
+	.line-menu.end {
+	  align-self: flex-end;
+	  transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+	  transform-origin: left;
+	}
+
+	.open .line-menu.end {
+	  transform: rotate(-90deg) translateX(-3px);
+	}
+	.card-siswa{
+		width: 100%;
+		margin: 25px;
+		padding-bottom: 10px;
+	}
+	.card-pelajaran{
+		width: 100%;
+		height: 100px;
+		margin: 40px 10px;
+		margin-bottom: 60px;
+	}
+	.card-pelajaran a h3{
+		font-size: 25px;
+		padding-top: 30px;
+	}
+	.card-pelajaran p{
+		position: absolute;
+		right: 15px;
+		bottom: 10%;
+		z-index: 2;
+		color: white;
+		opacity: 0.8;
+		letter-spacing: 1px;
+		font-size: 15px;
+	}
+	.btn-add{
+		width: 100px;
+		font-size: 13px;
+		margin-right: 35px;
+		margin-top: 30px;
+	}	
+	.card-detailMapel{
+		width: 100%;
+		height: 150px;
+	}
+	.card-detailMapel h3{
+		font-size: 25px;
+		line-height: 150px;
+	}
 }

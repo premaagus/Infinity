@@ -1,17 +1,17 @@
 <script src="js/alert.js"></script>
 
 <?php 
-	$id_materi 		= $_GET['id_materi'];
-	$queryMateri 	= $koneksi->query("SELECT * FROM tb_materi WHERE id_materi = $id_materi");
-	$dataMateri		= $queryMateri->fetch_assoc();
-	$file_materi	= $dataMateri['file_materi'];
+	$id_tugas 		= $_GET['id_tugas'];
+	$queryTugas 	= $koneksi->query("SELECT * FROM tb_tugas WHERE id_tugas = $id_tugas");
+	$dataTugas		= $queryTugas->fetch_assoc();
+	$file_tugas		= $dataTugas['file_tugas'];
 
-	$id_mapel		= $dataMateri['id_mapel'];
-	$id_kelas		= $dataMateri['id_kelas'];
+	$id_mapel		= $dataTugas['id_mapel'];
+	$id_kelas		= $dataTugas['id_kelas'];
 
 	$queryOwn		= $koneksi->query("SELECT * FROM tb_jadwal WHERE id_kelas = $id_kelas AND id_mapel = $id_mapel");
 	$dataOwn		= $queryOwn->fetch_assoc();
-	$directory		= '../files/materi/';
+	$directory		= '../files/tugas/guru/';
 
 	if ($dataOwn['id_guru'] != $_SESSION['user']['id_guru']) {
 		?>
@@ -25,17 +25,17 @@
 		die();
 	}
 
-	if (file_exists($directory.$file_materi)) {
-		unlink($directory.$file_materi);
+	if (file_exists($directory.$file_tugas)) {
+		unlink($directory.$file_tugas);
 	}
-	$queryDelete = $koneksi->query("DELETE FROM tb_materi WHERE id_materi = $id_materi");
+	$queryDelete = $koneksi->query("DELETE FROM tb_tugas WHERE id_tugas = $id_tugas");
 
 	if ($queryDelete) {
 		?>
 		<script>
 			successAlert("Sukses", "Data berhasil dihapus");
 			document.addEventListener('click', function(){
-				location.href = "index.php?menu=jadwal&id_mapel=<?php echo $id_mapel ?>&id_kelas=<?php echo $id_kelas ?>&view=materi";
+				location.href = "index.php?menu=jadwal&id_mapel=<?php echo $id_mapel ?>&id_kelas=<?php echo $id_kelas ?>&view=tugas";
 			});
 		</script>
 		<?php
@@ -45,7 +45,7 @@
 		<script>
 			errorAlert("Error", "Data gagal dihapus");
 			document.addEventListener('click', function(){
-				location.href = "index.php?menu=jadwal&id_mapel=<?php echo $id_mapel ?>&id_kelas=<?php echo $id_kelas ?>&view=materi";
+				location.href = "index.php?menu=jadwal&id_mapel=<?php echo $id_mapel ?>&id_kelas=<?php echo $id_kelas ?>&view=tugas";
 			});
 		</script>
 		<?php

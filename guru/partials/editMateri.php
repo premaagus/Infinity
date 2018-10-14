@@ -94,6 +94,7 @@
 		$desc_materi 	= $_POST['desc_materi'];
 		$file_name		= $_FILES['file_materi']['name'];
 		$tmp_file		= $_FILES['file_materi']['tmp_name'];
+		$extensi_file	= $_FILES['file_materi']['type'];
 		$file_materi	= $dataMateri['file_materi'];
 		$directory		= '../files/materi/';
 
@@ -119,6 +120,7 @@
 
 		if ($_FILES['file_materi']['error'] == 4) {
 			$namaBaru = $dataMateri['file_materi'];
+			$extensi_file = $dataMateri['extensi_file'];
 		}
 		else{
 			if (file_exists($directory.$file_materi)) {
@@ -130,7 +132,7 @@
 		}
 
 		
-		$queryEdit = $koneksi->query("UPDATE tb_materi SET  nama_materi='$nama_materi', desc_materi='$desc_materi', file_materi='$namaBaru' WHERE id_materi = $id_materi ");
+		$queryEdit = $koneksi->query("UPDATE tb_materi SET  nama_materi='$nama_materi', desc_materi='$desc_materi', file_materi='$namaBaru', extensi_file = '$extensi_file' WHERE id_materi = $id_materi ");
 
 		if ($queryEdit) {
 			?>

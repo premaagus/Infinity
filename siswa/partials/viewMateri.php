@@ -10,17 +10,6 @@
 	$dataKelas 		= $queryKelas->fetch_assoc();
 	$dataMapel 		= $queryMapel->fetch_assoc();
 	$dataJadwal		= $queryJadwal->fetch_assoc();
-
-	if ($dataJadwal['id_guru'] != $_SESSION['user']['id_guru']) {
-		?>
-		<script>
-			errorAlert("Error", "Anda Tidak Memiliki Akses");
-			document.addEventListener("click", function(){
-				location.href = 'index.php?menu=jadwal';
-			});
-		</script>
-		<?php
-	}
  ?>
 
 <h1>Materi <?php echo $dataMapel['nama_mapel'] ?></h1>
@@ -29,11 +18,6 @@
 </a>
 <hr>
 
-<div class="add-new d-flex j-end i-ctr">
-	<div class="btn-add">
-		<a href="index.php?menu=jadwal&id_mapel=<?php echo $id_mapel ?>&id_kelas=<?php echo $id_kelas ?>&view=materi&action=add">Tambah Materi</a>
-	</div><!-- btn-add -->
-</div><!-- add-new -->
 <div class="table-control">
 	<table>
 		<tr>
@@ -52,8 +36,8 @@
 					<td><?php echo $dataMateri['nama_materi'] ?></td>
 					<td><?php echo $dataMateri['desc_materi'] ?></td>
 					<td>
-						<div class="btn-edit"><a href="?menu=jadwal&view=materi&id_materi=<?php echo $dataMateri['id_materi'] ?>&action=edit">Edit</a></div>
-						<div class="btn-delete"><a href="?menu=jadwal&view=materi&id_materi=<?php echo $dataMateri['id_materi'] ?>&action=delete">Delete</a></div>
+						<div class="btn-edit"><a href="?menu=jadwal&view=materi&id_materi=<?php echo $dataMateri['id_materi'] ?>&action=view">View</a></div>
+						<div class="btn-delete"><a href="?menu=jadwal&view=materi&id_materi=<?php echo $dataMateri['id_materi'] ?>&action=delete">Download</a></div>
 					</td>
 				</tr>
 				<?php

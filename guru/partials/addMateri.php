@@ -89,6 +89,7 @@
 		$nama_materi 	= $_POST['nama_materi'];
 		$desc_materi 	= $_POST['desc_materi'];
 		$file_name		= $_FILES['file_materi']['name'];
+		$extensi_file 	= $_FILES['file_materi']['type'];
 		$tmp_file		= $_FILES['file_materi']['tmp_name'];
 
 		//cek file
@@ -110,7 +111,7 @@
 		$namaBaru .= ".".$extensiFile;
 		move_uploaded_file($tmp_file, "../files/materi/$namaBaru");
 		
-		$queryAdd = $koneksi->query("INSERT INTO tb_materi VALUES (NULL, $id_mapel, $id_kelas, '$nama_materi', '$desc_materi', '$namaBaru') ");
+		$queryAdd = $koneksi->query("INSERT INTO tb_materi VALUES (NULL, $id_mapel, $id_kelas, '$nama_materi', '$desc_materi', '$namaBaru', '$extensi_file') ");
 
 		if ($queryAdd) {
 			?>

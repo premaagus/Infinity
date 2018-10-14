@@ -44,6 +44,7 @@
 			<th>Tugas Selesai</th>
 			<th>File Tugas</th>
 			<th>Status</th>
+			<th>Action</th>
 		</tr>
 		<?php 
 			$queryTugas = $koneksi->query("SELECT * FROM tb_tugas WHERE id_mapel = $id_mapel AND id_kelas = $id_kelas");
@@ -58,6 +59,10 @@
 					<td><?php echo date('d-F-Y H:i', strtotime($dataTugas['tugas_selesai'])) ?></td>
 					<td><?php echo $dataTugas['file_tugas'] ?></td>
 					<td><?php echo $dataTugas['status'] ?></td>
+					<td>
+						<div class="btn-edit"><a href="?menu=jadwal&view=tugas&id_tugas=<?php echo $dataTugas['id_tugas'] ?>&action=edit">Edit</a></div>
+						<div class="btn-delete"><a href="?menu=jadwal&view=tugas&id_tugas=<?php echo $dataTugas['id_tugas'] ?>&action=delete">Delete</a></div>
+					</td>
 				</tr>
 				<?php
 				$no++;

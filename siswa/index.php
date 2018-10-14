@@ -77,7 +77,7 @@
 						</a>
 					</div>
 					<div class="menu-list">
-						<a href="index.php?menu=mapel" class="<?php if($_GET['menu'] == 'mapel'){echo 'active';} ?>">
+						<a href="index.php?menu=jadwal" class="<?php if($_GET['menu'] == 'jadwal'){echo 'active';} ?>">
 							<i class="fas fa-graduation-cap"></i>
 							<h4>Mata Pelajaran</h4>
 						</a>
