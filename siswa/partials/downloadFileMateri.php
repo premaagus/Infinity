@@ -5,23 +5,26 @@
 	$nama_file = $dataMateri['file_materi'];
 	$extensi_file = $dataMateri['extensi_file'];
 	$directory = '../files/materi/';
+	$file_url = $directory.$nama_file;
 
 	if (file_exists($directory.$nama_file)) {
 		if ($extensi_file == 'text/plain') {
 			$file = file_get_contents($directory.$nama_file, FALSE, NULL);
 		}
 		else{
-			$file1 = 'test.pdf';
-			header('Content-type: aplication/pdf');
-			header('Content-Disposition: inline; filename="' .$file1. '"');
+			header('Content-Description: File Stream');
+			header('Content-Type: application/octet-stream');
+			header('Content-Disposition: attachment; filename="'.$nama_file.'"');
 			header('Content-Transfer-Encoding: binary');
-			header('Accept-Ranges: bytes');
-			@readfile($file1);
+			header('Expires: 0');
+			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			header('Pragma: public');
+			header('Content-Length: ' . filesize($file_url)); //Absolute URL
+			ob_clean();
+			flush();
+			readfile($file_url); //Absolute URL
+			exit();
 
 		}
 	}
  ?>
-
- <h1><?php echo $dataMateri['nama_materi'] ?></h1>
- <hr>
- <p><?php echo $file ?></p>

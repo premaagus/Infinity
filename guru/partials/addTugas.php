@@ -108,6 +108,7 @@
 		$tugas_selesai 	= $_POST['tugas_selesai'];
 		$file_name		= $_FILES['file_tugas']['name'];
 		$file_tmp		= $_FILES['file_tugas']['tmp_name'];
+		$extensi_file	= $_FILES['file_tugas']['type'];
 
 		function upload(){
 			//cek file
@@ -150,7 +151,7 @@
 			<?php
 		}
 		else{
-			$queryAdd = $koneksi->query("INSERT INTO tb_tugas VALUES (NULL, $id_mapel, $id_kelas, '$nama_tugas', '$desc_tugas', '$tugas_mulai', '$tugas_selesai', '$namaBaru', 'ready') ");
+			$queryAdd = $koneksi->query("INSERT INTO tb_tugas VALUES (NULL, $id_mapel, $id_kelas, '$nama_tugas', '$desc_tugas', '$tugas_mulai', '$tugas_selesai', '$namaBaru', '$extensi_file', 'ready') ");
 			if ($queryAdd) {
 				?>
 				<script>
@@ -164,7 +165,7 @@
 			else{
 				?>
 				<script>
-					errorAlert("Error", "Format file tidak didukung");
+					errorAlert("Error", "Tugas Gagal Ditambahkan");
 				</script>
 				<?php
 			}

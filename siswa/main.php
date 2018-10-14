@@ -19,7 +19,12 @@
 	else if (isset($_GET['menu']) && $_GET['view'] == 'materi' && isset($_GET['id_mapel']) && isset($_GET['id_kelas']) && !isset($_GET['action'])) {
 		require_once 'partials/viewMateri.php';
 	}
-	else if (isset($_GET['menu']) && $_GET['view'] == 'materi' && isset($_GET['id_materi']) && $_GET['action'] == 'view') {
-		require_once 'partials/viewFileMateri.php';
+	else if (isset($_GET['menu']) && $_GET['view'] == 'materi' && isset($_GET['id_materi']) && $_GET['action'] == 'download') {
+		require_once 'partials/downloadFileMateri.php';
+	}
+
+	//tugas
+	else if (isset($_GET['menu']) && $_GET['view'] == 'tugas' && isset($_GET['id_mapel']) && isset($_GET['id_kelas']) && !isset($_GET['action'])) {
+		require_once 'partials/viewTugas.php';
 	}
  ?>

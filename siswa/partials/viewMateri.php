@@ -36,8 +36,7 @@
 					<td><?php echo $dataMateri['nama_materi'] ?></td>
 					<td><?php echo $dataMateri['desc_materi'] ?></td>
 					<td>
-						<div class="btn-edit"><a href="?menu=jadwal&view=materi&id_materi=<?php echo $dataMateri['id_materi'] ?>&action=view">View</a></div>
-						<div class="btn-delete"><a href="?menu=jadwal&view=materi&id_materi=<?php echo $dataMateri['id_materi'] ?>&action=delete">Download</a></div>
+						<div class="btn-edit"><a href="?menu=jadwal&view=materi&id_materi=<?php echo $dataMateri['id_materi'] ?>&action=download">Download</a></div>
 					</td>
 				</tr>
 				<?php
