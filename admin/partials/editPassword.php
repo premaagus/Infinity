@@ -1,3 +1,20 @@
+<script src="js/alert.js"></script>
+
+<?php 
+	$id_user = $_SESSION['user']['id_user'];
+
+	if ($_GET['id_user'] != $id_user) {
+		?>
+		<script>
+			errorAlert("Error", "Akses Ditolak");
+			document.addEventListener('click', function(){
+				location.href = 'index.php?menu=index';
+			})
+		</script>
+		<?php
+	}
+ ?>
+
 <h1>Ubah Password</h1>
 <hr>
 <form action="" method="POST" enctype="multipart/form-data">
@@ -5,7 +22,7 @@
 
 		<div class="form-control-block">
 			<p>Password Lama</p>
-			<input type="text" name="nama_lengkap" id="nama_lengkap" placeholder="Input Nama Lengkap Disini..." required>
+			<input type="password" name="password_lama" id="password_lama" placeholder="Input Password Lama Disini..." required>
 			<div class="alert-err">
 				<p>Password Lama Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -13,7 +30,7 @@
 		</div>
 		<div class="form-control">
 			<p>Password Baru</p>
-			<input type="text" name="nama_lengkap" id="nama_lengkap" placeholder="Input Nama Lengkap Disini..." required>
+			<input type="password" name="password_baru" id="password_baru" placeholder="Input Password Baru Disini..." required>
 			<div class="alert-err">
 				<p>Password Baru Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -21,18 +38,16 @@
 		</div>
 		<div class="form-control">
 			<p>Ulangi Password Baru</p>
-			<input type="text" name="nama_lengkap" id="nama_lengkap" placeholder="Input Nama Lengkap Disini..." required>
+			<input type="password" name="r_password" id="r_password" placeholder="Ulangi Password..." required>
 			<div class="alert-err">
-				<p>Password Baru Tidak Boleh Kosong</p>
+				<p>Ulangi password Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
 			</div>
 		</div>
-</form>
-</div>
-<div class="btn-add d-flex j-end">
-		<button type="submit" name="btn-submit">Submit</button>
+	<div class="btn-add d-flex j-end">
+		<button type="submit" name="btn_submit">Submit</button>
 	</div>
-<script src="js/alert.js"></script>
+</form>
 
 <script>
 	var input = document.querySelectorAll('input');
@@ -50,117 +65,52 @@
 </script>
 
 <?php 
-	if (isset($_POST['btn-submit'])) {
-		$username 			= $_POST['username'];
-		$email 				= $_POST['email'];
-		$password 			= $_POST['password'];
-		$r_password 		= $_POST['r_password'];
-		$nama_lengkap 		= $_POST['nama_lengkap'];
-		$tanggal_lahir 		= $_POST['tanggal_lahir'];
-		$profile_name 		= $_POST['nama_depan']." ".$_POST['nama_belakang'];
-		$id_level 			= '3';
-		$profile_img_name 	= $_FILES['profile_img']['name'];
-		$tmp_profile	 	= $_FILES['profile_img']['tmp_name'];
-		$nik 				= $_POST['nik'];
-		$jenis_kelamin 		= $_POST['jenis_kelamin'];
-		$tempat_lahir 		= $_POST['tempat_lahir'];
-		$agama 				= $_POST['agama'];
-		$telp 				= $_POST['telp'];
-		$alamat 			= $_POST['alamat'];
-		$bidang_ilmu 		= $_POST['bidang_ilmu'];
-		$namaBaru			= "";
+	if (isset($_POST['btn_submit'])) {
+		$queryUser = $koneksi->query("SELECT * FROM tb_user WHERE $id_user = $id_user");
+		$dataUser = $queryUser->fetch_assoc();
+
+		$passwordDb = $dataUser['password'];
+		$password_lama = $_POST['password_lama'];
+		$password_baru = $_POST['password_baru'];
+		$r_password = $_POST['r_password'];
 
 
-		// Validasi Email
-		$queryCheckEmail = $koneksi->query("SELECT * FROM tb_user WHERE email = '$email'");
-		if ($queryCheckEmail->num_rows > 0) {
-			?>
-				<script>
-					errorAlert("Error", "Email Telah Digunakan");
-				</script>
-			<?php
-		}
-		else{
-			// Validasi Username
-			$queryCheckUsername = $koneksi->query("SELECT * FROM tb_user WHERE username = '$username'");
-			if ($queryCheckUsername->num_rows > 0) {
-				?>
-				<script>
-					errorAlert("Error", "Username Telah Digunakan");
-				</script>
-				<?php
-			}
-			else{
-				// Validasi R-password
-				if ($r_password != $password) {
+		if (password_verify($password_lama, $passwordDb)) {
+			if ($password_baru == $r_password) {
+				$passwordHash = password_hash($password_baru, PASSWORD_BCRYPT, ['cost' => 12]);
+				$queryUpdate = $koneksi->query("UPDATE tb_user SET password = '$passwordHash' WHERE id_user = $id_user");
+				if ($queryUpdate) {
 					?>
 					<script>
-						errorAlert("Error", "Password Tidak Sama");
+						successAlert("Sukses", "Password telah diubah");
+						document.addEventListener('click', function(){
+							location.href = 'index.php?menu=index';
+						});
 					</script>
 					<?php
 				}
 				else{
-					function upload(){
-						//cek gambar
-						$extensiGambarValid = ['jpg', 'jpeg', 'png', 'gif'];
-						$extensiGambar = explode('.', $profile_img_name);
-						$extensiGambar = strtolower(end($extensiGambar));
-						if (!in_array($extensiGambar, $extensiGambarValid)) {
-							?>
-							<script>
-								errorAlert("Error", "Yang Anda Upload Bukan Gambar");
-							</script>
-							<?php
-							die();
-						}
-
-						//Verified image
-						$namaBaru = uniqid();
-						return $namaBaru .= ".".$extensiGambar;
-					}
-
-					if ($_FILES['profile_img']['error'] == 4) {
-						$namaBaru = 'profile.png';
-					}
-					else{
-						upload();
-						$namaBaru	= upload();
-						move_uploaded_file($tmp_profile, "../img/profile/$namaBaru");
-					}
-
-					// add user
-					$passwordHash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-					$queryAddUser = $koneksi->query("INSERT INTO tb_user VALUES (NULL, '$username', '$email', '$passwordHash', '$namaBaru', '$profile_name', $id_level)");
-
-
-					if ($queryAddUser) {
-
-						// Add Guru
-						$queryCheckId = $koneksi->query("SELECT * FROM tb_user WHERE username = '$username'");
-						$dataId = $queryCheckId->fetch_assoc();
-						$id_user = $dataId['id_user'];
-
-						$queryAddGuru = $koneksi->query("INSERT INTO tb_guru VALUES (NULL, $id_user, '$nama_lengkap', '$nik', '$jenis_kelamin', '$tempat_lahir', '$tanggal_lahir', '$agama', '$telp', '$alamat', '$bidang_ilmu') ");
-						if ($queryAddGuru) {
-							?>
-							<script>
-								successAlert("Sukses", "Data Berhasil Ditambahkan");
-								document.addEventListener('click', function(){
-									location.href = 'index.php?menu=guru';
-								});
-							</script>
-							<?php
-						}
-					}
-					else{
-						?>
-						<script>
-							errorAlert("Error", "Gagal Add Data");
-						</script>
-						<?php
-					}
+					?>
+					<script>
+						errorAlert("Error", "Password gagal diubah");
+					</script>
+					<?php
 				}
 			}
+			else{
+				?>
+				<script>
+					errorAlert("Error", "Password baru tidak sama");
+				</script>
+				<?php
+			}
+		}
+		else{
+			?>
+			<script>
+				errorAlert("Error", "Password Lama Salah");
+			</script>
+			<?php
 		}
 	}
  ?>
