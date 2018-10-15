@@ -135,7 +135,7 @@ a{
 	transition: .4s;
 }
 .pref i:hover{
-	transform: rotate(-45deg);
+	transform: rotate(45deg);
 }
 
 .picture-user{
