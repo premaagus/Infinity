@@ -19,39 +19,39 @@
 	<div class="detailDeskripsi d-flex fd-row f-row j-ard i-end">
 		<div class="formDetail">
 			<h4>Nama Lengkap</h4>
-			<h3><?php echo $dataGuru['nama_lengkap'] ?></h3>
+			<h5><?php echo $dataGuru['nama_lengkap'] ?></h5>
 		</div><!-- formDetail -->
 		<div class="formDetail">
 			<h4>NIK</h4>
-			<h3><?php echo $dataGuru['nik'] ?></h3>
+			<h5><?php echo $dataGuru['nik'] ?></h5>
 		</div><!-- formDetail -->
 		<div class="formDetail">
 			<h4>Jenis Kelamin</h4>
-			<h3><?php echo $dataGuru['jenis_kelamin'] ?></h3>
+			<h5><?php echo $dataGuru['jenis_kelamin'] ?></h5>
 		</div><!-- formDetail -->
 		<div class="formDetail">
 			<h4>Tempat Lahir</h4>
-			<h3><?php echo $dataGuru['tempat_lahir'] ?></h3>
+			<h5><?php echo $dataGuru['tempat_lahir'] ?></h5>
 		</div><!-- formDetail -->
 		<div class="formDetail">
 			<h4>Tanggal Lahir</h4>
-			<h3><?php echo date('d F Y', strtotime($dataGuru['tanggal_lahir'])) ?></h3>
+			<h5><?php echo date('d F Y', strtotime($dataGuru['tanggal_lahir'])) ?></h5>
 		</div><!-- formDetail -->
 		<div class="formDetail">
 			<h4>Agama</h4>
-			<h3><?php echo $dataGuru['agama'] ?></h3>
+			<h5><?php echo $dataGuru['agama'] ?></h5>
 		</div><!-- formDetail -->
 		<div class="formDetail">
 			<h4>Alamat</h4>
-			<h3><?php echo $dataGuru['alamat'] ?></h3>
+			<h5><?php echo $dataGuru['alamat'] ?></h5>
 		</div><!-- formDetail -->
 		<div class="formDetail">
 			<h4>No Telepon</h4>
-			<h3><?php echo $dataGuru['telp'] ?></h3>
+			<h5><?php echo $dataGuru['telp'] ?></h5>
 		</div><!-- formDetail -->
 		<div class="formDetail">
 			<h4>Bidang Ilmu</h4>
-			<h3><?php echo $dataGuru['bidang_ilmu'] ?></h3>
+			<h5><?php echo $dataGuru['bidang_ilmu'] ?></h5>
 		</div><!-- formDetail -->
 
 
