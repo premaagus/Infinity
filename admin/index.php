@@ -69,6 +69,11 @@
 				</div>
 				<h2><?php echo @$_SESSION['user']['profile_name'] ?></h2>
 				<p>Admin - <?php echo @$_SESSION['user']['email'] ?></p>
+				<div class="pref">
+					<a href="#">
+						<i class="fas fa-cog"></i>
+					</a>
+				</div>
 			</div>
 
 			<div class="menu d-flex f-col j-ctr">
