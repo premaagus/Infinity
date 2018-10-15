@@ -8,7 +8,7 @@
 
 <div class="add-new d-flex j-end i-ctr">
 	<div class="btn-add">
-		<a href="index.php?menu=jadwal&id_mapel=<?php echo $id_mapel ?>&id_kelas=<?php echo $id_kelas ?>&view=pengumuman&action=edit">Tambah Materi</a>
+		<a href="index.php?menu=jadwal&id_mapel=<?php echo $id_mapel ?>&id_kelas=<?php echo $id_kelas ?>&view=pengumuman&action=add">Tambah Materi</a>
 	</div><!-- btn-add -->
 </div><!-- add-new -->
 

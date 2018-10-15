@@ -21,10 +21,10 @@
 		require_once 'partials/addTugas.php';
 	}
 
-	else if (isset($_GET['menu']) && isset($_GET['id_jadwal'])) {
+	else if (isset($_GET['menu']) && isset($_GET['id_jadwal']) && !isset($_GET['view'])) {
 		require_once 'partials/detailJadwal.php';
 	}
-	else if ($_GET['menu'] == "jadwal" && isset($_GET['id_mapel'])) {
+	else if ($_GET['menu'] == "jadwal" && isset($_GET['id_mapel']) && !isset($_GET['view'])) {
 		require_once 'partials/detailJadwal.php';
 	}
 	else if ($_GET['menu'] == "jadwal" && !isset($_GET['action'])) {
@@ -67,7 +67,7 @@
 	else if (isset($_GET['menu']) && isset($_GET['id_mapel']) && isset($_GET['id_kelas']) && $_GET['view'] == 'pengumuman' && !isset($_GET['action'])) {
 		require_once 'partials/viewPengumuman.php';
 	}
-	else if (isset($_GET['menu']) && $_GET['action'] == 'add' && $_GET['view'] == 'jadwal' && isset($_GET['id_tugas'])) {
-		require_once 'partials/deleteTugas.php';
+	else if (isset($_GET['menu']) && $_GET['action'] == 'add' && $_GET['view'] == 'pengumuman' && isset($_GET['id_mapel']) && isset($_GET['id_kelas'])) {
+		require_once 'partials/addPengumuman.php';
 	}
  ?>
