@@ -9,6 +9,7 @@ a{
 
 body{
 	font-family: sf-r;
+	background-color: #F9F9F9;
 }
 @font-face{src:url('../../font/SFProDisplay-Bold.ttf'); font-family: sf-b}
 @font-face{src:url('../../font/SFProDisplay-Medium.ttf'); font-family: sf-m}
