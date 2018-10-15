@@ -6,6 +6,16 @@
 	else if ($_GET['menu'] == 'index') {
 		require_once 'partials/dashboard.php';
 	}
+
+	//all tugas
+	else if ($_GET['menu'] == 'tugas' && !isset($_GET['view']) && !isset($_GET['action'])) {
+		require_once 'partials/viewAllTugas.php';
+	}
+
+	//all pengumuman
+	else if ($_GET['menu'] == 'pengumuman' && !isset($_GET['view']) && !isset($_GET['action'])) {
+		require_once 'partials/viewAllPengumuman.php';
+	}
 	
 	//jadwal
 	else if ($_GET['menu'] == 'jadwal' && !isset($_GET['id_jadwal']) && !isset($_GET['view'])) {
@@ -33,4 +43,5 @@
 	else if (isset($_GET['menu']) && $_GET['view'] == 'tugas' && isset($_GET['id_tugas']) && $_GET['action'] == 'upload') {
 		require_once 'partials/uploadTugas.php';
 	}
+
  ?>
