@@ -17,7 +17,7 @@
   right: 0;
   bottom: 0;
   top: 0;
-  z-index: 99;
+  z-index: 105;
   text-align: center;
   background: #F8F8F8;
   border-radius: 5px;
@@ -71,7 +71,7 @@
   height: 100vh;
   position: fixed;
   background: rgba(0,0,0,0.5);
-  z-index: 5;
+  z-index: 101;
   transition: 0.5s ease;
   opacity: 0;
   display: none;
@@ -128,7 +128,7 @@
 	  right: 0;
 	  bottom: 0;
 	  top: 0;
-	  z-index: 99;
+	  z-index: 105;
 	  text-align: center;
 	  background: #F8F8F8;
 	  border-radius: 5px;
