@@ -24,6 +24,11 @@
 		require_once 'partials/profileGuru.php';
 	}
 
+	//edit Profile
+	else if($_GET['menu'] == 'edit' && !isset($_GET['id_user'])){
+		require_once 'partials/editMenu.php';
+	}
+
 	// jadwal
 	//materi
 	else if (isset($_GET['menu']) && isset($_GET['id_mapel']) && isset($_GET['id_kelas']) && $_GET['view'] == 'materi' && !isset($_GET['action'])) {
@@ -101,5 +106,6 @@
 	else if (isset($_GET['menu']) && $_GET['action'] == 'add' && $_GET['view'] == 'pengumuman' && isset($_GET['id_mapel']) && isset($_GET['id_kelas'])) {
 		require_once 'partials/addPengumuman.php';
 	}
+
 
  ?>

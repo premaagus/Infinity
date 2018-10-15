@@ -36,6 +36,11 @@
 	else if ($_GET['menu'] == 'pengumuman' && !isset($_GET['view']) && !isset($_GET['action'])) {
 		require_once 'partials/viewAllPengumuman.php';
 	}
+
+	//edit Profile
+	else if($_GET['menu'] == 'edit' && !isset($_GET['id_user'])){
+		require_once 'partials/editMenu.php';
+	}
 	
 	//jadwal
 	else if ($_GET['menu'] == 'jadwal' && !isset($_GET['id_jadwal']) && !isset($_GET['view'])) {

@@ -107,4 +107,9 @@
 	else if($_GET['menu'] == 'profileGuru' && isset($_GET['id_guru'])){
 		require_once 'partials/profileGuru.php';
 	}
+
+	//edit Profile
+	else if($_GET['menu'] == 'edit' && !isset($_GET['id_user'])){
+		require_once 'partials/editMenu.php';
+	}
  ?>

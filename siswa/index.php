@@ -69,7 +69,7 @@
 					<a href="partials/show-profile.php">Siswa - <?= $_SESSION['user']['email'] ?></a>
 				</p>
 				<div class="pref">
-					<a href="#">
+					<a href="index.php?menu=edit">
 						<i class="fas fa-cog"></i>
 					</a>
 				</div>
