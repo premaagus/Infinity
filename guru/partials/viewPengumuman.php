@@ -18,9 +18,13 @@
 			<img src="images/profile/profile1.jpg">
 		</div><!-- img-pengumuman -->
 		<div class="text-pengumuman">
-			<h4>Evi Dwi</h4>
+			<div class="d-flex j-btw">
+				<h4>Evi Dwi</h4>
+				<h5>15 Oktober 2018</h5>
+			</div>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+			<h6>14.60</h6>
 			<div class="acc"></div>
 		</div><!-- text-pengumuman -->
 	</div><!-- pengumuman -->
