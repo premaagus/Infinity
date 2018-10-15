@@ -6,6 +6,13 @@
 <h1>Pengumuman</h1>
 <hr>
 
+<?php 
+	$queryPengumuman = $koneksi->query("SELECT * FROM tb_pengumuman WHERE id_kelas = $id_kelas AND id_mapel = $id_mapel");
+	while ($dataPengumuman = $queryPengumuman->fetch_assoc()) {
+		# code...
+	}
+ ?>
+
 <div class="add-new d-flex j-end i-ctr">
 	<div class="btn-add">
 		<a href="index.php?menu=jadwal&id_mapel=<?php echo $id_mapel ?>&id_kelas=<?php echo $id_kelas ?>&view=pengumuman&action=add">Tambah Materi</a>
