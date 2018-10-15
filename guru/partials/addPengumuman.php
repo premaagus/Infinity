@@ -1,11 +1,11 @@
 <h1>Tambah Data</h1>
 <hr>
-<form action="" method="POST" onsubmit="return false">
+<form action="" method="POST">
 	<div class="container1 d-flex f-row">
 
 		<div class="form-control-block">
 			<p>Pengumuman</p>
-			<input type="text" name="nama_mapel" id="nama_mapel" placeholder="Input Pengumuman Disini..." required>
+			<input type="text" name="desc_pengumuman" id="desc_pengumuman" placeholder="Input Pengumuman Disini..." required>
 			<div class="alert-err">
 				<p>Pengumuman Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
@@ -13,7 +13,7 @@
 		</div>
 	</div>
 	<div class="btn-add">
-		<button type="submit" name="btn-submit" onclick="addMapel()">Submit</button>
+		<button type="submit" name="btn_submit">Submit</button>
 	</div>
 </form>
 
@@ -33,62 +33,33 @@
 
 	}
 
-	function addMapel(){
-		var nama_mapel 			= document.getElementById('nama_mapel');
-		var jumlah_jam 			= document.getElementById('jumlah_jam');
-		var background_mapel 	= document.getElementById('background_mapel');
-		var data 				= "nama_mapel="+nama_mapel.value+"&jumlah_jam="+jumlah_jam.value+"&background_mapel="+background_mapel.value;
+</script>
 
-		if (nama_mapel.value == "") {
-			nama_mapel.parentNode.querySelectorAll('.alert-err')[0].style.opacity = '1';
-			nama_mapel.focus();
+<?php 
+	if (isset($_POST['btn_submit'])) {
+		$desc_pengumuman = $_POST['desc_pengumuman'];
+		$id_mapel = $_GET['id_mapel'];
+		$id_kelas = $_GET['id_kelas'];
+		$dateNow = date('Y-m-d H:i');
+
+		$queryAdd = $koneksi->query("INSERT INTO tb_pengumuman VALUES (NULL, '$desc_pengumuman', '$dateNow', $id_mapel, $id_kelas) ");
+
+		if ($queryAdd) {
+			?>
+			<script>
+				successAlert("Sukses", "Pengumuman Telah ditambahkan!");
+				document.addEventListener('click', function(){
+					location.href = "index.php?menu=jadwal&id_mapel=<?php echo $id_mapel ?>&id_kelas=<?php echo $id_kelas ?>&view=pengumuman"
+				});
+			</script>
+			<?php
 		}
 		else{
-			if (jumlah_jam.value == "") {
-				nama_mapel.parentNode.querySelectorAll('.alert-err')[0].style.opacity = '1';
-				nama_mapel.focus();
-			}
-			else{
-				var xhr = new XMLHttpRequest();
-				xhr.onreadystatechange = function(){
-					if (xhr.readyState == 4 && xhr.status == 200) {
-						console.log(xhr.responseText);
-						if (xhr.responseText == 'success') {
-							successAlert('Sukses', 'Berhasil Menambahkan Mapel');
-							document.addEventListener('click', function(){
-								location.href = 'index.php?menu=mapel';
-							});
-						}
-						else{
-							errorAlert('Error', 'Gagal Menambahkan Mapel');
-						}
-					}
-				}
-				xhr.open('POST', 'controller/addMapel_controller.php', true);
-				xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-				xhr.send(data);
-			}
+			?>
+			<script>
+				errorAlert("Error", "Pengumuman Gagal Ditambahkan");
+			</script>
+			<?php
 		}
 	}
-</script>
-
-<script>
-	function display_c(){
-	  var refresh=100; 
-	  mytime=setTimeout('display_ct()',refresh)
-}
-
-function display_ct() {
-	var nama_mapel 			= document.getElementById('nama_mapel');
-	var background_mapel 	= document.getElementById('background_mapel');
-	var display_nama 		= document.getElementById('display-namaMapel');
-	var img_mapel 			= document.getElementById('img-mapel');
-	var display_guru 		= document.getElementById('display-namaGuru');
-	start = display_c();
-	display_nama.innerHTML = nama_mapel.value;
-	img_mapel.src = "images/kelas/"+background_mapel.value;
-
-}
-
-display_ct();
-</script>
+ ?>
