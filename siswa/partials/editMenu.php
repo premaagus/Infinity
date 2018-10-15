@@ -5,6 +5,7 @@
 	<div class="detailFoto">
 		<img src="../img/profile/5bba0fb1194e0.jpg">
 	</div><!-- detailFoto -->
+	<h3>Prema Agus</h3>
 	<div class="button-detail d-flex j-ctr">
 		<a href="#" class="edit-profil">Ubah Profil</a>
 		<a href="#" class="edit-password">Ubah Password</a>
