@@ -871,8 +871,9 @@ a{
 }
 
 .text-pengumuman h6{
-	text-align: right;
 	padding-right: 25px;
+	padding-left: 25px;
+	padding-top: 7px;
 	color: #ABABAB;
 	opacity: .8;
 }

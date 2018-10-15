@@ -18,7 +18,10 @@
 			</div>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-			<h6>14.60</h6>
+			<div class="d-flex j-btw">
+				<h6>XII RPL 3</h6>
+				<h6>14.60</h6>
+			</div>
 			<div class="acc"></div>
 		</div><!-- text-pengumuman -->
 	</div><!-- pengumuman -->
