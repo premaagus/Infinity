@@ -15,8 +15,8 @@
 					<img src="img/logo-branding-purple.png">
 					<ul>
 						<li><a href="#">Beranda</a></li>
+						<li><a href="#">Tentang</a></li>
 						<li><a href="#">Fitur</a></li>
-						<li><a href="#">Petunjuk</a></li>
 						<li><a href="#">Kontak</a></li>
 						<li><a class="login" href="index.php">Masuk</a></li>
 					</ul>

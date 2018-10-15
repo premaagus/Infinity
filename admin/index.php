@@ -62,7 +62,7 @@
 		<div class="container-side f-row">
 			<div class="profile-user">
 				<div class="logo">
-					<img src="../img/logo-branding-white.png">
+					<a href="../homepage.php"><img src="../img/logo-branding-white.png"></a>
 				</div>
 				<div class="picture-user">
 					<img src="../img/profile/<?php echo $_SESSION['user']['profile_img'] ?>">
@@ -117,9 +117,9 @@
 			</div><!-- menu -->
 			<div class="footer-sidebar d-flex fd-col j-str i-ctr">
 				<ul>
-					<li><a href="#">Beranda</a></li>
-					<li><a href="#">Tentang</a></li>
-					<li><a href="#">Kontak</a></li>
+					<li><a href="../homepage.php">Beranda</a></li>
+					<li><a href="../homepage.php">Tentang</a></li>
+					<li><a href="../homepage.php">Fitur</a></li>
 				</ul>
 				<br>
 				<h5>&copy; AcademyLab 2018</h5>
