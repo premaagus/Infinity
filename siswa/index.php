@@ -58,15 +58,13 @@
 					<a href="../homepage.php"><img src="../img/logo-branding-white.png"></a>
 				</div>
 				<div class="picture-user">
-					<a href="partials/show-profile.php">
-						<img src="../img/profile/<?php echo $_SESSION['user']['profile_img'] ?>">
-					</a>
+					<img src="../img/profile/<?php echo $_SESSION['user']['profile_img'] ?>">
 				</div>
 				<h2>
-					<a href="partials/show-profile.php"><?= $_SESSION['user']['profile_name'] ?></a>	
+					<a href="#"><?= $_SESSION['user']['profile_name'] ?></a>	
 				</h2>
 				<p>
-					<a href="partials/show-profile.php">Siswa - <?= $_SESSION['user']['email'] ?></a>
+					<a href="#">Siswa - <?= $_SESSION['user']['email'] ?></a>
 				</p>
 				<div class="pref">
 					<a href="index.php?menu=edit">

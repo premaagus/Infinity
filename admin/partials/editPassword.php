@@ -44,9 +44,12 @@
 				<div class="point-err"></div>
 			</div>
 		</div>
+	</div>
+
 	<div class="btn-add d-flex j-end">
 		<button type="submit" name="btn_submit">Submit</button>
 	</div>
+
 </form>
 
 <script>
