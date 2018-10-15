@@ -12,7 +12,7 @@
 		while ($dataMapel = $queryMapel->fetch_assoc()) {
 			?>
 			<div class="card-pelajaran">
-				<a href="index.php?menu=mapel&id=<?php echo $dataMapel['id_mapel'] ?>">
+				<a href="#">
 					<img src="images/kelas/<?php echo $dataMapel['background_mapel'] ?>">
 					<h3><?php echo $dataMapel['nama_mapel'] ?></h3>
 				</a>

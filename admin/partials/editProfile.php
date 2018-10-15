@@ -1,21 +1,46 @@
+<script src="js/alert.js"></script>
+
+<?php 
+	$id_user = $_SESSION['user']['id_user'];
+
+	$queryUser = $koneksi->query("SELECT * FROM tb_user WHERE id_user = $id_user");
+	$dataUser = $queryUser->fetch_assoc();
+
+	if ($_GET['id_user'] != $id_user) {
+		?>
+		<script>
+			errorAlert("Error", "Akses Ditolak");
+			document.addEventListener('click', function(){
+				location.href = 'index.php?menu=index';
+			})
+		</script>
+		<?php
+	}
+ ?>
+
 <h1>Ubah Password</h1>
 <hr>
 <form action="" method="POST" enctype="multipart/form-data">
 	<div class="container1 d-flex f-row">
+		<div class="form-control-block">
+			<p>Foto Profil Lama</p>
+			<img src="../img/profile/<?php echo $dataUser['profile_img'] ?>">
+		</div>
 
 		<div class="form-control-block">
 			<p>Foto Profil Baru</p>
-			<input type="file" name="nama_lengkap" id="nama_lengkap" placeholder="Input Nama Lengkap Disini..." required>
+			<input type="file" name="profile_img" id="profile_img">
 			<div class="alert-err">
 				<p>Foto Profil Tidak Boleh Kosong</p>
 				<div class="point-err"></div>
 			</div>
 		</div>
-</form>
-</div>
-<div class="btn-add d-flex j-end">
-		<button type="submit" name="btn-submit">Submit</button>
 	</div>
+	<div class="btn-add d-flex j-end">
+		<button type="submit" name="btn_submit">Submit</button>
+	</div>
+
+</form>
 <script src="js/alert.js"></script>
 
 <script>
@@ -34,117 +59,65 @@
 </script>
 
 <?php 
-	if (isset($_POST['btn-submit'])) {
-		$username 			= $_POST['username'];
-		$email 				= $_POST['email'];
-		$password 			= $_POST['password'];
-		$r_password 		= $_POST['r_password'];
-		$nama_lengkap 		= $_POST['nama_lengkap'];
-		$tanggal_lahir 		= $_POST['tanggal_lahir'];
-		$profile_name 		= $_POST['nama_depan']." ".$_POST['nama_belakang'];
-		$id_level 			= '3';
-		$profile_img_name 	= $_FILES['profile_img']['name'];
-		$tmp_profile	 	= $_FILES['profile_img']['tmp_name'];
-		$nik 				= $_POST['nik'];
-		$jenis_kelamin 		= $_POST['jenis_kelamin'];
-		$tempat_lahir 		= $_POST['tempat_lahir'];
-		$agama 				= $_POST['agama'];
-		$telp 				= $_POST['telp'];
-		$alamat 			= $_POST['alamat'];
-		$bidang_ilmu 		= $_POST['bidang_ilmu'];
-		$namaBaru			= "";
+	if (isset($_POST['btn_submit'])) {
+		$profile_img_name = $_FILES['profile_img']['name'];
+		$tmp_profile = $_FILES['profile_img']['tmp_name'];
 
-
-		// Validasi Email
-		$queryCheckEmail = $koneksi->query("SELECT * FROM tb_user WHERE email = '$email'");
-		if ($queryCheckEmail->num_rows > 0) {
-			?>
+		function upload(){
+			//cek gambar
+			$profile_img_name 	= $_FILES['profile_img']['name'];
+			$tmp_profile 		= $_FILES['profile_img']['tmp_name'];
+			$extensiGambarValid = ['jpg', 'jpeg', 'png', 'gif'];
+			$extensiGambar = explode('.', $profile_img_name);
+			$extensiGambar = strtolower(end($extensiGambar));
+			if (!in_array($extensiGambar, $extensiGambarValid)) {
+				?>
 				<script>
-					errorAlert("Error", "Email Telah Digunakan");
+					errorAlert("Error", "Yang Anda Upload Bukan Gambar");
 				</script>
+				<?php
+				die();
+			}
+
+			//Verified image
+			$namaBaru = uniqid();
+			return $namaBaru .= ".".$extensiGambar;
+		}
+
+		if ($_FILES['profile_img']['error'] == 4) {
+			$namaBaru = $dataUser['profile_img'];
+		}
+		else{
+			upload();
+			$namaBaru = upload();
+			move_uploaded_file($tmp_profile, "../img/profile/$namaBaru");
+			$gambar = $dataUser['profile_img'];
+			$directory = "../img/profile/";
+			
+			if ($gambar != 'profile.png') {
+				if (file_exists($directory.$gambar)) {
+					unlink($directory.$gambar);
+				}
+			}
+		}
+		$queryUpdateUser = $koneksi->query("UPDATE tb_user SET profile_img = '$namaBaru' WHERE id_user = $id_user");
+
+		if ($queryUpdateUser) {
+			?>
+			<script>
+				successAlert("Berhasil", "Profile telah diubah");
+				document.addEventListener('click', function(){
+					location.href = 'index.php?menu=index';
+				});
+			</script>
 			<?php
 		}
 		else{
-			// Validasi Username
-			$queryCheckUsername = $koneksi->query("SELECT * FROM tb_user WHERE username = '$username'");
-			if ($queryCheckUsername->num_rows > 0) {
-				?>
-				<script>
-					errorAlert("Error", "Username Telah Digunakan");
-				</script>
-				<?php
-			}
-			else{
-				// Validasi R-password
-				if ($r_password != $password) {
-					?>
-					<script>
-						errorAlert("Error", "Password Tidak Sama");
-					</script>
-					<?php
-				}
-				else{
-					function upload(){
-						//cek gambar
-						$extensiGambarValid = ['jpg', 'jpeg', 'png', 'gif'];
-						$extensiGambar = explode('.', $profile_img_name);
-						$extensiGambar = strtolower(end($extensiGambar));
-						if (!in_array($extensiGambar, $extensiGambarValid)) {
-							?>
-							<script>
-								errorAlert("Error", "Yang Anda Upload Bukan Gambar");
-							</script>
-							<?php
-							die();
-						}
-
-						//Verified image
-						$namaBaru = uniqid();
-						return $namaBaru .= ".".$extensiGambar;
-					}
-
-					if ($_FILES['profile_img']['error'] == 4) {
-						$namaBaru = 'profile.png';
-					}
-					else{
-						upload();
-						$namaBaru	= upload();
-						move_uploaded_file($tmp_profile, "../img/profile/$namaBaru");
-					}
-
-					// add user
-					$passwordHash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-					$queryAddUser = $koneksi->query("INSERT INTO tb_user VALUES (NULL, '$username', '$email', '$passwordHash', '$namaBaru', '$profile_name', $id_level)");
-
-
-					if ($queryAddUser) {
-
-						// Add Guru
-						$queryCheckId = $koneksi->query("SELECT * FROM tb_user WHERE username = '$username'");
-						$dataId = $queryCheckId->fetch_assoc();
-						$id_user = $dataId['id_user'];
-
-						$queryAddGuru = $koneksi->query("INSERT INTO tb_guru VALUES (NULL, $id_user, '$nama_lengkap', '$nik', '$jenis_kelamin', '$tempat_lahir', '$tanggal_lahir', '$agama', '$telp', '$alamat', '$bidang_ilmu') ");
-						if ($queryAddGuru) {
-							?>
-							<script>
-								successAlert("Sukses", "Data Berhasil Ditambahkan");
-								document.addEventListener('click', function(){
-									location.href = 'index.php?menu=guru';
-								});
-							</script>
-							<?php
-						}
-					}
-					else{
-						?>
-						<script>
-							errorAlert("Error", "Gagal Add Data");
-						</script>
-						<?php
-					}
-				}
-			}
+			?>
+			<script>
+				errorAlert("Error", "Profile Gagal diubah");
+			</script>
+			<?php
 		}
 	}
  ?>
