@@ -1,7 +1,11 @@
 <?php 
 
 	if (!isset($_GET['menu'])) {
-		header('location: index.php?menu=index');
+		?>
+		<script>
+			location.href = 'index.php?menu=index';
+		</script>
+		<?php
 	}
 	else if ($_GET['menu'] == 'index') {
 		require_once 'partials/dashboard.php';

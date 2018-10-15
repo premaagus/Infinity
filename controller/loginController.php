@@ -37,6 +37,9 @@
 				$_SESSION['user']['profile_name'] 	= $profile_name;
 				$_SESSION['user']['profile_img'] 	= $profile_img;
 				$_SESSION['user']['level'] 			= $level;
+				$querySiswa = $koneksi->query("SELECT * FROM tb_siswa WHERE id_user = $id_user");
+				$dataSiswa = $querySiswa->fetch_assoc();
+				$_SESSION['user']['id_siswa'] 		= $dataSiswa['id_siswa'];
 				echo "2";
 			}
 			else if ($level == 3) {

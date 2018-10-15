@@ -30,4 +30,7 @@
 	else if (isset($_GET['menu']) && $_GET['view'] == 'tugas' && isset($_GET['id_tugas']) && $_GET['action'] == 'download') {
 		require_once 'partials/downloadTugas.php';
 	}
+	else if (isset($_GET['menu']) && $_GET['view'] == 'tugas' && isset($_GET['id_tugas']) && $_GET['action'] == 'upload') {
+		require_once 'partials/uploadTugas.php';
+	}
  ?>

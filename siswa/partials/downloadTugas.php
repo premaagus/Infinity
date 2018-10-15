@@ -1,7 +1,11 @@
+
+<script src="js/alert.js"></script>
 <?php 
 	$id_tugas = $_GET['id_tugas'];
 	$queryTugas = $koneksi->query("SELECT * FROM tb_tugas WHERE id_tugas = $id_tugas");
 	$dataTugas = $queryTugas->fetch_assoc();
+	$id_mapel = $dataTugas['id_mapel'];
+	$id_kelas = $dataTugas['id_kelas'];
 	$nama_file = $dataTugas['file_tugas'];
 	$extensi_file = $dataTugas['extensi_file'];
 	$directory = '../files/tugas/guru/';
@@ -11,7 +15,14 @@
 
 
 	if ($dateExp < $dateNow) {
-		echo "File Telah Kadaluarsa";
+		?>
+		<script>
+			errorAlert("Error", "File Telah Kadaluarsa!");
+			document.addEventListener('click', function(){
+				location.href = "index.php?menu=jadwal&id_mapel=<?php echo $id_mapel ?>&id_kelas=<?php echo $id_kelas ?>&view=tugas"
+			});
+		</script>
+		<?php
 	}
 	else{
 		if (file_exists($directory.$nama_file)) {

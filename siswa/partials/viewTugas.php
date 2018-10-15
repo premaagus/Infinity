@@ -40,9 +40,11 @@
 					<td><?php echo date('d-F-Y H:i', strtotime($tugas_mulai)) ?></td>
 					<td><?php echo date('d-F-Y H:i', strtotime($tugas_selesai)) ?></td>
 					<td>
-						<div class="btn-edit"><a href="?menu=jadwal&view=tugas&id_tugas=<?php echo $dataTugas['id_tugas'] ?>&action=download">Download</a></div>
+						<div class="btn-download"><a href="?menu=jadwal&view=tugas&id_tugas=<?php echo $dataTugas['id_tugas'] ?>&action=download">Download</a></div>
 					</td>
-					<td><?php echo $dataTugas['status'] ?></td>
+					<td>
+						<div class="btn-edit"><a href="?menu=jadwal&view=tugas&id_tugas=<?php echo $dataTugas['id_tugas'] ?>&action=upload">Upload</a></div>
+					</td>
 				</tr>
 				<?php
 				$no++;

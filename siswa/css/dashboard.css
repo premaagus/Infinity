@@ -833,6 +833,25 @@ a{
 	color: white;
 }
 
+.btn-download{
+	width: 75px;
+	height: 30px;
+	background: #2ECC71;
+	margin: auto;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	padding: 0 10px;
+}
+
+.btn-download a{
+	line-height: 30px;
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+	float: left;
+	color: white;
+}
+
 .btn-delete{
 	width: 75px;
 	height: 30px;
