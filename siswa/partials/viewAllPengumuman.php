@@ -1,6 +1,7 @@
 <?php 
 	$id_siswa = $_SESSION['user']['id_siswa'];
 	$querySiswa = $koneksi->query("SELECT * FROM tb_siswa WHERE id_siswa = $id_siswa");
+	
 	$dataSiswa = $querySiswa->fetch_assoc();
 
 	$id_kelas = $dataSiswa['id_kelas']

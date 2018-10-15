@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2018 at 10:41 AM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.2.0
+-- Generation Time: Oct 15, 2018 at 09:47 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -90,8 +90,10 @@ INSERT INTO `tb_jadwal` (`id_jadwal`, `id_mapel`, `id_guru`, `hari`, `jam_mulai`
 (14, 15, 14, 'rabu', '12:50:00', '14:10:00', 1, 2018),
 (15, 8, 5, 'rabu', '12:50:00', '14:10:00', 1, 2018),
 (16, 16, 15, 'rabu', '15:45:00', '17:05:00', 1, 2018),
-(17, 8, 5, 'senin', '12:50:00', '14:10:00', 2, 2018),
-(18, 8, 5, 'senin', '14:10:00', '15:30:00', 3, 2018);
+(19, 8, 5, 'senin', '12:50:00', '14:10:00', 2, 2018),
+(20, 9, 9, 'senin', '14:10:00', '15:30:00', 2, 2018),
+(22, 6, 8, 'senin', '15:45:00', '17:05:00', 2, 2018),
+(23, 7, 8, 'senin', '17:05:00', '18:25:00', 2, 2018);
 
 -- --------------------------------------------------------
 
@@ -112,8 +114,7 @@ CREATE TABLE `tb_kelas` (
 
 INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`, `ruangan`, `background_kelas`) VALUES
 (1, 'XII RPL 3', '10', 'pattern-purple.png'),
-(2, 'XII RPL 4', '2', 'pattern-orange.png'),
-(3, 'X RPL 3', '15', 'pattern-yellow.png');
+(2, 'XII RPL 4', '2', 'pattern-orange.png');
 
 -- --------------------------------------------------------
 
@@ -195,12 +196,19 @@ INSERT INTO `tb_materi` (`id_materi`, `id_mapel`, `id_kelas`, `nama_materi`, `de
 
 CREATE TABLE `tb_pengumuman` (
   `id_pengumuman` int(11) NOT NULL,
-  `capt_pengumuman` varchar(30) NOT NULL,
   `desc_pengumuman` text NOT NULL,
   `waktu_pengumuman` datetime NOT NULL,
   `id_mapel` int(11) NOT NULL,
   `id_kelas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_pengumuman`
+--
+
+INSERT INTO `tb_pengumuman` (`id_pengumuman`, `desc_pengumuman`, `waktu_pengumuman`, `id_mapel`, `id_kelas`) VALUES
+(1, 'Untuk hari ini pelajaran ditiadakan', '2018-10-15 19:12:00', 8, 1),
+(3, 'Tugas dimajukan menjadi besok', '2018-10-15 21:10:00', 9, 1);
 
 -- --------------------------------------------------------
 
@@ -228,7 +236,10 @@ CREATE TABLE `tb_siswa` (
 --
 
 INSERT INTO `tb_siswa` (`id_siswa`, `id_user`, `nama_lengkap`, `nis`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `telp`, `alamat`, `jurusan`, `id_kelas`) VALUES
-(19, 39, 'I Wayan Prema Agus Prasetya', '3413', 'Laki - Laki', 'Denpasar', '2001-08-30', 'Hindu', '087761661669', 'Denpasar', 'Rekayasa Perangkat Lunak', 1);
+(19, 39, 'I Wayan Prema Agus Prasetya', '3413', 'Laki - Laki', 'Denpasar', '2001-08-30', 'Hindu', '087761661669', 'Denpasar', 'Rekayasa Perangkat Lunak', 1),
+(20, 40, 'Ryan Ardito Zahwan Ragazzo', '3415', 'Laki - Laki', 'Surabaya', '2001-07-14', 'Islam', '087761661669', 'Denpasar', 'Rekayasa Perangkat Lunak', 2),
+(21, 41, 'I Wayan Prema Agus Prasetya', '1424', 'Laki - Laki', 'Denpasar', '2001-08-30', 'Hindu', '087761661669', 'Denpasar', 'Rekayasa Perangkat Lunak', 1),
+(23, 43, 'Made Deva Mahayana', '4125', 'Laki - Laki', 'Denpasar', '2000-12-20', 'Hindu', '087761661669', 'Denpasar', 'Rekayasa Perangkat Lunak', 2);
 
 -- --------------------------------------------------------
 
@@ -275,10 +286,10 @@ CREATE TABLE `tb_tugas` (
 --
 
 INSERT INTO `tb_tugas` (`id_tugas`, `id_mapel`, `id_kelas`, `nama_tugas`, `desc_tugas`, `tugas_mulai`, `tugas_selesai`, `file_tugas`, `extensi_file`, `status`) VALUES
-(3, 8, 2, 'Aritmatika', 'kerjakan tugasnya', '2018-10-13 23:01:00', '2018-10-15 22:00:00', '5bc208e68feac.txt', '', 'ready'),
 (5, 8, 1, 'asdasd', 'asdasd', '2018-10-14 20:09:00', '2018-10-15 11:17:00', '5bc337d857970.doc', 'application/msword', 'blocked'),
 (6, 8, 1, 'Tugas IPA', 'asdasd', '2018-10-15 10:55:00', '2018-10-15 11:03:00', '5bc401b2be658.docx', 'application/vnd.openxmlfo', 'blocked'),
-(7, 8, 1, 'Quartil', 'Kerjakan LKS Halaman 1 - 50', '2018-10-15 15:14:00', '2018-10-15 15:17:00', '5bc43e8a60d92.txt', 'text/plain', 'blocked');
+(7, 8, 1, 'Quartil', 'Kerjakan LKS Halaman 1 - 50', '2018-10-15 15:14:00', '2018-10-15 15:17:00', '5bc43e8a60d92.txt', 'text/plain', 'blocked'),
+(9, 9, 1, 'Speaking', 'kerjakan tugas, soal ada dalam file 1 - 40', '2018-10-15 20:48:00', '2018-10-23 22:00:00', '5bc48ced580bc.docx', 'application/vnd.openxmlfo', 'ready');
 
 -- --------------------------------------------------------
 
@@ -301,7 +312,7 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `username`, `email`, `password`, `profile_img`, `profile_name`, `id_level`) VALUES
-(10, 'premaagus', 'premaagus@gmail.com', '$2y$12$Ibvy5.rwholmc0TvUTqflOX2xXl1zbzEI8ZMa549hx3JRwmI7X9Hu', '5bba0fb1194e0.jpg', 'Prema Agus', 1),
+(10, 'premaagus', 'premaagus@gmail.com', '$2y$12$Ibvy5.rwholmc0TvUTqflOX2xXl1zbzEI8ZMa549hx3JRwmI7X9Hu', '5bc4e5d2924bc.jpg', 'Prema Agus', 1),
 (11, 'bul', 'ryanardito25@gmail.com', '$2y$12$Uvhr7ZWAF38WsUf9GaPxC.Lz5Nm9e5MgeKh3qDFpJAe405JpCssba', '5bba17b85d110.jpg', 'Ryan Ardito', 1),
 (15, 'evidwi', 'evidwi@gmail.com', '$2y$12$5FxqvOZpaANS3qwZulW4m.Zj/boWm1osnnn01YvJ44dMST8oLmUv6', 'profile.png', 'Evi Dwi', 3),
 (20, 'ayudesiani', 'ayudesiani@gmail.com', '$2y$12$xk4T/K9.g1O1XnnJskPlN.l0EOT/Z0qnrCmjKtHHL9vnVr99HLl.2', 'profile.png', 'Ayu Desiani', 3),
@@ -312,7 +323,11 @@ INSERT INTO `tb_user` (`id_user`, `username`, `email`, `password`, `profile_img`
 (25, 'warmaputra', 'warmaputra@gmail.com', '$2y$12$qLGD6H4w1LT7phYTpqTdlu4OXvwMP9D2UVtm3xSYtnNczXJPldwPG', 'profile.png', 'Warma Putra', 3),
 (26, 'pradnyanaambara', 'pradnyanaambara@gmail.com', '$2y$12$iIdzbhMsb3HEEA6CYSGFaevIb6fy41mfOp.R2je1LKK4.uQmsydS2', 'profile.png', 'Pradnyana Ambara', 3),
 (27, 'ernadewi', 'ernadewi@gmail.com', '$2y$12$57Y/xZqbE5x5RKdhgZLV1.xZSm3pOh20NiI5WALNMjfhzIxyGxqdW', 'profile.png', 'Erna Dewi', 3),
-(39, 'premaagusp', 'premaagusp@gmail.com', '$2y$12$Qzl/VxTHf6DiFeYR1vQRl.QhOr1845fvt5luRuFgcspg869BsHB7y', '5bc08ff5c382f.jpg', 'Prema Agus', 2);
+(39, 'premaagusp', 'premaagusp@gmail.com', '$2y$12$Ov3Q8g0BSkOsxn9wzsqrFuEGccTWjj8vy28LLs/h6UkIXD8vtiuNi', '5bc08ff5c382f.jpg', 'Prema Agus', 2),
+(40, 'ryanardito', 'ryanardito@gmail.com', '$2y$12$Aw8wtejqnBkekx6X4fH9QOhKBXWgAKCREuHGRUNPO7/Sbrj3xteem', '5bc47ef171245.png', 'Ryan Ardito', 2),
+(41, 'premaaguspras', 'premaprasetya@gmail.com', '$2y$12$h/zg0El8WJFm/WGAAIQyKOQxrVkUlB/tJ32/OfvKgseS9/oBRnp5W', '5bc49a8a14e16.jpg', 'Prema Prasetya', 2),
+(42, 'admin', 'admin@gmail.com', '$2y$12$l5hTlRmLRzZFqBwROItGl.DlOlSdwmOjT.O/ZpT.kp.kP51H73bhy', '5bc4e6f1d9a1e.jpg', 'Admin 1', 1),
+(43, 'devamahayana', 'devamahayana@gmail.com', '$2y$12$9OaMjh.iqnOsZMkVeD4/mepTraiNoxY6.gjJfE905NbVDJVm9Tvba', '5bc4ed98a2c75.jpg', 'Deva Mahayana', 2);
 
 --
 -- Indexes for dumped tables
@@ -392,13 +407,13 @@ ALTER TABLE `tb_guru`
 -- AUTO_INCREMENT for table `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_level`
@@ -422,25 +437,25 @@ ALTER TABLE `tb_materi`
 -- AUTO_INCREMENT for table `tb_pengumuman`
 --
 ALTER TABLE `tb_pengumuman`
-  MODIFY `id_pengumuman` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pengumuman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tb_tugas`
 --
 ALTER TABLE `tb_tugas`
-  MODIFY `id_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
