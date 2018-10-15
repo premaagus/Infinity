@@ -1,5 +1,12 @@
 <h1>Pengumuman</h1>
 <hr>
+
+<div class="add-new d-flex j-end i-ctr">
+	<div class="btn-add">
+		<a href="index.php?menu=jadwal&id_mapel=<?php echo $id_mapel ?>&id_kelas=<?php echo $id_kelas ?>&view=materi&action=add">Tambah Materi</a>
+	</div><!-- btn-add -->
+</div><!-- add-new -->
+
 <div class="container-pengumuman">
 	<div class="pengumuman d-flex">
 		<div class="img-pengumuman">
