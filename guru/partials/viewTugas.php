@@ -57,7 +57,9 @@
 					<td><?php echo $dataTugas['desc_tugas'] ?></td>
 					<td><?php echo date('d-F-Y H:i', strtotime($dataTugas['tugas_mulai'])) ?></td>
 					<td><?php echo date('d-F-Y H:i', strtotime($dataTugas['tugas_selesai'])) ?></td>
-					<td><?php echo $dataTugas['file_tugas'] ?></td>
+					<td>
+						<div class="btn-edit"><a href="?menu=jadwal&view=tugas&id_tugas=<?php echo $dataTugas['id_tugas'] ?>&action=download">Download</a></div>
+					</td>
 					<td><?php echo $dataTugas['status'] ?></td>
 					<td>
 						<div class="btn-edit"><a href="?menu=jadwal&view=tugas&id_tugas=<?php echo $dataTugas['id_tugas'] ?>&action=edit">Edit</a></div>

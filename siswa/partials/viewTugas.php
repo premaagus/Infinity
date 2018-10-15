@@ -40,7 +40,7 @@
 					<td><?php echo date('d-F-Y H:i', strtotime($tugas_mulai)) ?></td>
 					<td><?php echo date('d-F-Y H:i', strtotime($tugas_selesai)) ?></td>
 					<td>
-						<div class="btn-edit"><a href="?menu=jadwal&view=materi&id_materi=<?php echo $dataTugas['id_materi'] ?>&action=download">Download</a></div>
+						<div class="btn-edit"><a href="?menu=jadwal&view=tugas&id_tugas=<?php echo $dataTugas['id_tugas'] ?>&action=download">Download</a></div>
 					</td>
 					<td><?php echo $dataTugas['status'] ?></td>
 				</tr>
@@ -51,3 +51,25 @@
 		
 	</table>
 </div>
+
+<script>
+	function display_c(){
+	  var refresh=1000; 
+	  mytime=setTimeout('display_ct()',refresh)
+	}
+
+	function display_ct() {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(){
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				var ajax = 'true';
+			}
+		}
+		xhr.open("POST", "../controller/time_controller.php", true);
+		xhr.send();
+		start = display_c();
+
+	}
+
+	display_ct();
+</script>

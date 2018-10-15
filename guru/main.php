@@ -39,12 +39,18 @@
 	else if ($_GET['menu'] == "jadwal" && $_GET['action'] == 'delete' && isset($_GET['id_materi'])) {
 		require_once 'partials/deleteMateri.php';
 	}
+	else if ($_GET['menu'] == "jadwal" && $_GET['action'] == 'download' && isset($_GET['id_materi'])) {
+		require_once 'partials/downloadMateri.php';
+	}
 	//Tugas
 	else if ($_GET['menu'] == "jadwal" && $_GET['action'] == 'edit' && isset($_GET['id_tugas'])) {
 		require_once 'partials/editTugas.php';
 	}
 	else if ($_GET['menu'] == "jadwal" && $_GET['action'] == 'delete' && isset($_GET['id_tugas'])) {
 		require_once 'partials/deleteTugas.php';
+	}
+	else if ($_GET['menu'] == "jadwal" && $_GET['action'] == 'download' && isset($_GET['id_tugas'])) {
+		require_once 'partials/downloadTugas.php';
 	}
 
 	else if ($_GET['menu'] == "guru" && !isset($_GET['action'])) {

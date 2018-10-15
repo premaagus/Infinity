@@ -27,4 +27,7 @@
 	else if (isset($_GET['menu']) && $_GET['view'] == 'tugas' && isset($_GET['id_mapel']) && isset($_GET['id_kelas']) && !isset($_GET['action'])) {
 		require_once 'partials/viewTugas.php';
 	}
+	else if (isset($_GET['menu']) && $_GET['view'] == 'tugas' && isset($_GET['id_tugas']) && $_GET['action'] == 'download') {
+		require_once 'partials/downloadTugas.php';
+	}
  ?>

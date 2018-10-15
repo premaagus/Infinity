@@ -41,6 +41,7 @@
 			<th>Nama Materi</th>
 			<th>Deskripsi Materi</th>
 			<th>File Materi</th>
+			<th>Action</th>
 		</tr>
 		<?php 
 			$queryMateri = $koneksi->query("SELECT * FROM tb_materi WHERE id_mapel = $id_mapel AND id_kelas = $id_kelas");
@@ -51,6 +52,9 @@
 					<td><?php echo $no ?></td>
 					<td><?php echo $dataMateri['nama_materi'] ?></td>
 					<td><?php echo $dataMateri['desc_materi'] ?></td>
+					<td>
+						<div class="btn-edit"><a href="?menu=jadwal&view=materi&id_materi=<?php echo $dataMateri['id_materi'] ?>&action=download">Download</a></div>
+					</td>
 					<td>
 						<div class="btn-edit"><a href="?menu=jadwal&view=materi&id_materi=<?php echo $dataMateri['id_materi'] ?>&action=edit">Edit</a></div>
 						<div class="btn-delete"><a href="?menu=jadwal&view=materi&id_materi=<?php echo $dataMateri['id_materi'] ?>&action=delete">Delete</a></div>
