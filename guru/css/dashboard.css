@@ -126,6 +126,18 @@ a{
 	text-decoration: none;
 }
 
+.pref{
+	padding-top: 10px;
+}
+.pref i{
+	color: #F9F9F9;
+	font-size: 18px;
+	transition: .4s;
+}
+.pref i:hover{
+	transform: rotate(-45deg);
+}
+
 .picture-user{
 	width: 100px;
 	height: 100px;
