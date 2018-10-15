@@ -112,4 +112,11 @@
 	else if($_GET['menu'] == 'edit' && !isset($_GET['id_user'])){
 		require_once 'partials/editMenu.php';
 	}
+	else if($_GET['menu'] == 'editProfile' && isset($_GET['id_user'])){
+		require_once 'partials/editProfile.php';
+	}
+	else if($_GET['menu'] == 'editPassword' && isset($_GET['id_user'])){
+		require_once 'partials/editPassword.php';
+	}
+
  ?>
