@@ -215,7 +215,7 @@ a{
 	margin: 5px 10px;
 	height: 3px;
 	border: none;
-	background-color: #0C7CFF;
+	background-color: #4E30BC;
 }
 .footer-sidebar{
 	width: 100%;
@@ -259,20 +259,65 @@ a{
 	text-align: center;
 	line-height: 130px;
 	color: #FFF;
-	background-color: #0C7CFF;
+	background-color: #4E30BC;
 	position: relative;
 	z-index: 2;
-	box-shadow: 4px 0px 40px rgba(12,124,255,0.3), 0 10px 10px rgba(12,124,255,0.3);
+	box-shadow: 4px 0px 40px rgba(78,48,188,0.3), 0 10px 10px rgba(78,48,188,0.3);
 
 }
 .dashboard-show .dashboard-text{
 	flex: 2;
 	text-align: center;
 	line-height: 130px;
-	color: #0C7CFF;
+	color: #4E30BC;
 	box-shadow: 2px 2px 10px 1px #F60070;
 	position: relative;
 	z-index: 1;
+}
+.dashboard-info{
+	width: 35%;
+	height: 100px;
+	background-color: #FFF;
+	border-top-right-radius: 5px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+	border-radius: 5px;
+	overflow: hidden;
+	margin-top: 30px;
+}
+.dashboard-info .foto{
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+}
+.dashboard-info .foto img{
+	width: 100%;
+}
+.dashboard-info .text{
+	width: 100%;
+	background-color: #FFF;
+}
+.dashboard-info .text h1{
+	color: #ABABAB;
+	font-family: sf-b;
+	font-size: 15px;
+	padding-left: 20px;
+	letter-spacing: 0;
+}
+.dashboard-info .text h3{
+	color: #4E30BC;
+	font-family: sf-m;
+	font-size: 18px;
+	letter-spacing: 1px;
+	padding-left: 20px;
+}
+.dashboard-info .text p{
+	color: gray;
+	font-family: sf-r;
+	font-size: 14px;
+	padding-right: 10px;
+	padding-left: 20px;
+	padding-top: 15px;
+	text-align: right;
 }
 .card-siswa{
 	background-color: #FFF;

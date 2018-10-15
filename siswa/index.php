@@ -88,13 +88,13 @@
 				<div class="container-menulist">
 					<div class="menu-list">
 						<a href="index.php?menu=tugas" class="<?php if($_GET['menu'] == 'tugas'){echo 'active';} ?>">
-							<i class="fas fa-chalkboard-teacher"></i>
+							<i class="fas fa-book"></i>
 							<h4>Tugas</h4>
 						</a>
 					</div>
 					<div class="menu-list">
 						<a href="index.php?menu=pengumuman" class="<?php if($_GET['menu'] == 'pengumuman'){echo 'active';} ?>">
-							<i class="fas fa-book"></i>
+							<i class="fas fa-bell"></i>
 							<h4>Pengumuman</h4>
 						</a>
 					</div><!-- menu-list -->
