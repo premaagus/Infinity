@@ -853,6 +853,14 @@ a{
 	color: #0C7CFF;
 }
 
+.text-pengumuman h5{
+	padding-top: 10px;
+	padding-right: 25px;
+	font-family: sf-b;
+	color: #0C7CFF;
+	opacity: .7;
+}
+
 .text-pengumuman p{
 	padding-top: 5px;
 	padding-left: 25px;
@@ -860,6 +868,13 @@ a{
 	color: #ABABAB;
 	font-family: sf-r;
 	font-size: 15px;
+}
+
+.text-pengumuman h6{
+	text-align: right;
+	padding-right: 25px;
+	color: #ABABAB;
+	opacity: .8;
 }
 
 @media only screen and (max-width: 1300px){
