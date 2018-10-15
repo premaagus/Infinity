@@ -63,7 +63,7 @@
 							}
 							else{
 								?>
-								<div class="btn-edit"><a href="?menu=jadwal&view=tugas&id_tugas=<?php echo $dataTugas['id_tugas'] ?>&action=download">Upload</a></div>
+								<div class="btn-edit"><a href="?menu=jadwal&view=tugas&id_tugas=<?php echo $dataTugas['id_tugas'] ?>&action=upload">Upload</a></div>
 								<?php
 							}
 						 ?>

@@ -71,62 +71,77 @@
 
 <?php 
 	if (isset($_POST['btn-submit'])) {
-		$id_siswa = $_SESSION['user']['id_siswa'];
-		$id_tugas = $_GET['id_tugas'];
-		$file_name = $_FILES['file_tugas']['name'];
-		$file_tmp = $_FILES['file_tugas']['tmp_name'];
-		$date = date('Y-m-d H:i');
-
-		function upload(){
-			//cek file
-			$file_name = $_FILES['file_tugas']['name'];
-			$extensiFileValid = ['docx', 'doc', 'docs', 'ppt', 'pptx', 'xls', 'pdf', 'txt'];
-			$extensiFile = explode('.', $file_name);
-			$extensiFile = strtolower(end($extensiFile));
-			if (!in_array($extensiFile, $extensiFileValid)) {
-				?>
-				<script>
-					errorAlert("Error", "Format file tidak didukung");
-				</script>
-				<?php
-				die();
-			}
-
-			//Verified file
-			$namaBaru = uniqid();
-			return $namaBaru .= ".".$extensiFile;
-		}
-
-		if ($_FILES['file_tugas']['error'] == 4) {
+		$dateNow = date('Y-m-d H:i');
+		$tugas_selesai = $dataTugas['tugas_selesai'];
+		
+		if ($dateNow > $tugas_selesai) {
 			?>
 			<script>
-				errorAlert("Error", "File Kosong!");
+				errorAlert("Error", "Form upload telah ditutup!");
+				document.addEventListener('click', function(){
+					location.href = "index.php?menu=jadwal&id_mapel=<?php echo $id_mapel ?>&id_kelas=<?php echo $id_kelas ?>&view=tugas"
+				});
 			</script>
 			<?php
 		}
 		else{
-			upload();
-			$namaBaru = upload();
-			move_uploaded_file($file_tmp, "../files/tugas/siswa/$namaBaru");
+			$id_siswa = $_SESSION['user']['id_siswa'];
+			$id_tugas = $_GET['id_tugas'];
+			$file_name = $_FILES['file_tugas']['name'];
+			$file_tmp = $_FILES['file_tugas']['tmp_name'];
+			$date = date('Y-m-d H:i');
 
-			$queryAdd = $koneksi->query("INSERT INTO tb_siswa_tugas VALUES ($id_tugas, $id_siswa, NULL, '$namaBaru', '$date') ");
+			function upload(){
+				//cek file
+				$file_name = $_FILES['file_tugas']['name'];
+				$extensiFileValid = ['docx', 'doc', 'docs', 'ppt', 'pptx', 'xls', 'pdf', 'txt'];
+				$extensiFile = explode('.', $file_name);
+				$extensiFile = strtolower(end($extensiFile));
+				if (!in_array($extensiFile, $extensiFileValid)) {
+					?>
+					<script>
+						errorAlert("Error", "Format file tidak didukung");
+					</script>
+					<?php
+					die();
+				}
 
-			if ($queryAdd) {
+				//Verified file
+				$namaBaru = uniqid();
+				return $namaBaru .= ".".$extensiFile;
+			}
+
+			if ($_FILES['file_tugas']['error'] == 4) {
 				?>
 				<script>
-					successAlert("Sukses", "Tugas Telah Diupload!");
-					document.addEventListener('click', function(){
-						location.href = "index.php?menu=jadwal&id_mapel=<?php echo $id_mapel ?>&id_kelas=<?php echo $id_kelas ?>&view=tugas"
-					});
+					errorAlert("Error", "File Kosong!");
 				</script>
 				<?php
 			}
 			else{
-				?>
-				<script>
-					errorAlert("Error", "Tugas Gagal Diupload!");
-				</script>
-				<?php
+				upload();
+				$namaBaru = upload();
+				move_uploaded_file($file_tmp, "../files/tugas/siswa/$namaBaru");
+
+				$queryAdd = $koneksi->query("INSERT INTO tb_siswa_tugas VALUES ($id_tugas, $id_siswa, NULL, '$namaBaru', '$date') ");
+
+				if ($queryAdd) {
+					?>
+					<script>
+						successAlert("Sukses", "Tugas Telah Diupload!");
+						document.addEventListener('click', function(){
+							location.href = "index.php?menu=jadwal&id_mapel=<?php echo $id_mapel ?>&id_kelas=<?php echo $id_kelas ?>&view=tugas"
+						});
+					</script>
+					<?php
+				}
+				else{
+					?>
+					<script>
+						errorAlert("Error", "Tugas Gagal Diupload!");
+					</script>
+					<?php
+				}
 			}
 		}
 	}

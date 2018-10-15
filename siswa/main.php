@@ -7,6 +7,26 @@
 		require_once 'partials/dashboard.php';
 	}
 
+	//All Siswa 
+	else if($_GET['menu'] == 'showAllSiswa'){
+		require_once 'partials/showAllSiswa.php';
+	}
+
+	//Profil Siswa
+	else if($_GET['menu'] == 'profileSiswa' && isset($_GET['id_siswa'])){
+		require_once 'partials/profileSiswa.php';
+	}
+
+	//All Guru
+	else if($_GET['menu'] == 'showAllGuru'){
+		require_once 'partials/showAllGuru.php';
+	}
+
+	//Profile Guru
+	else if($_GET['menu'] == 'profileGuru' && isset($_GET['id_guru'])){
+		require_once 'partials/profileGuru.php';
+	}
+
 	//all tugas
 	else if ($_GET['menu'] == 'tugas' && !isset($_GET['view']) && !isset($_GET['action'])) {
 		require_once 'partials/viewAllTugas.php';
@@ -43,5 +63,6 @@
 	else if (isset($_GET['menu']) && $_GET['view'] == 'tugas' && isset($_GET['id_tugas']) && $_GET['action'] == 'upload') {
 		require_once 'partials/uploadTugas.php';
 	}
+
 
  ?>

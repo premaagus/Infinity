@@ -94,12 +94,17 @@
 	}
 
 	//Profil Siswa
-	else if($_GET['menu'] == 'profileSiswa'){
+	else if($_GET['menu'] == 'profileSiswa' && isset($_GET['id_siswa'])){
 		require_once 'partials/profileSiswa.php';
 	}
 
 	//All Guru
 	else if($_GET['menu'] == 'showAllGuru'){
 		require_once 'partials/showAllGuru.php';
+	}
+
+	//Profile Guru
+	else if($_GET['menu'] == 'profileGuru' && isset($_GET['id_guru'])){
+		require_once 'partials/profileGuru.php';
 	}
  ?>

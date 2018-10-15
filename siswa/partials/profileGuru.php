@@ -1,9 +1,9 @@
 <?php 
-	$id_siswa = $_GET['id_siswa'];
-	$querySiswa = $koneksi->query("SELECT * FROM tb_siswa WHERE id_siswa = $id_siswa");
-	$dataSiswa = $querySiswa->fetch_assoc();
+	$id_guru = $_GET['id_guru'];
+	$queryGuru = $koneksi->query("SELECT * FROM tb_guru WHERE id_guru = $id_guru");
+	$dataGuru = $queryGuru->fetch_assoc();
 	
-	$id_user = $dataSiswa['id_user'];
+	$id_user = $dataGuru['id_user'];
 	$queryUser = $koneksi->query("SELECT * FROM tb_user WHERE id_user = $id_user");
 	$dataUser = $queryUser->fetch_assoc();
 	
@@ -19,39 +19,39 @@
 	<div class="detailDeskripsi d-flex fd-row f-row j-ard i-end">
 		<div class="formDetail">
 			<h4>Nama Lengkap</h4>
-			<h3><?php echo $dataSiswa['nama_lengkap'] ?></h3>
+			<h3><?php echo $dataGuru['nama_lengkap'] ?></h3>
 		</div><!-- formDetail -->
 		<div class="formDetail">
-			<h4>Nis</h4>
-			<h3><?php echo $dataSiswa['nis'] ?></h3>
+			<h4>NIK</h4>
+			<h3><?php echo $dataGuru['nik'] ?></h3>
 		</div><!-- formDetail -->
 		<div class="formDetail">
 			<h4>Jenis Kelamin</h4>
-			<h3><?php echo $dataSiswa['jenis_kelamin'] ?></h3>
+			<h3><?php echo $dataGuru['jenis_kelamin'] ?></h3>
 		</div><!-- formDetail -->
 		<div class="formDetail">
 			<h4>Tempat Lahir</h4>
-			<h3><?php echo $dataSiswa['tempat_lahir'] ?></h3>
+			<h3><?php echo $dataGuru['tempat_lahir'] ?></h3>
 		</div><!-- formDetail -->
 		<div class="formDetail">
 			<h4>Tanggal Lahir</h4>
-			<h3><?php echo date('d F Y', strtotime($dataSiswa['tanggal_lahir'])) ?></h3>
+			<h3><?php echo date('d F Y', strtotime($dataGuru['tanggal_lahir'])) ?></h3>
 		</div><!-- formDetail -->
 		<div class="formDetail">
 			<h4>Agama</h4>
-			<h3><?php echo $dataSiswa['agama'] ?></h3>
+			<h3><?php echo $dataGuru['agama'] ?></h3>
 		</div><!-- formDetail -->
 		<div class="formDetail">
 			<h4>Alamat</h4>
-			<h3><?php echo $dataSiswa['alamat'] ?></h3>
+			<h3><?php echo $dataGuru['alamat'] ?></h3>
 		</div><!-- formDetail -->
 		<div class="formDetail">
 			<h4>No Telepon</h4>
-			<h3><?php echo $dataSiswa['telp'] ?></h3>
+			<h3><?php echo $dataGuru['telp'] ?></h3>
 		</div><!-- formDetail -->
 		<div class="formDetail">
-			<h4>Jurusan</h4>
-			<h3><?php echo $dataSiswa['jurusan'] ?></h3>
+			<h4>Bidang Ilmu</h4>
+			<h3><?php echo $dataGuru['bidang_ilmu'] ?></h3>
 		</div><!-- formDetail -->
 
 

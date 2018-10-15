@@ -285,9 +285,11 @@ a{
 	margin: 30px 3%;
 }
 .card-siswa .background{
+	position: relative;
+	top: -20px;
 	width: 100%;
 	height: 40%;
-	background: linear-gradient(45deg,#009FFD,#2A2A72);
+	background: linear-gradient(45deg,#396afc,#2948ff);
 }
 .avatar{
 	width: 100px;
@@ -296,9 +298,11 @@ a{
 	position: relative;
 	top: -50px;
 	overflow: hidden;
+	margin: 0 auto;
 }
 .avatar img{
 	width: 100%;
+	margin: 0 auto;
 }
 .profil{
 	width: 100%;
@@ -312,6 +316,7 @@ a{
 	letter-spacing: .5px;
 	font-size: 18px;
 	margin-top: 5px;
+	color: #000;
 }
 .profil p{
 	font-family: sf-r;
@@ -876,6 +881,59 @@ a{
 	padding-top: 7px;
 	color: #ABABAB;
 	opacity: .8;
+}
+
+.container-detailSiswa{
+	width: 80%;
+	height: max-content;
+	margin: 0 auto;	
+}
+.detailBackground{
+	width: 100%;
+	height: 150px;
+	background-image: url(../../img/pattern/pattern1.png);
+	background-size: cover;
+	background-position: center;
+	border-radius: 20px 20px 0 0;
+}
+.detailFoto{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	margin: 0 auto;
+	position: relative;
+	margin-top: -80px;
+	overflow: hidden;
+	z-index: 2;
+}
+.detailFoto img{
+	width: 100%;
+}
+.detailDeskripsi{
+	position: relative;
+	margin-top: -80px;
+	width: 100%;
+	height: 50vh;
+	background-color: #FFF;
+	z-index: 1;
+	padding-bottom: 10px;
+	border-radius: 0 0 20px 20px;
+	padding-top: 30px;
+}
+.formDetail{
+	width: 200px;
+	height: max-content;
+}
+.formDetail h4{
+	font-family: sf-h;
+	letter-spacing: .5px;
+	font-size: 13px;
+	text-transform: uppercase;
+	color: #A093A0;
+}
+.formDetail h3{
+	font-family: sf-s;
+	font-size: 16px;
 }
 
 @media only screen and (max-width: 1300px){

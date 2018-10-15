@@ -17,13 +17,15 @@
 				<div class="background">
 					
 				</div><!-- background -->
-				<div class="avatar">
-					<img src="../img/profile/<?php echo $dataGuru['profile_img'] ?>">
-				</div><!-- avatar -->
-				<div class="profil">
-					<h3><?php echo $dataGuru['profile_name'] ?></h3>
-					<p><?php echo $umur ?> | <?php echo $dataGuru['email'] ?></p>
-				</div><!-- profil -->
+				<a href="index.php?menu=profileGuru&id_guru=<?php echo $dataGuru['id_guru'] ?>">
+					<div class="avatar">
+						<img src="../img/profile/<?php echo $dataGuru['profile_img'] ?>">
+					</div><!-- avatar -->
+					<div class="profil">
+						<h3><?php echo $dataGuru['profile_name'] ?></h3>
+						<p><?php echo $umur ?> | <?php echo $dataGuru['email'] ?></p>
+					</div><!-- profil -->
+				</a>
 				<div class="action d-flex f-row fd-row j-ctr">
 					<div class="btn-blue"><a href="index.php?menu=guru&action=edit&id_user=<?php echo $dataGuru['id_user'] ?>">Ubah</a></div>
 					<div class="btn-red"><a href="index.php?menu=guru&action=delete&id_user=<?php echo $dataGuru['id_user'] ?>">Hapus</a></div>
