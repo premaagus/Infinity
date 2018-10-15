@@ -63,6 +63,17 @@
 		require_once 'partials/addSiswa.php';
 	}
 
+
+	//all tugas
+	else if ($_GET['menu'] == 'tugas' && !isset($_GET['action'])) {
+		require_once 'partials/viewAllTugas.php';
+	}
+
+	//all pengumuman
+	else if ($_GET['menu'] == 'pengumuman' && !isset($_GET['action'])) {
+		require_once 'partials/viewAllTugas.php';
+	}
+
 	//Pengumuman
 	else if (isset($_GET['menu']) && isset($_GET['id_mapel']) && isset($_GET['id_kelas']) && $_GET['view'] == 'pengumuman' && !isset($_GET['action'])) {
 		require_once 'partials/viewPengumuman.php';
@@ -70,4 +81,5 @@
 	else if (isset($_GET['menu']) && $_GET['action'] == 'add' && $_GET['view'] == 'pengumuman' && isset($_GET['id_mapel']) && isset($_GET['id_kelas'])) {
 		require_once 'partials/addPengumuman.php';
 	}
+
  ?>
