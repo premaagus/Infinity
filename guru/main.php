@@ -71,7 +71,7 @@
 
 	//all pengumuman
 	else if ($_GET['menu'] == 'pengumuman' && !isset($_GET['action'])) {
-		require_once 'partials/viewAllTugas.php';
+		require_once 'partials/viewAllPengumuman.php';
 	}
 
 	//Pengumuman
