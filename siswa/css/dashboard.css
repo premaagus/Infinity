@@ -870,6 +870,21 @@ a{
 	color: white;
 }
 
+.clear{
+	width: 25px;
+	height: 25px;
+	margin: auto;
+	background: url('../../img/checked.png');
+	background-size: cover;
+}
+.block{
+	width: 25px;
+	height: 25px;
+	margin: auto;
+	background: url('../../img/error.png');
+	background-size: cover;
+}
+
 
 @media only screen and (max-width: 1300px){
 	.dashboard-show{
