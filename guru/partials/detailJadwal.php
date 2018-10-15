@@ -48,7 +48,7 @@
 		</a>
 	</div><!-- card-detailMapel -->
 	<div class="card-detailMapel pengumuman">
-		<a href="#">
+		<a href="index.php?menu=mapel&id_mapel=<?php echo $dataMapel['id_mapel'] ?>&id_kelas=<?php echo $dataKelas['id_kelas'] ?>&view=pengumuman">
 			<img src="../img/pattern/pattern3.png">
 			<h3>Pengumuman</h3>
 		</a>

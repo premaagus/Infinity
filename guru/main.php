@@ -62,4 +62,9 @@
 	else if ($_GET['menu'] == 'siswa' && $_GET['action'] == 'add'){
 		require_once 'partials/addSiswa.php';
 	}
+
+	//Pengumuman
+	else if (isset($_GET['menu']) && isset($_GET['id_mapel']) && isset($_GET['id_kelas']) && $_GET['view'] == 'pengumuman' && !isset($_GET['action'])) {
+		require_once 'partials/viewPengumuman.php';
+	}
  ?>
