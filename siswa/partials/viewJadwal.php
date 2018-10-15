@@ -12,7 +12,7 @@
 		<h1><?php echo $key ?></h1>
 		<hr>
 
-		<div class="container-pelajaran d-flex fd-row f-row j-str i-ard">
+		<div class="container-pelajaran d-flex fd-row f-row j-ard i-ard">
 
 			<?php 
 				$queryJadwal = $koneksi->query("SELECT * FROM tb_jadwal WHERE id_kelas = $id_kelas AND hari = '$key' ORDER BY jam_mulai ASC");
